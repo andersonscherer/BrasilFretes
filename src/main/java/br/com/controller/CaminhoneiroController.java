@@ -25,15 +25,15 @@ public class CaminhoneiroController {
 	private final Result result;
 
 	private final CidadeDAO cidadeDAO;
-	
+
 	private final EstadoDAO estadoDAO;
 
 	private final MarcaCaminhaoDAO marcaCaminhaoDAO;
-	
+
 	private final CaminhoneiroDAO caminhoneiroDAO;
-	
+
 	private final CaminhaoDAO caminhaoDAO;
-	
+
 	private static Caminhoneiro caminhoneiro;
 
 	// CADA CONTROLER E RESPONSAVEL POR SUA ACOOES POR EXEMPLO O INDEXCONTROLLER
@@ -81,36 +81,37 @@ public class CaminhoneiroController {
 	public void telaPrincipalCaminhoneiro() {
 
 	}
-	
+
 	@Path("/cadastroCaminhao")
 	public void cadastroCaminhao() {
 		result.include("marcasCaminhao", marcaCaminhaoDAO.listar(MarcaCaminhao.class));
 	}
-	
 
-	
-	@Path("/editarCadastro")
-	public void editarCadastro() {
-	result.include("caminhoneiro", caminhoneiro);
-	    
+	@Path("/editarCadastro/{codigo}")
+	public void editarCadastro(Caminhoneiro caminhoneiro) {
+		result.include("caminhoneiro", caminhoneiro);
+		result.include("cidades", cidadeDAO.listar(Cidade.class));
+		result.include("estados", estadoDAO.listar(Estado.class));
+
+
 	}
-	
+
 	@Path("/acompanharPedido")
 	public void acompanharPedido() {
 
 	}
-	
+
 	@Path("/meusFretes")
 	public void meusFretes() {
 
 	}
-	
+
 	@Path("/procurarFrete")
 	public void procurarFrete() {
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
 		result.include("estados", estadoDAO.listar(Estado.class));
 	}
-	
+
 	@Post
 	public void salvarCaminhao(Caminhao caminhao) {
 		try {

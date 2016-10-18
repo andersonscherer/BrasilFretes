@@ -89,10 +89,12 @@
 				</ul> <!-- end dropdown-alerts --></li>
 
 			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="<c:url value='/telaPrincipalCaminhoneiro'/>"> <i class="fa fa-user fa-3x"></i>
+				data-toggle="dropdown"
+				href="<c:url value='/editarCadastro'/>"> <i
+					class="fa fa-user fa-3x"></i>
 			</a> <!-- dropdown user-->
 				<ul class="dropdown-menu dropdown-user">
-					<li><a href="#"><i class="fa fa-user fa-fw"></i>Editar
+					<li><a href="<c:url value='/editarCadastro/caminhoneiro.usuario.codigo'/>"><i class="fa fa-user fa-fw"></i>Editar
 							dados Pessoais</a></li>
 					<li><a href="#"><i class="fa fa-gear fa-fw"></i>Configurações
 							da Conta</a></li>
@@ -141,10 +143,10 @@
 						class="fa fa-plus fa-fw"></i> Cadastrar Caminhão</a></li>
 				<li><a href="<c:url value='/procurarFrete'/>"><i
 						class="fa fa-search fa-fw"></i>Procurar Fretes</a></li>
-				<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-edit fa-fw"></i>Acompanhar
-						Pedidos</a></li>
-				<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-table fa-fw"></i>Meus
-						Fretes</a></li>
+				<li><a href="<c:url value='/acompanharPedido'/>"><i
+						class="fa fa-edit fa-fw"></i>Acompanhar Pedidos</a></li>
+				<li><a href="<c:url value='/meusFretes'/>"><i
+						class="fa fa-table fa-fw"></i>Meus Fretes</a></li>
 
 			</ul>
 			<!-- end side-menu -->
@@ -156,6 +158,9 @@
 	</div>
 
 	<!-- end wrapper -->
+
+	<script
+		src="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/jquery-1.10.2.js"></script>
 
 </body>
 </html>
