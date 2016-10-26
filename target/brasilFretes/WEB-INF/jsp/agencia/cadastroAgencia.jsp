@@ -189,7 +189,7 @@
 							<label class="col-md-4 control-label" for="textinput">Seu
 								E-mail:</label>
 							<div class="col-md-4">
-								<input id="textinput" name="agencia.usuario"
+								<input id="textinput" name="agencia.email"
 									placeholder="Digite seu E-mail" class="form-control input-md"
 									required="" type="text">
 							</div>

@@ -15,7 +15,7 @@
 		<link rel="shortcut icon"href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
 
-		<title>BrasilFretes - Início</title>
+		<title>Início - BrasilFretes</title>
 	</head>
 <body>
 
@@ -40,37 +40,29 @@
 		<nav class="navbar-default navbar-static-side" role="navigation">
 			<!-- sidebar-collapse -->
 			<div class="sidebar-collapse">
-				<!-- side-menu -->
 				<ul class="nav" id="side-menu">
 					<li>
-						<!-- user image section-->
 						<div class="user-section">
 							<div class="user-info">
 								<div class=white content>
-									<strong>Olá </strong>
+									<h3>Olá !</h3>
 								</div>
 								<div class="user-text-online">
-									<h5>${usuario.caminhoneiro.nome}</h5>
-									${usuario.caminhoneiro.codigo}
+									<strong>${usuario.caminhoneiro.nome}</strong>
 								</div>
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="#"><i
-							class="fa fa-dashboard fa-fw"></i>Incial</a></li>
-					<li><a href="<c:url value='/cadastroCaminhao'/>"><i
-							class="fa fa-plus fa-fw"></i> Cadastrar Caminhão</a></li>
-					<li><a href="<c:url value='/procurarFrete'/>"><i
-							class="fa fa-search fa-fw"></i>Procurar Fretes</a></li>
-					<li><a href="<c:url value='/acompanharPedido'/>"><i
-							class="fa fa-edit fa-fw"></i>Acompanhar Pedidos</a></li>
-					<li><a href="<c:url value='/meusFretes'/>"><i
-							class="fa fa-table fa-fw"></i>Meus Fretes</a></li>
+					<li class="selected"><a href="/telaPrincipalCaminhoneiro"><i class="fa fa-dashboard fa-fw"></i>Incial</a></li>
+					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> Cadastrar Caminhão</a></li>
+					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i>Procurar Fretes</a></li>
+					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-edit fa-fw"></i>Acompanhar Pedidos</a></li>
+					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-table fa-fw"></i>Meus Fretes</a></li>
 				</ul>
 			</div> 
 		</nav>
 	</div>
-
+	
 	<script
 		src="<%=request.getContextPath()%>/resources/estilo_sistema/js/jquery-1.11.1.min.js"></script>
 	<script

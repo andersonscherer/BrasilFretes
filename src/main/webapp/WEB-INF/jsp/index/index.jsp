@@ -8,13 +8,13 @@
 	<!-- Normalize -->
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
     <!-- Bootstrap -->
-    <link href="<%=request.getContextPath()%>/resources/estilo_sistema/bootstrap.css" rel="stylesheet" type="text/css" >
+    <link href="<%=request.getContextPath()%>/resources/estilo_sistema/bootstrap.css" rel="stylesheet" type="text/css">
     <!-- Owl -->
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
     <!-- Animate.css -->
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/animate.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/font-awesome.min.css">
+    <link href="<%=request.getContextPath()%>/resources/estilo_sistema/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Elegant Icons -->
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/et-icons.css">
     <!-- Main style -->
@@ -81,7 +81,7 @@
                         <h3 class="white heading hide-hover">Cadastre seus fretes aqui</h3>
                         <div class="bottom">
                             <h4 class="white heading small-heading no-margin regular">Registre-se agora!</h4>
-                            <a href="#" class="btn btn-white-fill expand">Registrar-se</a>
+                            <a href="<c:url value='/cadastroAgencia'/>" class="btn btn-white-fill expand">Registrar-se</a>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                         <h3 class="white heading hide-hover">Obtenha muitos fretes a disposição AQUI!</h3>
                         <div class="bottom">
                             <h4 class="white heading small-heading no-margin regular">Registre-se agora!</h4>
-                            <a href="#" class="btn btn-white-fill expand">Registrar-se</a>
+                            <a href="<c:url value='/cadastroCaminhoneiro'/>" class="btn btn-white-fill expand">Registrar-se</a>
                         </div>
                     </div>
                 </div>
@@ -161,7 +161,7 @@
     <section id="quemsomos" class="section gray-bg">
         <div class="container">
             <div class="row title text-center">
-                <h1 class="margin-top">A BrasilFretes ?</h1>
+                <h2 class="margin-top">A BrasilFretes ?</h2>
                 <h4 class="light muted">Somos uma empresa Comprometida com soluções para nossos <b>CLIENTES</b></h4>
                 <p>Nossa criatividade é para auxiliar ao máximo ao caminhoneiro, para que o mesmo não necessite enfrentar dias parado por não achar fretes. A <b>BrasilFretes</b> se orgulha em poder ajudar aqueles que sempre estão na estrada transportando nossos alimentos, medicamentos, combustíveis, entre muitas outras soluções para que chegue até nós utencílios primordiáis.</p>
                 <p>Em nome da <b>BrasilFretes</b>, o nosso <b>MUITO OBRIGADO</b>

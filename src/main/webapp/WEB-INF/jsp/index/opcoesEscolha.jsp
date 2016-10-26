@@ -46,7 +46,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right main-nav">
                     <li><a href="modal1" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Entrar</a></li>
-                    <li><a href="<c:url value='/telaPrincipalCaminhoneiro'/>" class="btn btn-success">Cadastre-se</a></li>
+                    <li><a href="<c:url value='/opcoesEscolha'/>" class="btn btn-success">Cadastre-se</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

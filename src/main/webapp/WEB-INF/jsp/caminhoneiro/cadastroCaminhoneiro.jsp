@@ -3,38 +3,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<!-- Normalize -->
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
-<!-- Bootstrap -->
-<link
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/bootstrap.css"
-	rel="stylesheet" type="text/css">
-<!-- Owl -->
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
-<!-- Animate.css -->
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/animate.css">
-<!-- Font Awesome -->
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/font-awesome.min.css">
-<!-- Elegant Icons -->
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/et-icons.css">
-<!-- Main style -->
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/styleSistema.css">
-
-<link rel="shortcut icon"
-	href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
-
-<link href='http://fonts.googleapis.com/css?family=Buenard:700'
-	rel='stylesheet' type='text/css'>
-<title>BrasilFretes - Cadastro de Agências</title>
-</head>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
+		<link href="<%=request.getContextPath()%>/resources/estilo_sistema/bootstrap.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/animate.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/et-icons.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/styleSistema.css">
+		<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
+		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
+		
+		<title>Editar Cadastro - BrasilFretes</title>
+	</head>
 <body>
 	<div class="preloader">
 		<img src="<%=request.getContextPath()%>/resources/imagens/loader.gif"
@@ -128,7 +110,7 @@
 						<label class="col-md-4 control-label" for="textinput">Data
 							Nascimento</label>
 						<div class="col-md-5">
-							<input class="form-control" name="caminhoneiro.data"
+							<input class="form-control" name="caminhonveiro.dataNascimento"
 								id="registration-date" type="date">
 						</div>
 					</div>
@@ -192,13 +174,13 @@
 								</c:forEach>
 							</select>
 						</div>
-
 					</div>
+					
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="txtgrupo">Cidade</label>
 						<div class="col-md-4">
 							<select id="txtgrupo" name="caminhoneiro.cidade.codigo"
-								class="form-control">
+								class="form-control" >
 								<option selected="selected">Selecione</option>
 								<c:forEach var="cidade" items="${cidades}">
 									<option value="${cidade.codigo}">${cidade.nome}</option>

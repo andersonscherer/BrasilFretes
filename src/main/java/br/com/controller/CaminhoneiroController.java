@@ -6,6 +6,7 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
+import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
 import br.com.dao.CaminhaoDAO;
 import br.com.dao.CaminhoneiroDAO;
@@ -87,13 +88,22 @@ public class CaminhoneiroController {
 		result.include("marcasCaminhao", marcaCaminhaoDAO.listar(MarcaCaminhao.class));
 	}
 
-	@Path("/editarCadastro/{codigo}")
-	public void editarCadastro(Caminhoneiro caminhoneiro) {
-		result.include("caminhoneiro", caminhoneiro);
+	@Get("/editarCadastro/{codCaminhoneiro}")
+	public void editarCadastro(Long codCaminhoneiro) {
+		result.include("caminhoneiro", caminhoneiroDAO.buscar(Caminhoneiro.class, codCaminhoneiro));
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
 		result.include("estados", estadoDAO.listar(Estado.class));
 
-
+	}
+	
+	@Put("/alterarCaminhoneiro/{caminhoneiro.codigo}")
+	public void alterarCaminhoneiro(Caminhoneiro caminhoneiro){
+		try {
+			caminhoneiroDAO.salvar(caminhoneiro);
+		} catch (DAOException e) {
+			e.printStackTrace();
+		}		
+		result.redirectTo(this).cadastroCaminhoneiro();
 	}
 
 	@Path("/acompanharPedido")

@@ -96,4 +96,15 @@ public abstract class HibernateDAO<T extends UsoCodigo> implements GenericDAO<T>
 		}
 	}
 	
+	/*
+	@Override
+	public List<T> listarCidades(Long idEstado,Class<T> classe) {
+		this.conectar();
+		try {
+			TypedQuery<T> query = em.createQuery("from " + classe.getSimpleName() + "where estados_id = " + idEstado, classe);
+			return query.getResultList();
+		} finally {
+			this.finalizar();
+		}
+	}*/
 }

@@ -28,7 +28,7 @@ public class IndexController {
 	Caminhoneiro caminhoneiro = new Caminhoneiro();	
 
 	private AgenciaDAO agenciaDAO = new AgenciaDAO();
-	
+	 
 	Agencia agencia = new Agencia();	
 
 	private AgenciaSessao agenciaSessao;

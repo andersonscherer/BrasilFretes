@@ -1,12 +1,11 @@
 package br.com.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import br.com.interfaces.UsoCodigo;
 import lombok.AllArgsConstructor;
@@ -41,6 +40,6 @@ public class Caminhao implements UsoCodigo{
 	@Column
 	private String codRntrc;
 	
-	
-	
+	@ManyToOne(optional = false, targetEntity = Caminhoneiro.class)
+	private Caminhoneiro caminhoneiro;
 }

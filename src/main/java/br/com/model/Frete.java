@@ -1,11 +1,15 @@
 package br.com.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import br.com.interfaces.UsoCodigo;
 import lombok.AllArgsConstructor;
@@ -52,6 +56,9 @@ public class Frete implements UsoCodigo{
 	@ManyToOne(optional = false, targetEntity = Agencia.class)
 	private Agencia agencia;
 	
-	@ManyToOne(optional = false, targetEntity = Caminhoneiro.class)
+	@ManyToOne(optional = true, targetEntity = Caminhoneiro.class)
 	private Caminhoneiro caminhoneiro;
+
+	@OneToMany
+	private Set<Frete> fretes = new HashSet<>();
 }

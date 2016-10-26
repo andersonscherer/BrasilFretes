@@ -33,7 +33,7 @@ public class Agencia implements UsoCodigo{
 	private Long codigo;
 	
 	@Column
-	private String razaoFantasia;
+	private String razaoSocial;
 	
 	@Column
 	private String cnpj;
@@ -69,4 +69,5 @@ public class Agencia implements UsoCodigo{
 	
 	@OneToMany
 	private Set<Frete> fretes = new HashSet<>();
+	
 }
