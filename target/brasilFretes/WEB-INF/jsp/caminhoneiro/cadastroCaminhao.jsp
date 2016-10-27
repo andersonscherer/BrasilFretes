@@ -168,6 +168,8 @@
 										</div>
 									</div>
 
+									<input type="hidden" value="${usuario.caminhoneiro.codigo}" name="caminhoneiro.caminhoneiro_codigo"></input>
+
 									<!-- Button (Double) -->
 									<div class="form-group">
 										<label class="col-md-4 control-label" for="btnsalvar"></label>
@@ -178,12 +180,9 @@
 												class="btn btn-danger">Cancelar</button>
 										</div>
 									</div>
-
 								</fieldset>
-							</form>
-
+							</form> <!-- Final do Formulário de Cadastro -->
 						</div>
-
 					</div>
 				</div>
 			</div>

@@ -15,7 +15,7 @@
 		<link rel="shortcut icon"href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
 
-		<title>BrasilFretes - Início</title>
+		<title>Cadastro De Caminhão - BrasilFretes</title>
 	</head>
 <body>
 
@@ -168,6 +168,8 @@
 										</div>
 									</div>
 
+									<input type="hidden" value="${usuario.caminhoneiro.codigo}" name="caminhoneiro.caminhoneiro_codigo"></input>
+
 									<!-- Button (Double) -->
 									<div class="form-group">
 										<label class="col-md-4 control-label" for="btnsalvar"></label>
@@ -178,12 +180,9 @@
 												class="btn btn-danger">Cancelar</button>
 										</div>
 									</div>
-
 								</fieldset>
-							</form>
-
+							</form> <!-- Final do Formulário de Cadastro -->
 						</div>
-
 					</div>
 				</div>
 			</div>
