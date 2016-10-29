@@ -48,16 +48,15 @@
 									<h3>Olá !</h3>
 								</div>
 								<div class="user-text-online">
-									<strong>${agencia.agencia.razaoFantasia}</strong>
+									<strong>${agencia.agencia.razaoSocial}</strong>
 								</div>
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="/"><i class="fa fa-dashboard fa-fw"></i>Incial</a></li>
-					<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i>Cadastro de Frete</a></li>
-					<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-edit fa-fw"></i>Fretes em Aberto</a></li>
-					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i>Meus Fretes</a></li>
-                    <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-edit fa-fw"></i>Procurar Caminhoneiros</a>
+					<li class="selected"><a href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
+					<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i> - Cadastro de Frete</a></li>
+					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i> - Meus Fretes</a></li>
+                    <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-edit fa-fw"></i> - Procurar Caminhoneiros</a>
                     </li>
 				</ul>
 			</div> 
@@ -139,20 +138,7 @@
 								</div>
 							</div>
 
-							<div class="col-xs-6 form-group">
-								<label class="col-md-2 control-label" for="txtgrupo">Peso
-									:</label>
-								<div class="col-md-10">
-									<select id="txtgrupo" name="txtgrupo" class="form-control">
-										<option value="1">Higiêne</option>
-										<option value="2">Consumo</option>
-										<option value="3">Limpesa</option>
-										<option value="4">Material de Escritório</option>
-									</select>
-								</div>
-							</div>
-
-							<div class="col-xs-12">
+				<div class="col-xs-12">
 								<div class="col-xs-12 col-md-2 col-md-offset-4">
 									<button type="button" class="btn btn-lg btn-success"
 										href="index.html">Pesquisar</button>

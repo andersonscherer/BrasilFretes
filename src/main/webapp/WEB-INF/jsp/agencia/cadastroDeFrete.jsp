@@ -53,11 +53,11 @@
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="/"><i class="fa fa-dashboard fa-fw"></i>Incial</a></li>
-					<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i>Cadastro de Frete</a></li>
-					<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-edit fa-fw"></i>Fretes em Aberto</a></li>
-					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i>Meus Fretes</a></li>
-                    <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-edit fa-fw"></i>Procurar Caminhoneiros</a>
+					<li class="selected"><a href="<c:url value='telaPrincipalAgencia'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
+					<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-map-marker fa-fw"></i> - Fretes em Aberto</a></li>
+					<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i> - Cadastro de Frete</a></li>
+					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i> - Meus Fretes</a></li>
+                    <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-edit fa-fw"></i> - Procurar Caminhoneiros</a>
                     </li>
 				</ul>
 			</div> 
@@ -85,27 +85,12 @@
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<div class="panel-title">
-								<h4>Aqui você vai colocar os dados do Frete.</h4>
+								<h4>Insira os Dados do Frete</h4>
 							</div>
 						</div>
 						<div class="table-responsive">
 							<form class="form-horizontal">
 								<fieldset>
-								
-									<div class="form-group">
-										<label class="col-md-4 control-label" for="txtgrupo"
-											required="">Estado de Origem</label>
-										<div class="col-md-4">
-											<select id="txtgrupo" name="agencia.estado.codigo"
-												class="form-control">
-												<option selected="selected">Selecione</option>
-												<c:forEach var="estado" items="${estados}">
-													<option value="${estado.codigo}">${estado.nome}</option>
-												</c:forEach>
-											</select>
-										</div>
-
-									</div>
 
 									<div class="form-group">
 										<label class="col-md-4 control-label" for="txtgrupo"
@@ -115,25 +100,10 @@
 												class="form-control">
 												<option selected="selected">Selecione</option>
 												<c:forEach var="cidade" items="${cidades}">
-													<option value="${cidade.codigo}">${cidade.nome}</option>
+													<option value="${cidade.codigo}">${cidade.nome} - ${cidade.uf}</option>
 												</c:forEach>
 											</select>
 										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="col-md-4 control-label" for="txtgrupo"
-											required="">Estado de Destino</label>
-										<div class="col-md-4">
-											<select id="txtgrupo" name="agencia.estado.codigo"
-												class="form-control">
-												<option selected="selected">Selecione</option>
-												<c:forEach var="estado" items="${estados}">
-													<option value="${estado.codigo}">${estado.nome}</option>
-												</c:forEach>
-											</select>
-										</div>
-
 									</div>
 
 									<div class="form-group">
@@ -144,7 +114,7 @@
 												class="form-control">
 												<option selected="selected">Selecione</option>
 												<c:forEach var="cidade" items="${cidades}">
-													<option value="${cidade.codigo}">${cidade.nome}</option>
+													<option value="${cidade.codigo}">${cidade.nome} - ${cidade.uf}</option>
 												</c:forEach>
 											</select>
 										</div>

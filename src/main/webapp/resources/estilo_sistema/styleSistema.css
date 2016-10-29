@@ -790,6 +790,7 @@ footer .social-footer li:hover a {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
+    z-index: 10000;
 }
 
 .modal-popup {

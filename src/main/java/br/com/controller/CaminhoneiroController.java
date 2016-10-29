@@ -1,5 +1,7 @@
 package br.com.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
@@ -11,13 +13,11 @@ import br.com.caelum.vraptor.Result;
 import br.com.dao.CaminhaoDAO;
 import br.com.dao.CaminhoneiroDAO;
 import br.com.dao.CidadeDAO;
-import br.com.dao.EstadoDAO;
 import br.com.dao.MarcaCaminhaoDAO;
 import br.com.exception.DAOException;
 import br.com.model.Caminhao;
 import br.com.model.Caminhoneiro;
 import br.com.model.Cidade;
-import br.com.model.Estado;
 import br.com.model.MarcaCaminhao;
 
 @Controller
@@ -26,8 +26,6 @@ public class CaminhoneiroController {
 	private final Result result;
 
 	private final CidadeDAO cidadeDAO;
-
-	private final EstadoDAO estadoDAO;
 
 	private final MarcaCaminhaoDAO marcaCaminhaoDAO;
 
@@ -44,16 +42,15 @@ public class CaminhoneiroController {
 	 * @deprecated CDI eyes only Necessario para os controllers
 	 */
 	protected CaminhoneiroController() {
-		this(null, null, null, null, null, null);
+		this(null, null, null, null, null);
 	}
 
 	@Inject
-	public CaminhoneiroController(Result result, CidadeDAO cidadeDAO, EstadoDAO estadoDAO,
-			MarcaCaminhaoDAO marcaCaminhaoDAO, CaminhoneiroDAO caminhoneiroDAO, CaminhaoDAO caminhaoDAO) {
+	public CaminhoneiroController(Result result, CidadeDAO cidadeDAO, MarcaCaminhaoDAO marcaCaminhaoDAO, 
+			CaminhoneiroDAO caminhoneiroDAO, CaminhaoDAO caminhaoDAO) {
 		super();
 		this.result = result;
 		this.cidadeDAO = cidadeDAO;
-		this.estadoDAO = estadoDAO;
 		this.marcaCaminhaoDAO = marcaCaminhaoDAO;
 		this.caminhoneiroDAO = caminhoneiroDAO;
 		this.caminhaoDAO = caminhaoDAO;
@@ -65,7 +62,6 @@ public class CaminhoneiroController {
 		// LEMBRE-SE QUE O NOME DO METODO DEVE SER O MESMO DO ARQUIVO QUE VOCE
 		// CHAMAR
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
-		result.include("estados", estadoDAO.listar(Estado.class));
 	}
 
 	@Post
@@ -92,7 +88,6 @@ public class CaminhoneiroController {
 	public void editarCadastro(Long codCaminhoneiro) {
 		result.include("caminhoneiro", caminhoneiroDAO.buscar(Caminhoneiro.class, codCaminhoneiro));
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
-		result.include("estados", estadoDAO.listar(Estado.class));
 
 	}
 	
@@ -111,15 +106,9 @@ public class CaminhoneiroController {
 
 	}
 
-	@Path("/meusFretes")
-	public void meusFretes() {
-
-	}
-
 	@Path("/procurarFrete")
 	public void procurarFrete() {
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
-		result.include("estados", estadoDAO.listar(Estado.class));
 	}
 
 	@Post

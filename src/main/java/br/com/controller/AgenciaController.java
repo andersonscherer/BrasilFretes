@@ -1,5 +1,7 @@
 package br.com.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
@@ -8,12 +10,10 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.dao.AgenciaDAO;
 import br.com.dao.CidadeDAO;
-import br.com.dao.EstadoDAO;
 import br.com.dao.FreteDAO;
 import br.com.exception.DAOException;
 import br.com.model.Agencia;
 import br.com.model.Cidade;
-import br.com.model.Estado;
 import br.com.model.Frete;
 
 @Controller
@@ -23,8 +23,6 @@ public class AgenciaController {
 
 	private final CidadeDAO cidadeDAO;
 	
-	private final EstadoDAO estadoDAO;
-
 	private final AgenciaDAO agenciaDAO;
 	
 	private final FreteDAO freteDAO;
@@ -36,16 +34,15 @@ public class AgenciaController {
 	 * @deprecated CDI eyes only Necessario para os controllers
 	 */
 	protected AgenciaController() {
-		this(null, null, null, null, null);
+		this(null, null, null, null);
 	}
 
 	@Inject
-	public AgenciaController(Result result, CidadeDAO cidadeDAO, AgenciaDAO agenciaDAO, EstadoDAO estadoDAO, FreteDAO freteDAO) {
+	public AgenciaController(Result result, CidadeDAO cidadeDAO, AgenciaDAO agenciaDAO, FreteDAO freteDAO) {
 		super();
 		this.result = result;
 		this.cidadeDAO = cidadeDAO;
 		this.agenciaDAO = agenciaDAO;
-		this.estadoDAO = estadoDAO;
 		this.freteDAO = freteDAO;
 	}
 
@@ -68,42 +65,40 @@ public class AgenciaController {
 	@Path("/cadastroAgencia")
 	public void cadastroAgencia() {
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
-		result.include("estados", estadoDAO.listar(Estado.class));
-
-	}
-	
-	@Path("/fretesEmAberto")
-	public void fretesEmAberto() {
-		result.include("cidades", cidadeDAO.listar(Cidade.class));
-		result.include("estados", estadoDAO.listar(Estado.class));
 
 	}
 	
 	@Path("/historicoAgenciaFretes")
 	public void historicoAgenciaFretes() {
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
-		result.include("estados", estadoDAO.listar(Estado.class));
 
 	}
 	
 	@Path("/procurarCaminhoneiros")
 	public void procurarCaminhoneiros() {
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
-		result.include("estados", estadoDAO.listar(Estado.class));
 	}
 	
 	@Path("/editarCadastroAgencia/{codAgencia}")
 	public void editarCadastroAgencia(Long codAgencia) {
 		result.include("a", agenciaDAO.buscar(Agencia.class, codAgencia));
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
-		result.include("estados", estadoDAO.listar(Estado.class));
 
 	}
 	
 	@Path("/cadastroDeFrete")
 	public void cadastroDeFrete() {
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
-		result.include("estados", estadoDAO.listar(Estado.class));
+		
+	}
+	
+	@Path("/dadosFrete")
+	public void dadosFrete(){
+		
+	}
+	
+	@Path("/fretesEmAberto")
+	public void fretesEmAberto(){
 		
 	}
 	
@@ -114,5 +109,14 @@ public class AgenciaController {
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Path("/meusFretes")
+	public void listaFreteCaminhoneiro(){
+		List<Frete> fretes = FreteDAO.findByFrete(StatusFrete.ENCERRADO);		
+			for (Frete frete : fretes)
+				frete.setItens(freteDAO.findByFrete(frete));
+			
+			return fretes;
 	}
 }

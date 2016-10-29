@@ -53,11 +53,11 @@
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="/telaPrincipalCaminhoneiro"><i class="fa fa-dashboard fa-fw"></i>Incial</a></li>
-					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> Cadastrar Caminhão</a></li>
-					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i>Procurar Fretes</a></li>
-					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-edit fa-fw"></i>Acompanhar Pedidos</a></li>
-					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-table fa-fw"></i>Meus Fretes</a></li>
+					<li class="selected"><a href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
+					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> - Cadastrar Caminhão</a></li>
+					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i> - Procurar Fretes</a></li>
+					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-edit fa-fw"></i> - Acompanhar Pedidos</a></li>
+					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-table fa-fw"></i> - Meus Fretes</a></li>
 				</ul>
 			</div> 
 		</nav>
@@ -125,19 +125,6 @@
 										<option value="7">Graneleira</option>
 										<option value="8">Bitrem</option>
 										<option value="8">Treminhão</option>
-									</select>
-								</div>
-							</div>
-
-							<div class="col-xs-6 form-group">
-								<label class="col-md-2 control-label" for="txtgrupo">Peso
-									:</label>
-								<div class="col-md-10">
-									<select id="txtgrupo" name="txtgrupo" class="form-control">
-										<option value="1">Higiêne</option>
-										<option value="2">Consumo</option>
-										<option value="3">Limpesa</option>
-										<option value="4">Material de Escritório</option>
 									</select>
 								</div>
 							</div>

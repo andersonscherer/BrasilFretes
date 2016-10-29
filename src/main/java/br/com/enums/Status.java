@@ -2,6 +2,6 @@ package br.com.enums;
 
 public enum Status {
 
-	ATIVO, INATIVO;	
+	ATIVO, ABERTO, EXECUCAO, ENCERRADO;	
 	
 }

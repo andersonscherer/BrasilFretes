@@ -1,5 +1,6 @@
 package br.com.model;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,14 +30,8 @@ public class Frete implements UsoCodigo{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 	
-	@Column 
-	private Integer estado;
-	
 	@Column
 	private Integer cidade;
-	
-	@Column 
-	private Integer estadoDestino;
 	
 	@Column
 	private Integer cidadeDestino;
@@ -52,6 +47,11 @@ public class Frete implements UsoCodigo{
 	
 	@Column
 	private Integer tipoCarroceria;
+	
+	@Column
+	private Date dataFrete;
+	
+	
 	
 	@ManyToOne(optional = false, targetEntity = Agencia.class)
 	private Agencia agencia;

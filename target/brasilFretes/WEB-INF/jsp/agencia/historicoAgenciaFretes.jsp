@@ -12,6 +12,8 @@
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/style.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/main-style.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/styleSistema.css">
+
 		<link rel="shortcut icon"href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
 
@@ -48,60 +50,98 @@
 									<h3>Olá !</h3>
 								</div>
 								<div class="user-text-online">
-									<strong>${agencia.agencia.razaoFantasia}</strong>
+									<strong>${agencia.agencia.razaoSocial}</strong>
 								</div>
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="/"><i class="fa fa-dashboard fa-fw"></i>Incial</a></li>
-					<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i>Cadastro de Frete</a></li>
-					<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-edit fa-fw"></i>Fretes em Aberto</a></li>
-					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i>Meus Fretes</a></li>
-                    <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-edit fa-fw"></i>Procurar Caminhoneiros</a>
+					<li class="selected"><a href="/"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
+					<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i> - Cadastro de Frete</a></li>
+					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i> - Meus Fretes</a></li>
+                    <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-edit fa-fw"></i> - Procurar Caminhoneiros</a>
                     </li>
 				</ul>
 			</div> 
 		</nav>
 	</div>
+	
 	<div id="wrapper">
-	<!-- navbar top -->
+        <div class="col-md-10 col-md-offset-2">
+           <div class="tabelaFretes" style="
+    margin-top: 50px;">
+            <div class="panel panel-primary panel-table">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col col-xs-6">
+                    <h3 class="panel-title">Meus Fretes</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <table class="table table-striped table-bordered table-list">
+                  <thead>
+                    <tr>
+                        <th><em class="fa fa-cog"></em></th>
+                        <th class="hidden-xs">Id do Frete</th>
+                        <th>Cidade Origem</th>
+                        <th>Cidade Destino</th>
+                        <th>Valor do Frete (R$)</th>                        
+                        <th>Status</th>
+                    </tr> 
+                  </thead>
+                  <tbody>
+                          <tr>
+                            <td align="center">
+                              <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#modal1"><em class="fa fa-trash"></em></a>
+                              <a class="btn btn-primary"><em class="fa fa-eye"></em></a>                              
+                            </td>
+                            <td class="hidden-md">1</td>
+                            <td>Chapecó - SC</td>
+                            <td>Florianópolis - SC</td>
+                            <td>159,50</td>                                  
+                            <td>ABERTO</td>                            
+                          </tr>
+                        </tbody>
+                </table>
+            
+              </div>
+              <div class="panel-footer">
+                <div class="row">
+                  <div class="col col-xs-4">Page 1 of 5
+                  </div>
+                  <div class="col col-xs-8">
+                    <ul class="pagination hidden-xs pull-right">
+                      <li><a href="#">1</a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                    </ul>
+                    <ul class="pagination visible-xs pull-right">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+	</div>
+</div>
 
-	<!-- end navbar side -->
-	<!--  page-wrapper -->
-	<div id="page-wrapper">
+    <!-- Inclusão do Modal -->
 
-		<div class="row">
-			<!--page header-->
-			<div class="col-lg-12">
-				<h1 class="page-header">Histórico de Fretes pela Agência</h1>
-			</div>
-			<!--end page header-->
-		</div>
-		<!-- row -->
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<div class="panel-title">
-							<h4>Este é o Histórico de seus Fretes</h4>
-						</div>
-					</div>
-					<div class="table-responsive">
-						<form class="form-horizontal">
-							<fieldset>
-
-								</fieldset>
-							</div>
-						</form>
-					</div>
-
+		<div class="modal fade" id="modal1" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content modal-popup">
+					<h3 class="white">Como quer fazer Login ?</h3>
+					<a href="<c:url value='/loginCaminhoneiro'/>"
+						class="btn btn-primary">Camihoneiro</a> <a
+						href="<c:url value='/loginAgencia'/>" class="btn btn-primary">Agência</a>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- end page-wrapper -->
 
-</div>
-<!-- end wrapper -->
 </body>
 </html>

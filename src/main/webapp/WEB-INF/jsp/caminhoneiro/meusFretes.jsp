@@ -53,11 +53,11 @@
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="/telaPrincipalCaminhoneiro"><i class="fa fa-dashboard fa-fw"></i>Incial</a></li>
-					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> Cadastrar Caminhão</a></li>
-					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i>Procurar Fretes</a></li>
-					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-edit fa-fw"></i>Acompanhar Pedidos</a></li>
-					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-table fa-fw"></i>Meus Fretes</a></li>
+					<li class="selected"><a href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
+					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> - Cadastrar Caminhão</a></li>
+					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i> - Procurar Fretes</a></li>
+					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-edit fa-fw"></i> - Acompanhar Pedidos</a></li>
+					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-table fa-fw"></i> - Meus Fretes</a></li>
 				</ul>
 			</div> 
 		</nav>
@@ -87,24 +87,43 @@
 								<h4>Veja aqui o Histórico de seus fretes.</h4>
 							</div>
 						</div>
-						<div class="table-responsive">
-							<form class="form-horizontal"
-								action="${linkTo[CaminhoneiroController].salvarCaminhao}"
-								method="post">
-								<fieldset>
-									
-								</fieldset>
-							</form>
-
-						</div>
+                     <c:forEach items="${fretesList}" var="frete">
+                    	<div class="panel panel-default">
+						  <div class="panel-heading"><b>Cód. Frete:</b> ${frete.codigo} - <b>Data de processo do pedido:</b> ${frete.dataPedido}</div>
+						  <div class="panel-body no-padding">
+	                        <table class="table no-margin">
+	                            <thead>
+	                                <tr class="success">
+	                                    <th class="text-center">Cidade Origem</th>
+  	                                    <th class="text-center">Cidade Destino</th>
+	                                    <th class="text-center">Valor Recebido</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                            	<c:forEach items="${frete.codigo}" var="item">
+	                                <tr>
+	                                    <td>
+	                                    	<c:out value="${frete.cidadeOrigem}" />
+	                                    </td>
+	                                    <td class="text-center">
+	                                    	<c:out value="${frete.cidadeDestino}" />
+	                                    </td>
+	                                    <td class="text-center">
+	                                    	<c:out value="${frete.valor}" />
+	                                    </td>
+	                                </tr>
+	                                </c:forEach>
+	                            </tbody>
+	                        </table>
+						  </div>
+						</div> 
+                        </c:forEach>
+                    </div>
+                </div>
 
 					</div>
 				</div>
 			</div>
-		</div>
-		<!-- end page-wrapper -->
-	</div>
-	<!-- end wrapper -->
 	<script>
 		function formatar(mascara, documento) {
 			var i = documento.value.length;

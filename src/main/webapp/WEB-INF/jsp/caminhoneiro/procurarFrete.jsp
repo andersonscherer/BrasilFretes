@@ -53,11 +53,11 @@
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="/telaPrincipalCaminhoneiro"><i class="fa fa-dashboard fa-fw"></i>Incial</a></li>
-					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> Cadastrar Caminhão</a></li>
-					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i>Procurar Fretes</a></li>
-					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-edit fa-fw"></i>Acompanhar Pedidos</a></li>
-					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-table fa-fw"></i>Meus Fretes</a></li>
+					<li class="selected"><a href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
+					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> - Cadastrar Caminhão</a></li>
+					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i> - Procurar Fretes</a></li>
+					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-edit fa-fw"></i> - Acompanhar Pedidos</a></li>
+					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-table fa-fw"></i> - Meus Fretes</a></li>
 				</ul>
 			</div> 
 		</nav>
@@ -82,20 +82,6 @@
 						<div class="panel-body">
 
 							<div class="col-xs-6 form-group">
-								<label class="col-md-2 control-label" for="txtgrupo">Estado
-									:</label>
-								<div class="col-md-10">
-									<select id="txtgrupo" name="caminhoneiro.estado.codigo"
-										class="form-control">
-										<option selected="selected">Selecione</option>
-										<c:forEach var="estado" items="${estados}">
-											<option value="${estado.codigo}">${estado.nome}</option>
-										</c:forEach>
-									</select>
-								</div>
-							</div>
-
-							<div class="col-xs-6 form-group">
 								<label class="col-md-2 control-label" for="txtgrupo">Cidade
 									:</label>
 								<div class="col-md-10">
@@ -103,7 +89,7 @@
 										class="form-control">
 										<option selected="selected">Selecione</option>
 										<c:forEach var="cidade" items="${cidades}">
-											<option value="${cidade.codigo}">${cidade.nome}</option>
+											<option value="${cidade.codigo}">${cidade.nome} - ${cidade.uf}</option>
 										</c:forEach>
 									</select>
 								</div>
@@ -129,27 +115,14 @@
 								</div>
 							</div>
 
-							<div class="col-xs-6 form-group">
-								<label class="col-md-2 control-label" for="txtgrupo">Peso
-									:</label>
-								<div class="col-md-10">
-									<select id="txtgrupo" name="txtgrupo" class="form-control">
-										<option value="1">Higiêne</option>
-										<option value="2">Consumo</option>
-										<option value="3">Limpesa</option>
-										<option value="4">Material de Escritório</option>
-									</select>
-								</div>
-							</div>
-
 							<div class="col-xs-12">
 								<div class="col-xs-12 col-md-2 col-md-offset-4">
-									<button type="button" class="btn btn-lg btn-success"
+									<button type="button" class="btn btn-md btn-success"
 										href="index.html">Pesquisar</button>
 								</div>
 								<div class="col-xs-12 col-md-2">
 									<button href="index.html" type="button"
-										class="btn btn-lg btn-danger">Cancelar</button>
+										class="btn btn-md btn-danger">Cancelar</button>
 								</div>
 							</div>
 
@@ -158,7 +131,61 @@
 					</div>
 					<!--End Line chart -->
 				</div>
-			</div>
+			</div>			 <div class="panel panel-primary panel-table">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col col-xs-6">
+                    <h3 class="panel-title">Fretes Disponíveis</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <table class="table table-striped table-bordered table-list">
+                  <thead>
+                    <tr>
+						<th><em class="fa fa-cog"></em></th>
+                        <th class="hidden-xs">Id do Frete</th>
+                        <th>Cidade Origem</th>
+                        <th>Cidade Destino</th>
+                        <th>Valor do Frete (R$)</th>                        
+                        <th>Status</th>
+                    </tr> 
+                  </thead>
+                  <tbody>
+                          <tr>
+                            	<td align="center">
+                              		<a class="btn btn-success">Candidatar-se</a>                        
+                            	</td>
+                            <td>5659</td>
+                            <td>Chapecó - SC</td>
+                            <td>Florianópolis - SC</td>
+                            <td>159,50</td>                                  
+                            <td>ABERTO</td>                             
+                          </tr>
+                        </tbody>
+                </table>
+            
+              </div>
+              <div class="panel-footer">
+                <div class="row">
+                  <div class="col col-xs-4">Page 1 of 5
+                  </div>
+                  <div class="col col-xs-8">
+                    <ul class="pagination hidden-xs pull-right">
+                      <li><a href="#">1</a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                    </ul>
+                    <ul class="pagination visible-xs pull-right">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
 		</div>
 		<!-- end page-wrapper -->
 

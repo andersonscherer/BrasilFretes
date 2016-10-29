@@ -53,11 +53,11 @@
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="/"><i class="fa fa-dashboard fa-fw"></i>Incial</a></li>
-					<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i>Cadastro de Frete</a></li>
-					<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-edit fa-fw"></i>Fretes em Aberto</a></li>
-					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i>Meus Fretes</a></li>
-                    <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-edit fa-fw"></i>Procurar Caminhoneiros</a>
+					<li class="selected"><a href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
+					<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-map-marker fa-fw"></i> - Fretes em Aberto</a></li>
+					<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i> - Cadastro de Frete</a></li>
+					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i> - Meus Fretes</a></li>
+                    <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-edit fa-fw"></i> - Procurar Caminhoneiros</a>
                     </li>
 				</ul>
 			</div> 
@@ -120,26 +120,13 @@
 									</div>
 
 									<div class="form-group">
-										<label class="col-md-4 control-label" for="txtgrupo">Estado *</label>
-										<div class="col-md-4">
-											<select id="txtgrupo" name="caminhoneiro.estado.codigo"
-												class="form-control">
-												<option selected="selected">Selecione</option>
-												<c:forEach var="estado" items="${estados}">
-													<option value="${estado.codigo}">${estado.nome}</option>
-												</c:forEach>
-											</select>
-										</div>
-
-									</div>
-									<div class="form-group">
 										<label class="col-md-4 control-label" for="txtgrupo">Cidade *</label>
 										<div class="col-md-4">
 											<select id="txtgrupo" name="caminhoneiro.cidade.codigo"
 												class="form-control">
 												<option selected="selected">Selecione</option>
 												<c:forEach var="cidade" items="${cidades}">
-													<option value="${cidade.codigo}">${cidade.nome}</option>
+													<option value="${cidade.codigo}">${cidade.nome} - ${cidade.cidade}</option>
 												</c:forEach>
 											</select>
 										</div>
