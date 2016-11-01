@@ -57,7 +57,7 @@ public class Agencia implements UsoCodigo{
 	private String senha;
 	
 	@Column
-	private Status status;
+	private Status status = Status.ATIVO;
 	
 	public boolean isAtivo() {
 		return Status.ATIVO.equals(this.getStatus());

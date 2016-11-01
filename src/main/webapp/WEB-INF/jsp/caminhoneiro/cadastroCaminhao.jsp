@@ -63,7 +63,7 @@
 		</nav>
 	</div>
 	
-	
+		
 	<div id="wrapper">
 		<!-- navbar top -->
 
@@ -168,16 +168,14 @@
 										</div>
 									</div>
 
-									<input type="hidden" value="${usuario.caminhoneiro.codigo}" name="caminhoneiro.caminhoneiro_codigo"></input>
+									<input type="hidden" value="${usuario.caminhoneiro.codigo}" name="caminhao.caminhoneiro.codigo">
 
 									<!-- Button (Double) -->
 									<div class="form-group">
 										<label class="col-md-4 control-label" for="btnsalvar"></label>
 										<div class="col-md-8">
-											<button id="btnsalvar" name="btnsalvar"
+											<button id="btnsalvar" name="btnsalvar" type="submit"
 												class="btn btn-success">Salvar</button>
-											<button id="btncancelar" name="btncancelar"
-												class="btn btn-danger">Cancelar</button>
 										</div>
 									</div>
 								</fieldset>
@@ -203,4 +201,4 @@
 		}
 	</script>
 </body>
-</html>
+</html></html>

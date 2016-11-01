@@ -15,11 +15,11 @@
 		<link rel="shortcut icon"href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
 
-		<title>BrasilFretes - Início</title>
+		<title>Cadastro De Caminhão - BrasilFretes</title>
 	</head>
 <body>
 
-	<!-- Começo da Header -->
+	<!--  wrapper -->
 	<div id="wrapper">
 		<!-- navbar top -->
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar"> 
@@ -91,8 +91,7 @@
                   <tbody>
                           <tr>
                             <td align="center">
-                              <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
-                              <a class="btn btn-primary"><em class="fa fa-eye"></em></a>                              
+								<a class="btn btn-danger">Descandidatar-se</a>                            
                             </td>
                             <td class="hidden-md">1</td>
                             <td>Chapecó - SC</td>

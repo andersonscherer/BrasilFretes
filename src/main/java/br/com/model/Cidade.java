@@ -12,7 +12,6 @@ import lombok.Setter;
 @Getter 
 @Setter
 @Entity
-
 public class Cidade implements UsoCodigo{
 
 	@Id

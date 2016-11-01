@@ -143,27 +143,13 @@
 					</div>
 
 					<div class="form-group">
-						<label class="col-md-4 control-label" for="txtgrupo" required="">Estado</label>
-						<div class="col-md-4">
-							<select id="txtgrupo" name="agencia.estado.codigo"
-								class="form-control">
-								<option selected="selected">Selecione</option>
-								<c:forEach var="estado" items="${estados}">
-									<option value="${estado.codigo}">${estado.nome}</option>
-								</c:forEach>
-							</select>
-						</div>
-
-					</div>
-					
-					<div class="form-group">
 						<label class="col-md-4 control-label" for="txtgrupo" required="">Cidade</label>
 						<div class="col-md-4">
 							<select id="txtgrupo" name="agencia.cidade.codigo"
 								class="form-control">
 								<option selected="selected">Selecione</option>
 								<c:forEach var="cidade" items="${cidades}">
-									<option value="${cidade.codigo}">${cidade.nome}</option>
+									<option value="${cidade.codigo}">${cidade.nome} - ${cidade.uf}</option>
 								</c:forEach>
 							</select>
 						</div>

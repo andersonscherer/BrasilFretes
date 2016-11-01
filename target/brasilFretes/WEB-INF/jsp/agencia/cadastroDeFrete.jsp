@@ -12,10 +12,12 @@
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/style.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/main-style.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/styleSistema.css">
+
 		<link rel="shortcut icon"href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
 
-		<title>BrasilFretes - Início</title>
+		<title>Fretes em Execução/Aberto - BrasilFretes</title>
 	</head>
 <body>
 
@@ -54,8 +56,9 @@
 						</div>
 					</li>
 					<li class="selected"><a href="<c:url value='telaPrincipalAgencia'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
+					<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-map-marker fa-fw"></i> - Fretes em Execução/Aberto</a></li>
 					<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i> - Cadastro de Frete</a></li>
-					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i> - Meus Fretes</a></li>
+					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i> - Meu historico de Fretes</a></li>
                     <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-edit fa-fw"></i> - Procurar Caminhoneiros</a>
                     </li>
 				</ul>
@@ -63,12 +66,7 @@
 		</nav>
 	</div>
 
-
 	<div id="wrapper">
-		<!-- navbar top -->
-
-		<!-- end navbar side -->
-		<!--  page-wrapper -->
 		<div id="page-wrapper">
 
 			<div class="row">
@@ -81,6 +79,14 @@
 			<!-- row -->
 			<div class="row">
 				<div class="col-lg-12">
+					<c:if test="${not empty msgSucesso}">
+						<div class="alert alert-success" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<c:out value="${msgSucesso}" />
+						</div>
+					</c:if>
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<div class="panel-title">
@@ -88,14 +94,14 @@
 							</div>
 						</div>
 						<div class="table-responsive">
-							<form class="form-horizontal">
+							<form class="form-horizontal" action="${linkTo[AgenciaController].salvarFrete}" method="post">
 								<fieldset>
-
+									<input type="hidden" name="frete.agencia.codigo" value="${agencia.agencia.codigo}">
 									<div class="form-group">
 										<label class="col-md-4 control-label" for="txtgrupo"
 											required="">Cidade de Origem</label>
 										<div class="col-md-4">
-											<select id="txtgrupo" name="agencia.cidade.codigo"
+											<select id="txtgrupo" name="frete.cidadeDestino.codigo"
 												class="form-control">
 												<option selected="selected">Selecione</option>
 												<c:forEach var="cidade" items="${cidades}">
@@ -109,11 +115,11 @@
 										<label class="col-md-4 control-label" for="txtgrupo"
 											required="">Cidade de Destino</label>
 										<div class="col-md-4">
-											<select id="txtgrupo" name="agencia.cidade.codigo"
+											<select id="txtgrupo" name="frete.cidade.codigo"
 												class="form-control">
 												<option selected="selected">Selecione</option>
 												<c:forEach var="cidade" items="${cidades}">
-													<option value="${cidade.codigo}">${cidade.nome}</option>
+													<option value="${cidade.codigo}">${cidade.nome} - ${cidade.uf}</option>
 												</c:forEach>
 											</select>
 										</div>
@@ -124,7 +130,7 @@
 										<label class="col-md-4 control-label"
 											for="txtcodigo_unidade_id">Tipo Carroceria : </label>
 										<div class="col-md-4">
-											<select id="txtcodigo_unidade_id" name="caminhao.tipoCarroceria"
+											<select id="txtcodigo_unidade_id" name="frete.tipoCarroceria"
 												class="form-control">
 												<option selected="selected">Selecione</option>
 												<option value="1">Baú Alumínio</option>
@@ -145,8 +151,8 @@
 										<label class="col-md-4 control-label" for="textinput">Peso
 											(KG):</label>
 										<div class="col-md-2">
-											<input id="textinput" name="textinput"
-												placeholder="Placa do Veículo" class="form-control input-md"
+											<input id="textinput" name="frete.peso"
+												placeholder="000.00KG" class="form-control input-md"
 												required="" type="text">
 										</div>
 									</div>
@@ -156,27 +162,26 @@
 										<label class="col-md-4 control-label" for="textinput">Valor
 											da Encomenda (R$)</label>
 										<div class="col-md-2">
-											<input id="textinput" name="textinput"
-												placeholder="Cód. R.N.T.R.C" class="form-control input-md"
-												required="" type="text">
+											<input id="textinput" name="frete.valor" placeholder="0.00"
+												class="form-control input-md" required="" type="text">
 										</div>
 									</div>
 
 									<div class="form-group">
 										<label class="col-md-4 control-label" for="textinput">Observações</label>
 										<div class="col-md-6">
-											<textarea class="form-control" rows="5"></textarea>
+											<textarea class="form-control" rows="5"
+												name="frete.observacoes"></textarea>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<label class="col-md-4 control-label">Carga Perigosa ?</label>
-										<div class="col-md-5">
-											<label> <input type="radio" name="opcao"
-												value="perigosaSim"> - SIM
-											</label> <label> <input type="radio" name="opcao"
-												value="perigosaNao"> - NÃO
-											</label>
+										<div class="col-md-2">
+											<select name="frete.perigosa" class="form-control">
+												<option value="SIM">SIM</option>
+												<option value="NÃO">NÃO</option>
+											</select>
 										</div>
 									</div>
 
@@ -188,12 +193,8 @@
 										<!-- Botões para Cadastrar o Frete-->
 										<div class="col-xs-12 botoes-cadastra-frete">
 											<div class="col-xs-12 col-md-3 col-md-offset-4">
-												<button type="button" class="btn btn-lg btn-success"
-													href="index.html">Ok! Cadastrar</button>
-											</div>
-											<div class="col-xs-12 col-md-2">
-												<button href="index.html" type="button"
-													class="btn btn-lg btn-danger">Cancelar</button>
+												<button type="submit" class="btn btn-lg btn-success">Ok!
+													Cadastrar</button>
 											</div>
 										</div>
 									</fieldset>

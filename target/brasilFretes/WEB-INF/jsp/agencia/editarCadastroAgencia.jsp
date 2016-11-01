@@ -12,10 +12,12 @@
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/style.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/main-style.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/styleSistema.css">
+
 		<link rel="shortcut icon"href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
 
-		<title>Editar Cadastro - BrasilFretes</title>
+		<title>Fretes em Execução/Aberto - BrasilFretes</title>
 	</head>
 <body>
 
@@ -53,9 +55,10 @@
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
+					<li class="selected"><a href="<c:url value='telaPrincipalAgencia'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
+					<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-map-marker fa-fw"></i> - Fretes em Execução/Aberto</a></li>
 					<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i> - Cadastro de Frete</a></li>
-					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i> - Meus Fretes</a></li>
+					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i> - Meu historico de Fretes</a></li>
                     <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-edit fa-fw"></i> - Procurar Caminhoneiros</a>
                     </li>
 				</ul>
@@ -119,26 +122,13 @@
 									</div>
 
 									<div class="form-group">
-										<label class="col-md-4 control-label" for="txtgrupo">Estado *</label>
-										<div class="col-md-4">
-											<select id="txtgrupo" name="caminhoneiro.estado.codigo"
-												class="form-control">
-												<option selected="selected">Selecione</option>
-												<c:forEach var="estado" items="${estados}">
-													<option value="${estado.codigo}">${estado.nome}</option>
-												</c:forEach>
-											</select>
-										</div>
-
-									</div>
-									<div class="form-group">
 										<label class="col-md-4 control-label" for="txtgrupo">Cidade *</label>
 										<div class="col-md-4">
 											<select id="txtgrupo" name="caminhoneiro.cidade.codigo"
 												class="form-control">
 												<option selected="selected">Selecione</option>
 												<c:forEach var="cidade" items="${cidades}">
-													<option value="${cidade.codigo}">${cidade.nome}</option>
+													<option value="${cidade.nome} - ${cidade.cidade}"></option>
 												</c:forEach>
 											</select>
 										</div>

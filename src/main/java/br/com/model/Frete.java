@@ -1,16 +1,11 @@
 package br.com.model;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import br.com.interfaces.UsoCodigo;
 import lombok.AllArgsConstructor;
@@ -25,8 +20,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Frete implements UsoCodigo{
 
-	//Criando Um cadastro para a Encomenda.
-	@Id//Setando que idAgencia será uma chave primária
+	//Criando Um cadastro para o Frete.
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 	
@@ -43,22 +38,16 @@ public class Frete implements UsoCodigo{
 	private Double valor;
 	
 	@Column
-	private String observações;
+	private String observacoes;
 	
 	@Column
 	private Integer tipoCarroceria;
 	
 	@Column
-	private Date dataFrete;
-	
-	
-	
+	private String perigosa;
+		
 	@ManyToOne(optional = false, targetEntity = Agencia.class)
 	private Agencia agencia;
 	
-	@ManyToOne(optional = true, targetEntity = Caminhoneiro.class)
-	private Caminhoneiro caminhoneiro;
 
-	@OneToMany
-	private Set<Frete> fretes = new HashSet<>();
 }

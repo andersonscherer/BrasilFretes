@@ -12,10 +12,12 @@
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/style.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/main-style.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/styleSistema.css">
+
 		<link rel="shortcut icon"href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
 
-		<title>BrasilFretes - Início</title>
+		<title>Fretes em Execução/Aberto - BrasilFretes</title>
 	</head>
 <body>
 
@@ -53,9 +55,10 @@
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
+					<li class="selected"><a href="<c:url value='telaPrincipalAgencia'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
+					<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-map-marker fa-fw"></i> - Fretes em Execução/Aberto</a></li>
 					<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i> - Cadastro de Frete</a></li>
-					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i> - Meus Fretes</a></li>
+					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i> - Meu historico de Fretes</a></li>
                     <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-edit fa-fw"></i> - Procurar Caminhoneiros</a>
                     </li>
 				</ul>
@@ -64,20 +67,15 @@
 	</div>
 
 	<div id="wrapper">
-	<!-- navbar top -->
-
-	<!-- end navbar side -->
-	<!--  page-wrapper -->
 	<div id="page-wrapper">
-
 		<div class="row">
-			<!--page header-->
+			<!--Titulo Painel-->
 			<div class="col-lg-12">
 				<h1 class="page-header">Procurar Caminhoneiros</h1>
 			</div>
-			<!--end page header-->
+			<!--Final Titulo Painel-->
 		</div>
-		<!-- row -->
+		<!-- Linha -->
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-primary">
@@ -91,20 +89,6 @@
 							<fieldset>
 
 							<div class="col-xs-6 form-group">
-								<label class="col-md-2 control-label" for="txtgrupo">Estado
-									:</label>
-								<div class="col-md-10">
-									<select id="txtgrupo" name="caminhoneiro.estado.codigo"
-										class="form-control">
-										<option selected="selected">Selecione</option>
-										<c:forEach var="estado" items="${estados}">
-											<option value="${estado.codigo}">${estado.nome}</option>
-										</c:forEach>
-									</select>
-								</div>
-							</div>
-
-							<div class="col-xs-6 form-group">
 								<label class="col-md-2 control-label" for="txtgrupo">Cidade
 									:</label>
 								<div class="col-md-10">
@@ -112,7 +96,7 @@
 										class="form-control">
 										<option selected="selected">Selecione</option>
 										<c:forEach var="cidade" items="${cidades}">
-											<option value="${cidade.codigo}">${cidade.nome}</option>
+											<option value="${cidade.codigo}">${cidade.nome} - ${cidade.uf}</option>
 										</c:forEach>
 									</select>
 								</div>
@@ -139,26 +123,78 @@
 							</div>
 
 				<div class="col-xs-12">
-								<div class="col-xs-12 col-md-2 col-md-offset-4">
-									<button type="button" class="btn btn-lg btn-success"
-										href="index.html">Pesquisar</button>
-								</div>
-								<div class="col-xs-12 col-md-2">
-									<button href="index.html" type="button"
-										class="btn btn-lg btn-danger">Cancelar</button>
-								</div>
-							</div>
+					<div class="col-xs-12 col-md-2 col-md-offset-4">
+						<button type="button" class="btn btn-md btn-success"
+						href="index.html">Pesquisar</button>
+					</div>
+					<div class="col-xs-12 col-md-2">
+						<button href="index.html" type="button"
+						class="btn btn-md btn-danger">Cancelar</button>
+					</div>
+				</div>
 
 								</fieldset>
 							</div>
 						</form>
 					</div>
-
 				</div>
-			</div>
+			</div>           
+			<!-- Final da Linha -->
+			
+			 <div class="panel panel-primary panel-table">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col col-xs-6">
+                    <h3 class="panel-title">Caminhoneiros</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <table class="table table-striped table-bordered table-list">
+                  <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Cidade</th>
+                        <th>Telefone</th>                        
+                        <th>E-Mail</th>
+                    </tr> 
+                  </thead>
+                  <tbody>
+                          <tr>
+                            <td>Mário Quintana</td>
+                            <td>Florianópolis - SC</td>
+                            <td>(49) 3221-5659</td>                                  
+                            <td>mario@quintana.com.br</td>                            
+                          </tr>
+                        </tbody>
+                </table>
+            
+              </div>
+              <div class="panel-footer">
+                <div class="row">
+                  <div class="col col-xs-4">Page 1 of 5
+                  </div>
+                  <div class="col col-xs-8">
+                    <ul class="pagination hidden-xs pull-right">
+                      <li><a href="#">1</a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                    </ul>
+                    <ul class="pagination visible-xs pull-right">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
 		</div>
 	</div>
 	<!-- end page-wrapper -->
+	
+	
 
 </div>
 <!-- end wrapper -->

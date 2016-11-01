@@ -1,7 +1,5 @@
 package br.com.controller;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
@@ -33,8 +31,6 @@ public class CaminhoneiroController {
 
 	private final CaminhaoDAO caminhaoDAO;
 
-	private static Caminhoneiro caminhoneiro;
-
 	// CADA CONTROLER E RESPONSAVEL POR SUA ACOOES POR EXEMPLO O INDEXCONTROLLER
 	// CHAMA A TELA DE INICIO E A TELA DE OPCOES ESCOLHA
 
@@ -46,7 +42,7 @@ public class CaminhoneiroController {
 	}
 
 	@Inject
-	public CaminhoneiroController(Result result, CidadeDAO cidadeDAO, MarcaCaminhaoDAO marcaCaminhaoDAO, 
+	public CaminhoneiroController(Result result, CidadeDAO cidadeDAO, MarcaCaminhaoDAO marcaCaminhaoDAO,
 			CaminhoneiroDAO caminhoneiroDAO, CaminhaoDAO caminhaoDAO) {
 		super();
 		this.result = result;
@@ -90,14 +86,14 @@ public class CaminhoneiroController {
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
 
 	}
-	
+
 	@Put("/alterarCaminhoneiro/{caminhoneiro.codigo}")
-	public void alterarCaminhoneiro(Caminhoneiro caminhoneiro){
+	public void alterarCaminhoneiro(Caminhoneiro caminhoneiro) {
 		try {
 			caminhoneiroDAO.salvar(caminhoneiro);
 		} catch (DAOException e) {
 			e.printStackTrace();
-		}		
+		}
 		result.redirectTo(this).cadastroCaminhoneiro();
 	}
 
@@ -115,9 +111,11 @@ public class CaminhoneiroController {
 	public void salvarCaminhao(Caminhao caminhao) {
 		try {
 			caminhaoDAO.salvar(caminhao);
+			result.include("msgSucesso", "Caminhão Cadastrado com Sucesso !");
+			result.redirectTo(this).cadastroCaminhao();
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-		result.redirectTo(this).telaPrincipalCaminhoneiro();
+		result.redirectTo(this).cadastroCaminhao();
 	}
 }

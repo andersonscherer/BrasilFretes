@@ -1,7 +1,5 @@
 package br.com.controller;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
@@ -22,11 +20,11 @@ public class AgenciaController {
 	private final Result result;
 
 	private final CidadeDAO cidadeDAO;
-	
+
 	private final AgenciaDAO agenciaDAO;
-	
+
 	private final FreteDAO freteDAO;
-	
+
 	// CADA CONTROLER E RESPONSAVEL POR SUA ACOOES POR EXEMPLO O INDEXCONTROLLER
 	// CHAMA A TELA DE INICIO E A TELA DE OPCOES ESCOLHA
 
@@ -56,67 +54,69 @@ public class AgenciaController {
 
 		result.redirectTo(this).cadastroAgencia();
 	}
-	
+
 	@Path("/telaPrincipalAgencia")
 	public void telaPrincipalAgencia() {
 
 	}
-	
+
 	@Path("/cadastroAgencia")
 	public void cadastroAgencia() {
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
 
 	}
-	
+
 	@Path("/historicoAgenciaFretes")
 	public void historicoAgenciaFretes() {
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
 
 	}
-	
+
 	@Path("/procurarCaminhoneiros")
 	public void procurarCaminhoneiros() {
-		result.include("cidades", cidadeDAO.listar(Cidade.class));
+		result.include("cidade", cidadeDAO.listar(Cidade.class));
 	}
-	
+
 	@Path("/editarCadastroAgencia/{codAgencia}")
 	public void editarCadastroAgencia(Long codAgencia) {
 		result.include("a", agenciaDAO.buscar(Agencia.class, codAgencia));
-		result.include("cidades", cidadeDAO.listar(Cidade.class));
+		result.include("cidade", cidadeDAO.listar(Cidade.class));
 
 	}
-	
+
 	@Path("/cadastroDeFrete")
 	public void cadastroDeFrete() {
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
-		
+
 	}
-	
+
 	@Path("/dadosFrete")
-	public void dadosFrete(){
-		
+	public void dadosFrete() {
+
 	}
-	
+
 	@Path("/fretesEmAberto")
-	public void fretesEmAberto(){
-		
+	public void fretesEmAberto() {
+
 	}
-	
+
 	@Post
 	public void salvarFrete(Frete frete) {
 		try {
 			freteDAO.salvar(frete);
+			result.include("msgSucesso", "Frete Cadastrado com Sucesso !");
+			result.redirectTo(this).cadastroDeFrete();
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Path("/meusFretes")
-	public void listaFreteCaminhoneiro(){
-		List<Frete> fretes = FreteDAO.findByFrete(StatusFrete.ENCERRADO);		
-			for (Frete frete : fretes)
-				frete.setItens(freteDAO.findByFrete(frete));
-			
-			return fretes;
+	public void listaFreteCaminhoneiro() {
+		// List<Frete> fretes = FreteDAO.findByFrete(StatusFrete.ENCERRADO);
+		// for (Frete frete : fretes)
+		// frete.setItens(freteDAO.findByFrete(frete));
+		//
+		// return fretes;
 	}
 }

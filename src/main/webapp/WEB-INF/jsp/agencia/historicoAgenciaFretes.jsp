@@ -17,7 +17,7 @@
 		<link rel="shortcut icon"href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
 
-		<title>BrasilFretes - Início</title>
+		<title>Fretes em Execução/Aberto - BrasilFretes</title>
 	</head>
 <body>
 
@@ -55,10 +55,10 @@
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="/"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
-					<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-map-marker fa-fw"></i> - Fretes em Aberto</a></li>
+					<li class="selected"><a href="<c:url value='telaPrincipalAgencia'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
+					<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-map-marker fa-fw"></i> - Fretes em Execução/Aberto</a></li>
 					<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i> - Cadastro de Frete</a></li>
-					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i> - Meus Fretes</a></li>
+					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i> - Meu historico de Fretes</a></li>
                     <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-edit fa-fw"></i> - Procurar Caminhoneiros</a>
                     </li>
 				</ul>
@@ -82,7 +82,6 @@
                 <table class="table table-striped table-bordered table-list">
                   <thead>
                     <tr>
-                        <th><em class="fa fa-cog"></em></th>
                         <th class="hidden-xs">Id do Frete</th>
                         <th>Cidade Origem</th>
                         <th>Cidade Destino</th>
@@ -91,33 +90,7 @@
                     </tr> 
                   </thead>
                   <tbody>
-                          <tr>
-                            <td align="center">
-                              <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
-                              <a href="<c:url value='/dadosFrete'/>" class="btn btn-primary"><em class="fa fa-eye"></em></a>                     
-                            </td>
-                            <td class="hidden-md">1505</td>
-                            <td>Chapecó - SC</td>
-                            <td>Florianópolis - SC</td>
-                            <td>159,50</td>                                  
-                            <td style="background-color:green;color:white;">ABERTO</td>                            
-                          </tr>
                            <tr>
-                            <td align="center">
-                              <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
-                              <a href="<c:url value='/dadosFrete'/>" class="btn btn-primary"><em class="fa fa-eye"></em></a>                     
-                            </td>
-                            <td class="hidden-md">1505</td>
-                            <td>Chapecó - SC</td>
-                            <td>Florianópolis - SC</td>
-                            <td>159,50</td>                                  
-                            <td style="background-color:blue;color:white;">EXECUÇÃO</td>                            
-                          </tr>
-                           <tr>
-                            <td align="center">
-                              <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
-                              <a href="<c:url value='/dadosFrete'/>" class="btn btn-primary"><em class="fa fa-eye"></em></a>                     
-                            </td>
                             <td class="hidden-md">1505</td>
                             <td>Chapecó - SC</td>
                             <td>Florianópolis - SC</td>
