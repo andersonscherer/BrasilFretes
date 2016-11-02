@@ -105,7 +105,7 @@
                           </tr>
                           <tr>
                             <td align="center">
-                              <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
+                              <a class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
                               <a href="<c:url value='/dadosFrete'/>" class="btn btn-primary"><em class="fa fa-eye"></em></a>                   
                             </td>
                             <td class="hidden-md">1505</td>

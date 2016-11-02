@@ -110,18 +110,6 @@
 										</div>
 									</div>
 
-									<!-- Text input-->
-									<div class="form-group">
-										<label class="col-md-4 control-label" for="textinput">
-											Data Nascimento:
-										</label>
-										<div class="col-md-2">
-											<input id="textinput" name="caminhoneiro.dataNascimento"
-												class="form-control input-md"
-												disabled="disabled" required="" type="text" value="${caminhoneiro.getDataNascimento()}">
-										</div>
-									</div>
-
 									<div class="form-group">
 										<label class="col-md-4 control-label" for="txtgrupo">Estado *</label>
 										<div class="col-md-4">

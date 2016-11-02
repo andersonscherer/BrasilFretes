@@ -45,9 +45,6 @@ public class Agencia implements UsoCodigo{
 	private Integer cidade;
 	
 	@Column
-	private Integer estado;
-	
-	@Column
 	private String telefone;
 	
 	@Column

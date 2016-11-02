@@ -17,7 +17,7 @@
 		<link rel="shortcut icon"href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
 
-		<title>Fretes em Execução/Aberto - BrasilFretes</title>
+		<title>Cadastro de Frete - BrasilFretes</title>
 	</head>
 <body>
 
@@ -160,7 +160,7 @@
 									<!-- Text input-->
 									<div class="form-group">
 										<label class="col-md-4 control-label" for="textinput">Valor
-											da Encomenda (R$)</label>
+											do Frete (R$)</label>
 										<div class="col-md-2">
 											<input id="textinput" name="frete.valor" placeholder="0.00"
 												class="form-control input-md" required="" type="text">

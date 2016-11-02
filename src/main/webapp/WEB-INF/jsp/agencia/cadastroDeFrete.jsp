@@ -17,7 +17,7 @@
 		<link rel="shortcut icon"href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
 
-		<title>Fretes em Execução/Aberto - BrasilFretes</title>
+		<title>Cadastro de Frete - BrasilFretes</title>
 	</head>
 <body>
 

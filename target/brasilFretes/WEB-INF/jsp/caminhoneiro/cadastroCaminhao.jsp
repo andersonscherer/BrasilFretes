@@ -81,23 +81,27 @@
 			<!-- row -->
 			<div class="row">
 				<div class="col-lg-12">
+				<c:if test="${not empty msgSucesso}">
+						<div class="alert alert-success" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<c:out value="${msgSucesso}" />
+						</div>
+				</c:if>
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<div class="panel-title">
-								<h4>Nesta opção você pode cadastrar um novo
-									caminhão,caminhão que você irá usar para fazer os fretes aqui
-									dispostos.</h4>
+								<h4>Cadastre um novo caminhão</h4>
 							</div>
 						</div>
 						<div class="table-responsive">
 							<form class="form-horizontal"
-								action="${linkTo[CaminhoneiroController].salvarCaminhao}"
-								method="post">
+								action="${linkTo[CaminhoneiroController].salvarCaminhao}" method="post">
 								<fieldset>
-									<!-- Select Basic -->
+										<input type="hidden" name="caminhao.caminhoneiro.codigo" value="${usuario.caminhoneiro.codigo}">
 									<div class="form-group">
-										<label class="col-md-4 control-label" for="txtgrupo">Marca
-											: </label>
+										<label class="col-md-4 control-label" for="txtgrupo">Marca :</label>
 										<div class="col-md-4">
 											<select id="txtgrupo" name="caminhao.marcaCaminhao"
 												class="form-control">
@@ -167,9 +171,6 @@
 												onkeyup="formatar('###-########', this)">
 										</div>
 									</div>
-
-									<input type="hidden" value="${usuario.caminhoneiro.codigo}" name="caminhao.caminhoneiro.codigo">
-
 									<!-- Button (Double) -->
 									<div class="form-group">
 										<label class="col-md-4 control-label" for="btnsalvar"></label>

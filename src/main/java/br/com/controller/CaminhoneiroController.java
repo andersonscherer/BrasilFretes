@@ -54,9 +54,6 @@ public class CaminhoneiroController {
 
 	@Path("/cadastroCaminhoneiro")
 	public void cadastroCaminhoneiro() {
-		// qUANDO VOCE SO PRECISA CARREGAR A PAGINA CRIA O METO VAZIO
-		// LEMBRE-SE QUE O NOME DO METODO DEVE SER O MESMO DO ARQUIVO QUE VOCE
-		// CHAMAR
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
 	}
 
@@ -64,10 +61,11 @@ public class CaminhoneiroController {
 	public void salvar(Caminhoneiro caminhoneiro) {
 		try {
 			caminhoneiroDAO.salvar(caminhoneiro);
+			result.include("msgSucesso", "Cadastrado com Sucesso! Faça Login para Entrar");
+			result.redirectTo(this).cadastroCaminhoneiro();
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-		result.redirectTo(this).cadastroCaminhoneiro();
 	}
 
 	@Path("/telaPrincipalCaminhoneiro")
@@ -111,11 +109,10 @@ public class CaminhoneiroController {
 	public void salvarCaminhao(Caminhao caminhao) {
 		try {
 			caminhaoDAO.salvar(caminhao);
-			result.include("msgSucesso", "Caminhão Cadastrado com Sucesso !");
+			result.include("msgSucesso", "Caminhão Cadastrado com Sucesso!");
 			result.redirectTo(this).cadastroCaminhao();
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-		result.redirectTo(this).cadastroCaminhao();
 	}
 }

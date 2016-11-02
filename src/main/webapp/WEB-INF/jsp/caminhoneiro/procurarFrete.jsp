@@ -156,11 +156,21 @@
                             	<td align="center">
                               		<a class="btn btn-success">Candidatar-se</a>                        
                             	</td>
-                            <td>5659</td>
-                            <td>Chapecó - SC</td>
-                            <td>Florianópolis - SC</td>
-                            <td>159,50</td>                                  
-                            <td>ABERTO</td>                             
+                            <td>
+                              	<c:out value="${frete.frete.codigo}" />
+                            </td>
+                            <td>
+                              	<c:out value="${cidade.nome} - ${cidade.uf}" />
+                            </td>
+                            <td>
+                              	<c:out value="${frete.frete.codigo}" />
+                            </td>
+                            <td>
+                              	<c:out value="${frete.frete.codigo}" />
+                            </td>
+                            <td>
+                              	<c:out value="${frete.frete.codigo}" />
+                            </td>                         
                           </tr>
                         </tbody>
                 </table>

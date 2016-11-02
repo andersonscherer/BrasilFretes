@@ -95,7 +95,7 @@
 									<select id="txtgrupo" name="caminhoneiro.cidade.codigo"
 										class="form-control">
 										<option selected="selected">Selecione</option>
-										<c:forEach var="cidade" items="${cidades}">
+										<c:forEach var="cidade" items="${cidade}">
 											<option value="${cidade.codigo}">${cidade.nome} - ${cidade.uf}</option>
 										</c:forEach>
 									</select>

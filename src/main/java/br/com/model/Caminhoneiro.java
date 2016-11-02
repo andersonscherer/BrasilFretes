@@ -1,6 +1,5 @@
 package br.com.model;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,8 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import br.com.enums.Status;
 import br.com.interfaces.UsoCodigo;
@@ -27,7 +24,9 @@ import lombok.Setter;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@NamedQueries({ @NamedQuery(name = "Caminhoneiro.POR_USUARIO", query = "select c from Caminhoneiro c where c.email = ?1") })
+@NamedQueries({ @NamedQuery(name = "Caminhoneiro.POR_USUARIO", query = "select c from Caminhoneiro c where c.email = ?1"),
+	/* @NamedQuery(name = "Frete.POR_CIDADE", query = "select f from frete f where f.cidade = ?l")*/
+})
 public class Caminhoneiro implements UsoCodigo{
 	
 //Criando Um cadastro para o caminhoneiro.
@@ -41,9 +40,6 @@ public class Caminhoneiro implements UsoCodigo{
 	@Column
 	private String cpf;
 
-	@Temporal(TemporalType.DATE)
-	private Date dataNascimento;
-	
 	@Column
 	private Integer tipoCNH;
 	
@@ -55,9 +51,6 @@ public class Caminhoneiro implements UsoCodigo{
 	
 	@Column
 	private Integer cursoEspecifico;
-	
-	@Column 
-	private Integer estado;
 	
 	@Column
 	private Integer cidade;

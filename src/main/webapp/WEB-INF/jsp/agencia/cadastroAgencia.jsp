@@ -73,6 +73,14 @@
 		<div class="table">
 			<div class="header-text">
 				<div class="row">
+					<c:if test="${not empty msgSucesso}">
+			<div class="alert alert-success" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<c:out value="${msgSucesso}" />
+			</div>
+	</c:if>
 					<h3 class="white ">Caminhoneiro. Cadastre-se em nosso sistema
 						logo abaixo, e aproveite todas as funcionalidades nele
 						disponíveis.</h3>

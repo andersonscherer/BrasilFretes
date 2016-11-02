@@ -48,11 +48,12 @@ public class AgenciaController {
 	public void salvar(Agencia agencia) {
 		try {
 			agenciaDAO.salvar(agencia);
+			result.include("msgSucesso", "Cadastrado com Sucesso! Faça Login para entrar");
+			result.redirectTo(this).cadastroAgencia();
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
 
-		result.redirectTo(this).cadastroAgencia();
 	}
 
 	@Path("/telaPrincipalAgencia")
@@ -104,7 +105,7 @@ public class AgenciaController {
 	public void salvarFrete(Frete frete) {
 		try {
 			freteDAO.salvar(frete);
-			result.include("msgSucesso", "Frete Cadastrado com Sucesso !");
+			result.include("msgSucesso", "Frete Cadastrado com Sucesso!");
 			result.redirectTo(this).cadastroDeFrete();
 		} catch (DAOException e) {
 			e.printStackTrace();

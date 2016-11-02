@@ -15,7 +15,7 @@
 		<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
 		
-		<title>Editar Cadastro - BrasilFretes</title>
+		<title>Cadastro de Caminhoneiro - BrasilFretes</title>
 	</head>
 <body>
 	<div class="preloader">
@@ -56,6 +56,14 @@
 		<div class="table">
 			<div class="header-text">
 				<div class="row">
+					<c:if test="${not empty msgSucesso}">
+						<div class="alert alert-success" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+								<c:out value="${msgSucesso}" />
+						</div>
+	</c:if>
 					<h3 class="white ">Caminhoneiro. Cadastre em nosso sistema
 						logo abaixo, e aproveite todas as funcionalidades nele
 						disponíveis.</h3>
@@ -69,10 +77,7 @@
 	<div class="col-xs-12 linha-cadastro ">
 		<h1 class="white">Aproveite e Cadaste-se</h1>
 	</div>
-
-
-	<form class="form-horizontal"
-		action="${linkTo[CaminhoneiroController].salvar}" method="post">
+	  <form class="form-horizontal" action="${linkTo[CaminhoneiroController].salvar}" method="post">
 		<div class="col-xs-12 col-md-6 cadastro">
 			<div class="texto-cadastro">
 				<h3 class="RoyalBlue">Dados pertinentes ao caminhoneiro</h3>
@@ -107,15 +112,6 @@
 					</div>
 
 					<div class="form-group">
-						<label class="col-md-4 control-label" for="textinput">Data
-							Nascimento</label>
-						<div class="col-md-5">
-							<input class="form-control" name="caminhonveiro.dataNascimento"
-								id="registration-date" type="date">
-						</div>
-					</div>
-
-					<div class="form-group">
 						<label class="col-md-4 control-label" for="txtgrupo">Tipo
 							de sua Carteira</label>
 						<div class="col-md-4">
@@ -124,6 +120,7 @@
 								<option>Selecione</option>
 								<option value="1">A</option>
 								<option value="2">B</option>
+								<option value="3">C</option>
 								<option value="3">D</option>
 								<option value="4">E</option>
 							</select>

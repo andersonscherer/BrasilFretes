@@ -66,6 +66,7 @@
 		</nav>
 	</div>
 	
+	
 	<div id="wrapper">
 		<div id="page-wrapper">
 			<div class="row">
@@ -81,120 +82,79 @@
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<div class="panel-title">
-								<h4>Atualize o seus dados, e fique sempre por dentro das
-									novidades. Obs.: Apenas campos com ( * ) são campos editáveis</h4>
+								<strong>Atualize o seus dados, e fique sempre por dentro das
+									novidades. Obs.: Apenas campos com ( * ) são campos editáveis</strong>
 							</div>
 						</div>
 						<div class="table-responsive">
 							<form class="form-horizontal" method="post"
 								action="${linkTo[AgenciaController].editarCadastroAgencia(a)}">
 								<fieldset>
-									<!-- Text input-->
+									
 									<div class="form-group">
-										<label class="col-md-4 control-label" for="textinput">Nome
-											Completo:</label>
-										<div class="col-md-2">
-											<input id="textinput" name="agencia.razaoFantasia"
-												class="form-control input-md" disabled="disabled" required=""
+										<label class="col-md-2 control-label" for="razao-social">Razão social:</label>
+										<div class="col-md-4">
+											<input id="razao-social" name="agencia.razaoSocial" class="form-control input-md" disabled="disabled" required=""
 												value="${a.razaoSocial}" type="text"></input>
 										</div>
 									</div>
 
 									<!-- Text input-->
 									<div class="form-group">
-										<label class="col-md-4 control-label" for="textinput">C.P.F:</label>
-										<div class="col-md-2">
-											<input id="textinput" name="agencia.cnpj"
-												placeholder="Placa do Veículo" class="form-control input-md"
-												disabled="disabled" required="" type="text" value="${a.getCnpj()}">
-										</div>
-									</div>
-
-									<!-- Text input-->
-									<div class="form-group">
-										<label class="col-md-4 control-label" for="textinput">Data
-											Nascimento:</label>
-										<div class="col-md-2">
-											<input id="textinput" name="caminhoneiro.dataNascimento"
-												class="form-control input-md"
-												disabled="disabled" required="" type="text" value="${caminhoneiro.getDataNascimento()}">
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="col-md-4 control-label" for="txtgrupo">Cidade *</label>
+										<label class="col-md-2 control-label" for="cnpj">C.N.P.J:</label>
 										<div class="col-md-4">
-											<select id="txtgrupo" name="caminhoneiro.cidade.codigo"
+											<input id="cnpj" name="agencia.cnpj" placeholder="C.N.P.J" class="form-control input-md"
+											required="" type="text" value="${a.cnpj}">
+										</div>
+									</div>
+									
+																		<!-- Text input-->
+									<div class="form-group">
+										<label class="col-md-2 control-label" for="cnpj">Responsável:</label>
+										<div class="col-md-4">
+											<input id="cnpj" name="agencia.responsavel" placeholder="Placa do Veículo" class="form-control input-md"
+											 required="" type="text" value="${a.responsavel}">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-md-2 control-label" for="cidade">Cidade *</label>
+										<div class="col-md-4">
+											<select id="cidade" name="agencia.cidade"
 												class="form-control">
-												<option selected="selected">Selecione</option>
-												<c:forEach var="cidade" items="${cidades}">
-													<option value="${cidade.nome} - ${cidade.cidade}"></option>
+												<c:forEach var="cidade" items="${cidade}">
+													<option value="${cidade.codigo}" 
+														<c:if test="${a.cidade eq cidade.codigo}">
+															selected="selected"
+														</c:if>>
+														<c:out value="${cidade.nome} - ${cidade.uf}" />
+													</option>
 												</c:forEach>
 											</select>
 										</div>
 									</div>
-
-									<div class="form-group">
-										<label class="col-md-4 control-label" for="txtgrupo">Tipo
-											de sua Carteira *</label>
-										<div class="col-md-4">
-											<select id="txtgrupo" name="txtgrupo" class="form-control">
-												<option>Selecione</option>
-												<option value="1">A</option>
-												<option value="2">B</option>
-												<option value="3">D</option>
-												<option value="4">E</option>
-											</select>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="col-md-4 control-label" for="textinput">Número
-											da C.N.H *</label>
-										<div class="col-md-4">
-											<input id="textinput" name="caminhoneiro.numeroCNH"
-												placeholder="Digite o número de sua C.N.H"
-												class="form-control input-md" required="" type="text" value="${caminhoneiro.getNumeroCNH()}">
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="col-md-4 control-label">Cursos em Gargas
-											perigosas ou Específicas *</label>
-										<div class="col-md-5">
-											<label> <input type="radio" name="opcao"
-												value="perigosaSim"> - SIM
-											</label> <label> <input type="radio" name="opcao"
-												value="perigosaNao"> - NÃO
-											</label>
-										</div>
-									</div>
-
+								
 									<!-- Text input-->
 									<div class="form-group">
-										<label class="col-md-4 control-label" for="textinput">Seu
-											E-mail: *</label>
+										<label class="col-md-2 control-label" for="email">Seu e-mail: *</label>
 										<div class="col-md-4">
-											<input id="textinput" name="textinput"
-												placeholder="Digite seu E-mail"
-												class="form-control input-md" required="" type="text" value="${caminhoneiro.getEmail()}">
+											<input id="email" name="agencia.email" placeholder="Digite seu E-mail" class="form-control input-md" 
+												required="" type="text" value="${a.email}">
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label class="col-md-4 control-label" for="textinput">Sua
-											Senha: *</label>
+										<label class="col-md-2 control-label" for="senha">Sua Senha: *</label>
 										<div class="col-md-4">
-											<input id="textinput" name="caminhoneiro.senha"
-												placeholder="Digite sua Senha" class="form-control input-md"
-												required="" type="password" value="${caminhoneiro.getSenha()}">
+											<input id="senha" name="agencia.senha" placeholder="Digite sua Senha" class="form-control input-md"
+												required="" type="password" value="${a.senha}">
 										</div>
 									</div>
 
 
 									<!-- Botões para Cadastrar o Frete-->
 									<div class="col-xs-12 botoes-cadastra-frete">
-										<div class="col-xs-12 col-md-3 col-md-offset-4">
+										<div class="col-xs-12 col-md-3 col-md-offset-2">
 											<button type="button" class="btn btn-lg btn-success"
 												href="index.html">Confirmar Edição</button>
 										</div>
