@@ -90,13 +90,15 @@
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<div class="panel-title">
-								<h4>Aqui você vai colocar os dados do Frete.</h4>
+								<h4>Cadastre seu Frete aqui</h4>
 							</div>
 						</div>
 						<div class="table-responsive">
 							<form class="form-horizontal" action="${linkTo[AgenciaController].salvarFrete}" method="post">
 								<fieldset>
+
 									<input type="hidden" name="frete.agencia.codigo" value="${agencia.agencia.codigo}">
+									
 									<div class="form-group">
 										<label class="col-md-4 control-label" for="txtgrupo"
 											required="">Cidade de Origem</label>
@@ -110,6 +112,17 @@
 											</select>
 										</div>
 									</div>
+									
+									<!-- Text input-->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="textinput">Local de Retirada</label>
+										<div class="col-md-4">
+											<input id="textinput" name="frete.localRetirada"
+												placeholder="Local de Retirada do Frete" class="form-control input-md"
+												required="" type="text">
+										</div>
+									</div>
+
 
 									<div class="form-group">
 										<label class="col-md-4 control-label" for="txtgrupo"
@@ -125,10 +138,20 @@
 										</div>
 									</div>
 
+									<!-- Text input-->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="textinput">Local de Entrega</label>
+										<div class="col-md-4">
+											<input id="textinput" name="frete.localEntrega"
+												placeholder="Local de Entrega do Frete" class="form-control input-md"
+												required="" type="text">
+										</div>
+									</div>
+
 									<!-- Select Basic -->
 									<div class="form-group">
 										<label class="col-md-4 control-label"
-											for="txtcodigo_unidade_id">Tipo Carroceria : </label>
+											for="txtcodigo_unidade_id">Tipo Carroceria</label>
 										<div class="col-md-4">
 											<select id="txtcodigo_unidade_id" name="frete.tipoCarroceria"
 												class="form-control">
@@ -149,7 +172,7 @@
 									<!-- Text input-->
 									<div class="form-group">
 										<label class="col-md-4 control-label" for="textinput">Peso
-											(KG):</label>
+											(KG)</label>
 										<div class="col-md-2">
 											<input id="textinput" name="frete.peso"
 												placeholder="000.00KG" class="form-control input-md"

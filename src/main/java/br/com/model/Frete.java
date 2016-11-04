@@ -2,11 +2,16 @@ package br.com.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
+import br.com.enums.Status;
 import br.com.interfaces.UsoCodigo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,6 +23,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@NamedQueries({@NamedQuery(name = "Frete.POR_CIDADE", query = "select f from Frete f where f.cidade = ?1")})
 public class Frete implements UsoCodigo{
 
 	//Criando Um cadastro para o Frete.
@@ -45,6 +51,16 @@ public class Frete implements UsoCodigo{
 	
 	@Column
 	private String perigosa;
+	
+	@Column
+	private String localRetirada;
+	
+	@Column
+	private String localEntrega;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false, length = 30)
+	private Status statusFrete = Status.ABERTO;
 		
 	@ManyToOne(optional = false, targetEntity = Agencia.class)
 	private Agencia agencia;

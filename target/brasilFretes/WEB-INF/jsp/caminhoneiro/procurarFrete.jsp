@@ -15,7 +15,7 @@
 		<link rel="shortcut icon"href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
 
-		<title>BrasilFretes - Início</title>
+		<title>Procurar Fretes - BrasilFretes</title>
 	</head>
 <body>
 
@@ -80,53 +80,19 @@
 						<div class="panel-heading">Use os Filtros para fazer a
 							Pesquisa</div>
 						<div class="panel-body">
-
-							<div class="col-xs-6 form-group">
-								<label class="col-md-2 control-label" for="txtgrupo">Cidade
-									:</label>
-								<div class="col-md-10">
-									<select id="txtgrupo" name="caminhoneiro.cidade.codigo"
-										class="form-control">
-										<option selected="selected">Selecione</option>
-										<c:forEach var="cidade" items="${cidades}">
-											<option value="${cidade.codigo}">${cidade.nome} - ${cidade.uf}</option>
-										</c:forEach>
-									</select>
-								</div>
+						<div class="container">
+						<form class="form-inline" action="${linkTo[CaminhoneiroController].pesquisar}" method="post">
+							<div class="form-group">
+								<label class="sr-only" for="cidadeOrigem">Cidade</label>
+								<select id="cidadeOrigem" name="codCidade" class="form-control">
+									<c:forEach var="cidade" items="${cidades}">
+										<option value="${cidade.codigo}">${cidade.nome} - ${cidade.uf}</option>
+									</c:forEach>
+								</select>
 							</div>
-
-							<div class="col-xs-6 form-group">
-								<label class="col-md-2 control-label" for="txtgrupo">Tipo
-									de Carroceria Necessária :</label>
-								<div class="col-md-10">
-									<select id="txtcodigo_unidade_id"
-										name="caminhao.tipoCarroceria" class="form-control">
-										<option selected="selected">Selecione</option>
-										<option value="1">Baú Alumínio</option>
-										<option value="2">Baú Lonado</option>
-										<option value="3">Báu Transporte de Bebidas</option>
-										<option value="4">Baú Frigirífico</option>
-										<option value="5">Basculante</option>
-										<option value="6">Carroceria Carga Seca</option>
-										<option value="7">Graneleira</option>
-										<option value="8">Bitrem</option>
-										<option value="8">Treminhão</option>
-									</select>
-								</div>
-							</div>
-
-							<div class="col-xs-12">
-								<div class="col-xs-12 col-md-2 col-md-offset-4">
-									<button type="button" class="btn btn-md btn-success"
-										href="index.html">Pesquisar</button>
-								</div>
-								<div class="col-xs-12 col-md-2">
-									<button href="index.html" type="button"
-										class="btn btn-md btn-danger">Cancelar</button>
-								</div>
-							</div>
-
-
+							<button type="submit" class="btn btn-success">Pesquisar</button>
+						</form>
+						</div>
 						</div>
 					</div>
 					<!--End Line chart -->
@@ -152,48 +118,18 @@
                     </tr> 
                   </thead>
                   <tbody>
-                          <tr>
-                            	<td align="center">
-                              		<a class="btn btn-success">Candidatar-se</a>                        
-                            	</td>
-                            <td>
-                              	<c:out value="${frete.frete.codigo}" />
-                            </td>
-                            <td>
-                              	<c:out value="${cidade.nome} - ${cidade.uf}" />
-                            </td>
-                            <td>
-                              	<c:out value="${frete.frete.codigo}" />
-                            </td>
-                            <td>
-                              	<c:out value="${frete.frete.codigo}" />
-                            </td>
-                            <td>
-                              	<c:out value="${frete.frete.codigo}" />
-                            </td>                         
-                          </tr>
+						<c:forEach var="frete" items="${freteList}">
+							<tr>
+								<td>
+									<c:out value="${frete.cidade}" />
+								</td>
+								<td>
+									<c:out value="${frete.observacoes}" />
+								</td>
+								</tr>
+						</c:forEach>
                         </tbody>
                 </table>
-            
-              </div>
-              <div class="panel-footer">
-                <div class="row">
-                  <div class="col col-xs-4">Page 1 of 5
-                  </div>
-                  <div class="col col-xs-8">
-                    <ul class="pagination hidden-xs pull-right">
-                      <li><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                    </ul>
-                    <ul class="pagination visible-xs pull-right">
-                        <li><a href="#">«</a></li>
-                        <li><a href="#">»</a></li>
-                    </ul>
-                  </div>
-                </div>
               </div>
             </div>
 		</div>

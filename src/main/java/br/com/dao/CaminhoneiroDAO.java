@@ -1,5 +1,7 @@
 package br.com.dao;
 
+import java.util.List;
+
 import javax.enterprise.context.RequestScoped;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
@@ -23,6 +25,16 @@ public class CaminhoneiroDAO extends HibernateDAO<Caminhoneiro>{
 			this.finalizar();
 		}
 	}
-
+	
+	public List<Caminhoneiro> findByCidade(Integer codCidade) {
+		try {
+			this.conectar();
+			TypedQuery<Caminhoneiro> query = em.createNamedQuery("Caminhoneiro.POR_CIDADE", Caminhoneiro.class);
+			query.setParameter(1, codCidade);
+			return query.getResultList();
+		} finally {
+			this.finalizar();
+		}
+	}
 	
 }

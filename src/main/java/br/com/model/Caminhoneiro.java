@@ -24,8 +24,8 @@ import lombok.Setter;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@NamedQueries({ @NamedQuery(name = "Caminhoneiro.POR_USUARIO", query = "select c from Caminhoneiro c where c.email = ?1"),
-	/* @NamedQuery(name = "Frete.POR_CIDADE", query = "select f from frete f where f.cidade = ?l")*/
+@NamedQueries({ @NamedQuery(name = "Caminhoneiro.POR_USUARIO", query = "select c from Caminhoneiro c where c.email = ?1"),	
+				@NamedQuery(name = "Caminhoneiro.POR_CIDADE", query = "select c from Caminhoneiro c where c.cidade = ?1")
 })
 public class Caminhoneiro implements UsoCodigo{
 	

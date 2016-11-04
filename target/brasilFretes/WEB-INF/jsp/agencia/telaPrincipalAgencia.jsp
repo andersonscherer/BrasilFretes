@@ -65,6 +65,10 @@
 			</div> 
 		</nav>
 	</div>
+	
+	<div class="col-xs-12 bannerTelaInicial">
+	
+	</div>
 
 </body>
 </html>

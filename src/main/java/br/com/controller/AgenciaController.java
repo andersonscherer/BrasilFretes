@@ -1,5 +1,7 @@
 package br.com.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
@@ -7,10 +9,12 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.dao.AgenciaDAO;
+import br.com.dao.CaminhoneiroDAO;
 import br.com.dao.CidadeDAO;
 import br.com.dao.FreteDAO;
 import br.com.exception.DAOException;
 import br.com.model.Agencia;
+import br.com.model.Caminhoneiro;
 import br.com.model.Cidade;
 import br.com.model.Frete;
 
@@ -24,6 +28,8 @@ public class AgenciaController {
 	private final AgenciaDAO agenciaDAO;
 
 	private final FreteDAO freteDAO;
+	
+	private final CaminhoneiroDAO caminhoneiroDAO;
 
 	// CADA CONTROLER E RESPONSAVEL POR SUA ACOOES POR EXEMPLO O INDEXCONTROLLER
 	// CHAMA A TELA DE INICIO E A TELA DE OPCOES ESCOLHA
@@ -32,16 +38,18 @@ public class AgenciaController {
 	 * @deprecated CDI eyes only Necessario para os controllers
 	 */
 	protected AgenciaController() {
-		this(null, null, null, null);
+		this(null, null, null, null, null);
 	}
 
 	@Inject
-	public AgenciaController(Result result, CidadeDAO cidadeDAO, AgenciaDAO agenciaDAO, FreteDAO freteDAO) {
+	public AgenciaController(Result result, CidadeDAO cidadeDAO, AgenciaDAO agenciaDAO, 
+			FreteDAO freteDAO, CaminhoneiroDAO caminhoneiroDAO) {
 		super();
 		this.result = result;
 		this.cidadeDAO = cidadeDAO;
 		this.agenciaDAO = agenciaDAO;
 		this.freteDAO = freteDAO;
+		this.caminhoneiroDAO = caminhoneiroDAO;
 	}
 
 	@Post
@@ -74,8 +82,14 @@ public class AgenciaController {
 	}
 
 	@Path("/procurarCaminhoneiros")
-	public void procurarCaminhoneiros() {
-		result.include("cidade", cidadeDAO.listar(Cidade.class));
+	public List<Caminhoneiro> procurarCaminhoneiros(Integer codCidade) {
+		result.include("cidades", cidadeDAO.listar(Cidade.class));
+		return codCidade == null ? null : caminhoneiroDAO.findByCidade(codCidade);
+	}
+	
+	@Post("/pesquisarFrete")
+	public void pesquisarFrete(Integer codCidade){
+		result.redirectTo(this).procurarCaminhoneiros(codCidade);
 	}
 
 	@Path("/editarCadastroAgencia/{codAgencia}")
@@ -120,4 +134,5 @@ public class AgenciaController {
 		//
 		// return fretes;
 	}
+	
 }

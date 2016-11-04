@@ -6,14 +6,13 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
-		<link href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/bootstrap.css"rel="stylesheet" type="text/css">
-		<link rel="stylesheet" type="text/css"href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/assets/plugins/pace/pace-theme-big-counter.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/style.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/main-style.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/styleSistema.css">
-
 		<link rel="shortcut icon"href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
 
@@ -78,6 +77,7 @@
                   </div>
                 </div>
               </div>
+              
               <div class="panel-body">
                 <table class="table table-striped table-bordered table-list">
                   <thead>
@@ -91,17 +91,17 @@
                     </tr> 
                   </thead>
                   <tbody>
-                          <tr>
-                            <td align="center">
-                              <a class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>                         
-                            </td>
-                            <td class="hidden-md">1</td>
-                            <td>Chapecó - SC</td>
-                            <td>Florianópolis - SC</td>
-                            <td>159,50</td>                                  
-                            <td>ABERTO</td>                            
-                          </tr>
-                        </tbody>
+                     <tr>
+                        <td align="center">
+						   <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modal1"><em class="fa fa-trash-o"></em></a>                       
+                       </td>
+                       <td class="hidden-md">1</td>
+                       <td>Chapecó - SC</td>
+                       <td>Florianópolis - SC</td>
+                       <td>159,50</td>                                  
+                       <td>ABERTO</td>                            
+                    </tr>
+                 </tbody>
                 </table>
               </div>
               
@@ -126,38 +126,18 @@
                     </tr> 
                   </thead>
                   <tbody>
-                          <tr>
-                            <td align="center">
-                              <a class="btn btn-success">Escolher Caminhoneiro</a>                              
-                            </td>
-                            <td class="hidden-md">1</td>
-                            <td>Mário Quintana de Souza Abreu</td>
-                            <td>Florianópolis - SC</td>
-                            <td>(49) 3222-5689</td>                                  
-                            <td>marioquintana@hotmail.com</td>                            
-                          </tr>
-                        </tbody>
+                       <tr>
+                         <td align="center">
+                            <a class="btn btn-success">Escolher Caminhoneiro</a>                              
+                        </td>
+                          <td class="hidden-md">1</td>
+                          <td>Mário Quintana de Souza Abreu</td>
+                          <td>Florianópolis - SC</td>
+                          <td>(49) 3222-5689</td>                                  
+                          <td>marioquintana@hotmail.com</td>                            
+                      </tr>
+                 </tbody>
                 </table>
-              </div>
-              
-              <div class="panel-footer">
-                <div class="row">
-                  <div class="col col-xs-4">Page 1 of 5
-                  </div>
-                  <div class="col col-xs-8">
-                    <ul class="pagination hidden-xs pull-right">
-                      <li><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                    </ul>
-                    <ul class="pagination visible-xs pull-right">
-                        <li><a href="#">«</a></li>
-                        <li><a href="#">»</a></li>
-                    </ul>
-                  </div>
-                </div>
               </div>
             </div>
         </div>
@@ -170,13 +150,18 @@
 			aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content modal-popup">
-					<h3 class="white">Como quer fazer Login ?</h3>
+					<h3 class="white">Tem Certeza que deseja Exluir o Frete ?</h3>
 					<a href="<c:url value='/loginCaminhoneiro'/>"
-						class="btn btn-primary">Camihoneiro</a> <a
-						href="<c:url value='/loginAgencia'/>" class="btn btn-primary">Agência</a>
+						class="btn btn-primary">Sim</a> <a
+						href="<c:url value='/loginAgencia'/>" class="btn btn-danger">Não</a>
 				</div>
 			</div>
 		</div>
+
+    <!-- Scripts -->
+    <script src="<%=request.getContextPath()%>/resources/js/jquery-1.11.1.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/js/wow.min.js"></script>
 
 </body>
 </html>

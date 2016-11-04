@@ -15,7 +15,7 @@
 		<link rel="shortcut icon"href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
 
-		<title>Cadastro De Caminhão - BrasilFretes</title>
+		<title>Acompanhar Pedido - BrasilFretes</title>
 	</head>
 <body>
 

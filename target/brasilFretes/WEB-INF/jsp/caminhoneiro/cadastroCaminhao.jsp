@@ -24,10 +24,8 @@
 		<!-- navbar top -->
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar"> 
 			<div class="navbar-header">
-				<a class="light white navbar-brand"
-					href="<c:url value='telaPrincipalCaminhoneiro'/>"><img
-					src="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png"
-					alt="">
+				<a class="light white navbar-brand" href="<c:url value='telaPrincipalCaminhoneiro'/>"><img
+					src="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png" alt="">
 				</a>
 			</div>
 			<ul class="nav navbar-top-links navbar-right">
@@ -65,12 +63,7 @@
 	
 		
 	<div id="wrapper">
-		<!-- navbar top -->
-
-		<!-- end navbar side -->
-		<!--  page-wrapper -->
 		<div id="page-wrapper">
-
 			<div class="row">
 				<!--page header-->
 				<div class="col-lg-12">
@@ -99,19 +92,21 @@
 							<form class="form-horizontal"
 								action="${linkTo[CaminhoneiroController].salvarCaminhao}" method="post">
 								<fieldset>
-										<input type="hidden" name="caminhao.caminhoneiro.codigo" value="${usuario.caminhoneiro.codigo}">
-									<div class="form-group">
-										<label class="col-md-4 control-label" for="txtgrupo">Marca :</label>
-										<div class="col-md-4">
-											<select id="txtgrupo" name="caminhao.marcaCaminhao"
-												class="form-control">
-												<option selected="selected">Selecione</option>
-												<c:forEach var="marcaCaminhao" items="${marcasCaminhao}">
-													<option value="${marcaCaminhao.codigo}">${marcaCaminhao.nome}</option>
-												</c:forEach>
-											</select>
+										
+									<input type="hidden" name="caminhao.caminhoneiro.codigo" value="${usuario.caminhoneiro.codigo}">
+										
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="txtgrupo">Marca :</label>
+												<div class="col-md-4">
+													<select id="txtgrupo" name="caminhao.marcaCaminhao"
+														class="form-control">
+													<option selected="selected">Selecione</option>
+													<c:forEach var="marcaCaminhao" items="${marcasCaminhao}">
+															<option value="${marcaCaminhao.codigo}">${marcaCaminhao.nome}</option>
+													</c:forEach>
+													</select>
+											   </div>
 										</div>
-									</div>
 
 									<!-- Text input-->
 									<div class="form-group">

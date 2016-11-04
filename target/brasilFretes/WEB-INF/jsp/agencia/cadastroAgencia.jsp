@@ -3,59 +3,36 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<!-- Normalize -->
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
-<!-- Bootstrap -->
-<link
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/bootstrap.css"
-	rel="stylesheet" type="text/css">
-<!-- Owl -->
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
-<!-- Animate.css -->
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/animate.css">
-<!-- Font Awesome -->
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/font-awesome.min.css">
-<!-- Elegant Icons -->
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/et-icons.css">
-<!-- Main style -->
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/styleSistema.css">
-
-<link rel="shortcut icon"
-	href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
-
-<link href='http://fonts.googleapis.com/css?family=Buenard:700'
-	rel='stylesheet' type='text/css'>
-<title>BrasilFretes - Cadastro de Agências</title>
-</head>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/animate.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/et-icons.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/styleSistema.css">
+		<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
+		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Buenard:700'>
+		<title>BrasilFretes - Cadastro de Agências</title>
+	</head>
 <body>
-	<div class="preloader">
-		<img src="<%=request.getContextPath()%>/resources/imagens/loader.gif"
-			alt="Preloader image">
+	<div class="preloader"> <img src="<%=request.getContextPath()%>/resources/imagens/loader.gif" alt="Preloader image">
 	</div>
 	<nav class="navbar">
-	<div class="container">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
 			<a class="light white navbar-brand" href="<c:url value='/'/>"><img
 				src="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png"
 				data-active-url="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png"
 				alt=""></a>
-		</div>
-		<!-- Collect the nav links, forms, and other content for toggling -->
+		   </div>
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right main-nav">
@@ -64,31 +41,30 @@
                 <li><a href="<c:url value='/opcoesCadastro'/>" class="btn btn-success">Cadastre-se</a></li>
 			</ul>
 		</div>
-		<!-- /.navbar-collapse -->
-	</div>
-	<!-- /.container-fluid --> </nav>
+	    </div>
+	</nav>
 
 	<header>
-	<div class="container">
-		<div class="table">
-			<div class="header-text">
-				<div class="row">
-					<c:if test="${not empty msgSucesso}">
-			<div class="alert alert-success" role="alert">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<c:out value="${msgSucesso}" />
-			</div>
-	</c:if>
+		<div class="container">
+			<div class="table">
+				<div class="header-text">
+					<div class="row">
+						<c:if test="${not empty msgSucesso}">
+							<div class="alert alert-success" role="alert">
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<c:out value="${msgSucesso}" />
+						   </div>
+						</c:if>
 					<h3 class="white ">Caminhoneiro. Cadastre-se em nosso sistema
 						logo abaixo, e aproveite todas as funcionalidades nele
 						disponíveis.</h3>
 					<h2 class=" white">É GRATUÍTO !</h2>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</header>
 
 	<div class="col-xs-12 linha-cadastro ">
@@ -102,7 +78,6 @@
 				<h3 class="RoyalBlue">Dados pertinentes a Empresa</h3>
 			</div>
 			<div class="container">
-
 				<fieldset>
 
 					<!-- Form Name -->

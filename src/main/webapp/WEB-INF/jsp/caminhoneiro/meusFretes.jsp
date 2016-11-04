@@ -15,7 +15,7 @@
 		<link rel="shortcut icon"href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
 
-		<title>BrasilFretes - Início</title>
+		<title>Meus Fretes - BrasilFretes</title>
 	</head>
 <body>
 

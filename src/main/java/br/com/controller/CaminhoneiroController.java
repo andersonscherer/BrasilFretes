@@ -1,5 +1,7 @@
 package br.com.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
@@ -11,11 +13,13 @@ import br.com.caelum.vraptor.Result;
 import br.com.dao.CaminhaoDAO;
 import br.com.dao.CaminhoneiroDAO;
 import br.com.dao.CidadeDAO;
+import br.com.dao.FreteDAO;
 import br.com.dao.MarcaCaminhaoDAO;
 import br.com.exception.DAOException;
 import br.com.model.Caminhao;
 import br.com.model.Caminhoneiro;
 import br.com.model.Cidade;
+import br.com.model.Frete;
 import br.com.model.MarcaCaminhao;
 
 @Controller
@@ -31,6 +35,8 @@ public class CaminhoneiroController {
 
 	private final CaminhaoDAO caminhaoDAO;
 
+	private final FreteDAO freteDAO;
+	
 	// CADA CONTROLER E RESPONSAVEL POR SUA ACOOES POR EXEMPLO O INDEXCONTROLLER
 	// CHAMA A TELA DE INICIO E A TELA DE OPCOES ESCOLHA
 
@@ -38,18 +44,19 @@ public class CaminhoneiroController {
 	 * @deprecated CDI eyes only Necessario para os controllers
 	 */
 	protected CaminhoneiroController() {
-		this(null, null, null, null, null);
+		this(null, null, null, null, null, null);
 	}
 
 	@Inject
 	public CaminhoneiroController(Result result, CidadeDAO cidadeDAO, MarcaCaminhaoDAO marcaCaminhaoDAO,
-			CaminhoneiroDAO caminhoneiroDAO, CaminhaoDAO caminhaoDAO) {
+			CaminhoneiroDAO caminhoneiroDAO, CaminhaoDAO caminhaoDAO, FreteDAO freteDAO) {
 		super();
 		this.result = result;
 		this.cidadeDAO = cidadeDAO;
 		this.marcaCaminhaoDAO = marcaCaminhaoDAO;
 		this.caminhoneiroDAO = caminhoneiroDAO;
 		this.caminhaoDAO = caminhaoDAO;
+		this.freteDAO = freteDAO;
 	}
 
 	@Path("/cadastroCaminhoneiro")
@@ -101,10 +108,16 @@ public class CaminhoneiroController {
 	}
 
 	@Path("/procurarFrete")
-	public void procurarFrete() {
+	public List<Frete> procurarFrete(Integer codCidade) {
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
+		return codCidade == null ? null : freteDAO.findByCidade(codCidade);
 	}
-
+	
+	@Post("/pesquisar")
+	public void pesquisar(Integer codCidade){
+		result.redirectTo(this).procurarFrete(codCidade);
+	}
+	
 	@Post
 	public void salvarCaminhao(Caminhao caminhao) {
 		try {

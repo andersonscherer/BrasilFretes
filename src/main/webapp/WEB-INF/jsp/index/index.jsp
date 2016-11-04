@@ -145,7 +145,6 @@
                         <p class="description">A agência avalia escolhe um caminhoneiro que irá ser responsabilizado por esta encomenda</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -235,29 +234,29 @@
                 </div>
             </div>
             <div class="container">
-                <div class="col-md-7">
-                    <form>
+            	<form>
+              	  <div class="col-md-7">
+                    
                         <legend><span class="glyphicon glyphicon-globe"></span> Nosso Escritório Está aqui</legend>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m0!3m2!1spt-BR!2sbr!4v1472603314150!6m8!1m7!1sWLu77DqLdGQtW0KuXXVPcQ!2m2!1d-27.07539808991683!2d-52.61882539554554!3f15.388341927748147!4f3.0023687196608506!5f0.7820865974627469" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                	</div>
+                <div class="col-xs-4 endereco">
+                	<address>
+                		<h2>BrasilFretes</h2><br>
+                			Rua Venezuela 367-D<br>
+                			Chapecó, SC <br>
+                			<abbr title="Phone">
+                   			 Tel:</abbr>
+                				(49) 9816-0522
+            	   </address>
+                   <address>
+                		<strong>Anderson Scherer</strong><br>
+                			<a href="mailto:#">anderson@brasilfretes.com</a>
+            	  </address>
+                    
                 </div>
-                <div class="col-xs-4 endereco"><address>
-                <h2>BrasilFretes</h2><br>
-                Rua Venezuela 367-D<br>
-                Chapecó, SC <br>
-                <abbr title="Phone">
-                    Tel:</abbr>
-                (49) 9816-0522
-            </address>
-                    <address>
-                <strong>Anderson Scherer</strong><br>
-                <a href="mailto:#">anderson@brasilfretes.com</a>
-            </address>
-                    </form>
-                </div>
-
+			  </form>
             </div>
-
-
     </footer>
 
     <div class="col-xs-12 copyright">
@@ -286,9 +285,8 @@
 
 
     <!-- Scripts -->
-    <script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/jquery-1.11.1.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/owl.carousel.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/js/owl.carousel.min.js"></script> 
     <script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/wow.min.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/typewriter.js"></script>
