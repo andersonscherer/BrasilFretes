@@ -95,18 +95,23 @@
 								<h4>Procure por Caminhoneiros com os Filtros Disponíveis</h4>
 							</div>
 						</div>
+						<div class="panel-body">
 						<div class="container">
-						<form class="form-inline" action="${linkTo[AgenciaController].pesquisar}" method="post">
-							<div class="form-group">
-								<label class="sr-only" for="cidade">Cidade</label>
-								<select id="cidade" name="codCidade" class="form-control">
-									<c:forEach var="cidade" items="${cidades}">
-										<option value="${cidade.codigo}">${cidade.nome} - ${cidade.uf}</option>
-									</c:forEach>
-								</select>
+							<form class="form-inline" action="${linkTo[AgenciaController].pesquisar}" method="post">
+								<div class="form-group">
+									<label for="cidade">Cidade:</label>
+									<select id="cidade" name="cidade.codigo" class="form-control">
+										<c:forEach var="cidade" items="${cidades}">
+											<option value="${cidade.codigo}" 
+												<c:if test="${cidadeEscolhida.codigo eq cidade.codigo}"> selected="selected"</c:if>>
+												${cidade.nome} - ${cidade.uf}
+											</option>
+										</c:forEach>
+									</select>
+								</div>
+								<button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> Pesquisar</button>
+							</form>
 							</div>
-							<button type="submit" class="btn btn-success">Pesquisar</button>
-						</form>
 						</div>
 					</div>
 				</div>
@@ -123,12 +128,13 @@
 						</div>
 					</div>
 					<div class="panel-body">
-						<table class="table table-striped table-bordered table-list">
+						<table class="table table-hover">
 							<thead>
-								<tr>
+								<tr class="success">
 									<th>Nome</th>
 									<th>Telefone</th>
 									<th>E-Mail</th>
+									<th WIDTH=100>Opções</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -143,6 +149,9 @@
 									<td>
 										<c:out value="${caminhoneiro.email}" />
 									</td>
+									<td align="center">
+										<a class="btn btn-primary btn-sm" href="#"><i class="fa fa-user" aria-hidden="true"></i> Selecionar caminhoneiro</a>                            
+	                            	</td>
 								</tr>
 								</c:forEach>
 							</tbody>

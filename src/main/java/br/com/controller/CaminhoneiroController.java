@@ -108,14 +108,20 @@ public class CaminhoneiroController {
 	}
 
 	@Path("/procurarFrete")
-	public List<Frete> procurarFrete(Integer codCidade) {
+	public List<Frete> procurarFrete(Cidade cidade) {
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
-		return codCidade == null ? null : freteDAO.findByCidade(codCidade);
+		result.include("cidadeEscolhida", cidade);
+		
+		if (cidade != null && cidade.getCodigo() != null) {
+			return freteDAO.findByCidade(cidade);
+		}
+		
+		return null;
 	}
 	
-	@Post("/pesquisar")
-	public void pesquisar(Integer codCidade){
-		result.redirectTo(this).procurarFrete(codCidade);
+	@Post("/pesquisarFrete")
+	public void pesquisarFrete(Cidade cidade){
+		result.redirectTo(this).procurarFrete(cidade);
 	}
 	
 	@Post

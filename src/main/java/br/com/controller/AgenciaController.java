@@ -82,14 +82,20 @@ public class AgenciaController {
 	}
 
 	@Path("/procurarCaminhoneiros")
-	public List<Caminhoneiro> procurarCaminhoneiros(Integer codCidade) {
+	public List<Caminhoneiro> procurarCaminhoneiros(Cidade cidade) {
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
-		return codCidade == null ? null : caminhoneiroDAO.findByCidade(codCidade);
+		result.include("cidadeEscolhida", cidade);
+		
+		if (cidade != null && cidade.getCodigo() != null) {
+			return caminhoneiroDAO.findByCidade(cidade);
+		}
+		
+		return null;
 	}
 	
-	@Post("/pesquisarFrete")
-	public void pesquisarFrete(Integer codCidade){
-		result.redirectTo(this).procurarCaminhoneiros(codCidade);
+	@Post("/pesquisar")
+	public void pesquisar(Cidade cidade){
+		result.redirectTo(this).procurarCaminhoneiros(cidade);
 	}
 
 	@Path("/editarCadastroAgencia/{codAgencia}")

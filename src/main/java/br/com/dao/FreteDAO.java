@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Set;
 
 import javax.persistence.TypedQuery;
+
+import br.com.model.Cidade;
 import br.com.model.Frete;
 
 public class FreteDAO extends HibernateDAO<Frete>{
@@ -20,11 +22,11 @@ public class FreteDAO extends HibernateDAO<Frete>{
 		}
 	}
 	
-	public List<Frete> findByCidade(Integer codCidade) {
+	public List<Frete> findByCidade(Cidade cidade) {
 		try {
 			this.conectar();
 			TypedQuery<Frete> query = em.createNamedQuery("Frete.POR_CIDADE", Frete.class);
-			query.setParameter(1, codCidade);
+			query.setParameter(1, cidade);
 			return query.getResultList();
 		} finally {
 			this.finalizar();

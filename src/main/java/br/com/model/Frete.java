@@ -23,7 +23,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@NamedQueries({@NamedQuery(name = "Frete.POR_CIDADE", query = "select f from Frete f where f.cidade = ?1")})
+@NamedQueries({@NamedQuery(name = "Frete.POR_CIDADE", query = "select f from Frete f where f.cidadeOrigem = ?1")})
 public class Frete implements UsoCodigo{
 
 	//Criando Um cadastro para o Frete.
@@ -31,11 +31,11 @@ public class Frete implements UsoCodigo{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 	
-	@Column
-	private Integer cidade;
+	@ManyToOne(optional = false, targetEntity = Cidade.class)
+	private Cidade cidadeOrigem;
 	
-	@Column
-	private Integer cidadeDestino;
+	@ManyToOne(optional = false, targetEntity = Cidade.class)
+	private Cidade cidadeDestino;
 	
 	@Column
 	private Double peso;

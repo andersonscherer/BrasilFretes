@@ -89,7 +89,7 @@
 						<div class="col-md-5">
 							<input type="text" class="form-control input-sm"
 								placeholder="Nome da Empresa" aria-describedby="basic-addon1"
-								name="agencia.razaoFantasia" required="">
+								name="agencia.razaoSocial" required="">
 						</div>
 					</div>
 

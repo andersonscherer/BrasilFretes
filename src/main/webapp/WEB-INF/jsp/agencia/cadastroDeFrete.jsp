@@ -103,7 +103,7 @@
 										<label class="col-md-4 control-label" for="txtgrupo"
 											required="">Cidade de Origem</label>
 										<div class="col-md-4">
-											<select id="txtgrupo" name="frete.cidadeDestino.codigo"
+											<select id="txtgrupo" name="frete.cidadeOrigem.codigo"
 												class="form-control">
 												<option selected="selected">Selecione</option>
 												<c:forEach var="cidade" items="${cidades}">
@@ -128,7 +128,7 @@
 										<label class="col-md-4 control-label" for="txtgrupo"
 											required="">Cidade de Destino</label>
 										<div class="col-md-4">
-											<select id="txtgrupo" name="frete.cidade.codigo"
+											<select id="txtgrupo" name="frete.cidadeDestino.codigo"
 												class="form-control">
 												<option selected="selected">Selecione</option>
 												<c:forEach var="cidade" items="${cidades}">

@@ -81,12 +81,15 @@
 							Pesquisa</div>
 						<div class="panel-body">
 						<div class="container">
-						<form class="form-inline" action="${linkTo[CaminhoneiroController].pesquisar}" method="post">
+						<form class="form-inline" action="${linkTo[CaminhoneiroController].pesquisarFrete}" method="post">
 							<div class="form-group">
 								<label class="sr-only" for="cidadeOrigem">Cidade</label>
-								<select id="cidadeOrigem" name="codCidade" class="form-control">
+								<select id="cidade" name="cidade.codigo" class="form-control">
 									<c:forEach var="cidade" items="${cidades}">
-										<option value="${cidade.codigo}">${cidade.nome} - ${cidade.uf}</option>
+										<option value="${cidade.codigo}" 
+											<c:if test="${cidadeEscolhida.codigo eq cidade.codigo}"> selected="selected"</c:if>>
+											${cidade.nome} - ${cidade.uf}
+										</option>
 									</c:forEach>
 								</select>
 							</div>
@@ -97,7 +100,8 @@
 					</div>
 					<!--End Line chart -->
 				</div>
-			</div>			 <div class="panel panel-primary panel-table">
+			</div>			
+			 <div class="panel panel-primary panel-table">
               <div class="panel-heading">
                 <div class="row">
                   <div class="col col-xs-6">
@@ -109,23 +113,44 @@
                 <table class="table table-striped table-bordered table-list">
                   <thead>
                     <tr>
-						<th><em class="fa fa-cog"></em></th>
-                        <th class="hidden-xs">Id do Frete</th>
+                    	<th>Interessado</th>
                         <th>Cidade Origem</th>
+                        <th>Local Retirada</th>
                         <th>Cidade Destino</th>
+                        <th>Local Entrega</th>
                         <th>Valor do Frete (R$)</th>                        
+                        <th>Observaçoes</th>
                         <th>Status</th>
                     </tr> 
                   </thead>
                   <tbody>
 						<c:forEach var="frete" items="${freteList}">
 							<tr>
+						    <td align="center">
+								<a class="btn btn-success">Candidatar-se</a>                            
+                            </td>
 								<td>
-									<c:out value="${frete.cidade}" />
+									<c:out value="${frete.cidade.nome}" />
 								</td>
+								<td>
+									<c:out value="${frete.localRetirada}" />
+								</td>								
+								<td>
+									<c:out value="${frete.cidade.nome}" />
+								</td>
+								<td>
+									<c:out value="${frete.localEntrega}" />
+								</td>									
+								<td>
+									<c:out value="${frete.valor}" />
+								</td>																	
 								<td>
 									<c:out value="${frete.observacoes}" />
 								</td>
+								<td>
+									<c:out value="${frete.statusFrete}" />
+								</td>								
+								
 								</tr>
 						</c:forEach>
                         </tbody>

@@ -12,9 +12,6 @@
 <link
 	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/bootstrap.css"
 	rel="stylesheet" type="text/css">
-<!-- Owl -->
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
 <!-- Animate.css -->
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/estilo_sistema/assets/plugins/pace/pace-theme-big-counter.css">
@@ -24,9 +21,7 @@
 <!-- Elegant Icons -->
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/style.css">
-<!-- Main style -->
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/main-style.css">
+
 
 <link rel="shortcut icon"
 	href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
@@ -74,9 +69,9 @@
 									</label>
 								</div>
 								<!-- Change this to a button or input when using this as a form -->
-								<button type="submit" class="btn btn-lg btn-success btn-block">Entrar</button>
+								<button type="submit" class="btn btn-lg btn-success btn-block espaco-btn">Entrar</button>
 								<a href="<c:url value='/'/>"
-									class="col-xs-12 btn btn-lg btn-primary">Voltar</a>
+									class="col-xs-12 btn btn-lg btn-primary espaco-btn">Voltar</a>
 							</fieldset>
 						</form>
 					</div>

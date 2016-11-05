@@ -99,9 +99,12 @@
 						<form class="form-inline" action="${linkTo[AgenciaController].pesquisar}" method="post">
 							<div class="form-group">
 								<label class="sr-only" for="cidade">Cidade</label>
-								<select id="cidade" name="codCidade" class="form-control">
+								<select id="cidade" name="cidade.codigo" class="form-control">
 									<c:forEach var="cidade" items="${cidades}">
-										<option value="${cidade.codigo}">${cidade.nome} - ${cidade.uf}</option>
+										<option value="${cidade.codigo}" 
+											<c:if test="${cidadeEscolhida.codigo eq cidade.codigo}"> selected="selected"</c:if>>
+											${cidade.nome} - ${cidade.uf}
+										</option>
 									</c:forEach>
 								</select>
 							</div>
