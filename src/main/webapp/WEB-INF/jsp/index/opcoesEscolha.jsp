@@ -3,29 +3,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<!-- Normalize -->
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
-    <!-- Bootstrap -->
-    <link href="<%=request.getContextPath()%>/resources/estilo_sistema/bootstrap.css" rel="stylesheet" type="text/css" >
-    <!-- Owl -->
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
-    <!-- Animate.css -->
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/animate.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/font-awesome.min.css">
-    <!-- Elegant Icons -->
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/et-icons.css">
-
-    <!-- Main style -->
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/styleSistema.css">
-    
-	<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
-	
-    <link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
-	<title>BrasilFretes - Opções de Cadastro</title>
-</head>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
+	    <link href="<%=request.getContextPath()%>/resources/estilo_sistema/bootstrap.css" rel="stylesheet" type="text/css" >
+	    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
+	    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/animate.css">
+    	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
+	    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/et-icons.css">
+	    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/styleSistema.css">
+		<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
+	    <link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
+		<title>BrasilFretes - Opções de Cadastro</title>
+	</head>
 <body>
     <div class="preloader">
         <img src="<%=request.getContextPath()%>/resources/imagens/loader.gif" alt="Preloader image">
@@ -49,41 +39,38 @@
                     <li><a href="<c:url value='/opcoesEscolha'/>" class="btn btn-success">Cadastre-se</a></li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container-fluid -->
     </nav>
 
     <header>
-        <div class="container">
+        <div class="container fluid">
             <div class="table">
                 <div class="header-text">
                     <div class="texto-escolha-cadastro">
-                        <h1><b>Deseja se cadastro como...</b></h1></div>
+                        <h1><b>Escolha uma das opções de Cadastro</b></h1></div>
                     <div class="row">
-                        <a href="<c:url value='/cadastroCaminhoneiro'/>"  class="btn btn-lg  btn-primary" role="button">Caminhoneiro</a>
-                        <a href="<c:url value='/cadastroAgencia'/>" class="btn btn-lg  btn-info"  role="button">Agência de Fretes</a>
-                    </div>
+                        <a href="<c:url value='/cadastroCaminhoneiro'/>"  class="btn btn-lg  btn-primary" role="button">
+                        <i class="fa fa-user" aria-hidden="true"></i> - Caminhoneiro</a>
+                        <a href="<c:url value='/cadastroAgencia'/>" class="btn btn-lg btn-primary" role="button">
+                        <i class="fa fa-truck" aria-hidden="true"></i> - Agência de Fretes</a>
+                   </div>
                 </div>
             </div>
         </div>
     </header>
 
     <div class="col-xs-12 copyright ">
-        <p>Todos os Direitos Reservados &copy; 2016 BrasilFretes.com
-            <p>
+        <p>Todos os Direitos Reservados &copy; 2016 BrasilFretes.com<p>
     </div>
-
-    <!-- Inclusão do Modal -->
-
+ 
+   <!-- Inclusão do Modal -->
 		<div class="modal fade" id="modal1" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content modal-popup">
 					<h3 class="white">Como quer fazer Login ?</h3>
-					<a href="<c:url value='/loginCaminhoneiro'/>"
-						class="btn btn-primary">Camihoneiro</a> <a
-						href="<c:url value='/loginAgencia'/>" class="btn btn-primary">Agência</a>
+					<a href="<c:url value='/loginCaminhoneiro'/>" class="btn btn-primary">Camihoneiro</a>
+					<a href="<c:url value='/loginAgencia'/>" class="btn btn-primary">Agência</a>
 				</div>
 			</div>
 		</div>
@@ -95,7 +82,6 @@
 
 
     <!-- Scripts -->
-
     <script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js "></script>
     <script src="<%=request.getContextPath()%>/resources/js/jquery-1.11.1.min.js "></script>
     <script src="<%=request.getContextPath()%>/resources/js/owl.carousel.min.js "></script>

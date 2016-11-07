@@ -34,6 +34,9 @@
 				<li class="dropdown">
 					<a href="${linkTo[CaminhoneiroController].editarCadastro(usuario.caminhoneiro.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
 				</li>
+				<li class="dropdown">
+					<a href="${linkTo[CaminhoneiroController].logout}"> <i class="fa fa-sign-out fa-3x"></i></a>
+				</li>				
 			</ul>
 		</nav>
 		
@@ -64,63 +67,60 @@
 	</div>
 
 	<div id="wrapper">
-		        <div class="col-md-10 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-2">
            <div class="tabelaFretes" style="
     margin-top: 50px;">
             <div class="panel panel-primary panel-table">
               <div class="panel-heading">
                 <div class="row">
                   <div class="col col-xs-6">
-                    <h3 class="panel-title">Meus Fretes</h3>
+                    <strong class="panel-title">Acompanhar Pedidos</strong>                 
                   </div>
                 </div>
               </div>
               
               <div class="panel-body">
+              	 <span class="pull-right">
+                  	<a href="<c:url value='/procurarFrete'/>" class="btn btn-primary btn-sm"><i class="fa fa-plus fa-fw"></i> Candidatar em outro frete</a>
+                  </span><br><br>
+              	
+              	<c:if test="${not empty msgSucesso}">
+						<div class="alert alert-success" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<c:out value="${msgSucesso}" />
+						</div>
+				</c:if>
+              	
                 <table class="table table-striped table-bordered table-list">
                   <thead>
-                    <tr>
-                        <th><em class="fa fa-cog"></em></th>
-                        <th class="hidden-xs">Id do Frete</th>
+                    <tr class="success">
                         <th>Cidade Origem</th>
+                        <th>Local Retirada</th>
                         <th>Cidade Destino</th>
+                        <th>Local Entrega</th>
                         <th>Valor do Frete (R$)</th>                        
+                        <th>Observaçoes</th>
                         <th>Status</th>
+                        <th align="center"> Ação</th>
                     </tr> 
                   </thead>
-                  <tbody>
-                          <tr>
-                            <td align="center">
-								<a class="btn btn-danger">Descandidatar-se</a>                            
-                            </td>
-                            <td class="hidden-md">1</td>
-                            <td>Chapecó - SC</td>
-                            <td>Florianópolis - SC</td>
-                            <td>159,50</td>                                  
-                            <td>ABERTO</td>                            
-                          </tr>
-                        </tbody>
+	                  <tbody>
+	                          <tr>
+	                            <td>Chapecó - SC</td>
+	                            <td>BRFoods</td>
+	                            <td>Florianópolis - SC</td>
+	                            <td>Aurora</td>                                  
+	                            <td>150,00</td>
+	                            <td>Frete bom</td>
+	                            <td>ABERTO</td>
+	                            <td align="center">
+									<a class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Descandidatar-se</a>                            
+	                            </td>                            
+	                          </tr>
+	                 </tbody>
                 </table>
-            
-              </div>
-              <div class="panel-footer">
-                <div class="row">
-                  <div class="col col-xs-4">Page 1 of 5
-                  </div>
-                  <div class="col col-xs-8">
-                    <ul class="pagination hidden-xs pull-right">
-                      <li><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                    </ul>
-                    <ul class="pagination visible-xs pull-right">
-                        <li><a href="#">«</a></li>
-                        <li><a href="#">»</a></li>
-                    </ul>
-                  </div>
-                </div>
               </div>
             </div>
         </div>

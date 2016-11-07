@@ -75,4 +75,8 @@ public class Caminhoneiro implements UsoCodigo{
 	
 	@OneToMany
 	private Set<Frete> fretes = new HashSet<>();
+	
+	public Caminhoneiro(Long codigo){
+		this.codigo = codigo;
+	}
 }

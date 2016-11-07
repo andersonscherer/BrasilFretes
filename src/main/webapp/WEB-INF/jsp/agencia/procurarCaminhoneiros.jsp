@@ -43,16 +43,17 @@
 				src="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png"
 				alt=""> </a>
 		</div>
-		<ul class="nav navbar-top-links navbar-right">
-			<li class="dropdown"><a
-				href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}">
-					<i class="fa fa-user fa-3x"></i>
-			</a></li>
-		</ul>
+			<ul class="nav navbar-top-links navbar-right">
+				<li class="dropdown">
+					<a href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
+				</li>
+				<li class="dropdown">
+					<a href="${linkTo[AgenciaController].logoutAgencia}"> <i class="fa fa-sign-out fa-3x"></i></a>
+				</li>
+			</ul>
 		</nav>
 
 		<nav class="navbar-default navbar-static-side" role="navigation">
-		<!-- sidebar-collapse -->
 		<div class="sidebar-collapse">
 			<ul class="nav" id="side-menu">
 				<li>
@@ -67,11 +68,11 @@
 						</div>
 					</div>
 				</li>
-				<li class="selected"><a href="<c:url value='telaPrincipalAgencia'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
-				<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-map-marker fa-fw"></i> - Fretes em Execução/Aberto</a></li>
-				<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i> - Cadastro de Frete</a></li>
-				<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i> - Meu historico de Fretes</a></li>
-				<li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-edit fa-fw"></i> - Procurar Caminhoneiros</a></li>
+				<li class="selected"><a href="<c:url value='telaPrincipalAgencia'/>"><i class="fa fa-dashboard fa-fw"></i> Incial</a></li>
+				<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-briefcase fa-fw"></i> Fretes em Execução/Aberto</a></li>
+				<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i> Cadastro de Frete</a></li>
+				<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-list-ul"></i> Meu historico de Fretes</a></li>
+                <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-search fa-fw"></i> Procurar Caminhoneiros</a>
 			</ul>
 		</div>
 		</nav>
@@ -92,7 +93,7 @@
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<div class="panel-title">
-								<h4>Procure por Caminhoneiros com os Filtros Disponíveis</h4>
+								<h4>Procure caminhoneiros por Cidades</h4>
 							</div>
 						</div>
 						<div class="panel-body">
@@ -134,6 +135,7 @@
 									<th>Nome</th>
 									<th>Telefone</th>
 									<th>E-Mail</th>
+									<th>Cidade</th>									
 									<th WIDTH=100>Opções</th>
 								</tr>
 							</thead>
@@ -149,6 +151,9 @@
 									<td>
 										<c:out value="${caminhoneiro.email}" />
 									</td>
+									<td>
+										<c:out value="${caminhoneiro.cidade.nome}" />
+									</td>									
 									<td align="center">
 										<a class="btn btn-primary btn-sm" href="#"><i class="fa fa-user" aria-hidden="true"></i> Selecionar caminhoneiro</a>                            
 	                            	</td>

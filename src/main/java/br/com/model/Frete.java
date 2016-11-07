@@ -23,47 +23,52 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@NamedQueries({@NamedQuery(name = "Frete.POR_CIDADE", query = "select f from Frete f where f.cidadeOrigem = ?1")})
-public class Frete implements UsoCodigo{
+@NamedQueries({
+		@NamedQuery(name = "Frete.POR_CIDADE", query = "select f from Frete f where f.cidadeOrigem = ?1 and f.codigo not in "
+				+ "(select cf.frete.codigo from CandidatoFrete cf where cf.caminhoneiro = ?2)") })
+public class Frete implements UsoCodigo {
 
-	//Criando Um cadastro para o Frete.
+	// Criando Um cadastro para o Frete.
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
-	
+
 	@ManyToOne(optional = false, targetEntity = Cidade.class)
 	private Cidade cidadeOrigem;
-	
+
 	@ManyToOne(optional = false, targetEntity = Cidade.class)
 	private Cidade cidadeDestino;
-	
+
 	@Column
 	private Double peso;
-	
+
 	@Column
 	private Double valor;
-	
+
 	@Column
 	private String observacoes;
-	
+
 	@Column
 	private Integer tipoCarroceria;
-	
+
 	@Column
 	private String perigosa;
-	
+
 	@Column
 	private String localRetirada;
-	
+
 	@Column
 	private String localEntrega;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false, length = 30)
 	private Status statusFrete = Status.ABERTO;
-		
+
 	@ManyToOne(optional = false, targetEntity = Agencia.class)
 	private Agencia agencia;
-	
+
+	public Frete(Long codigo) {
+		this.codigo = codigo;
+	}
 
 }

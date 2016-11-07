@@ -34,6 +34,9 @@
 				<li class="dropdown">
 					<a href="${linkTo[CaminhoneiroController].editarCadastro(usuario.caminhoneiro.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
 				</li>
+				<li class="dropdown">
+					<a href="${linkTo[CaminhoneiroController].logout}" data-toggle="tooltip" data-placement="bottom" title="Sair do sistema"> <i class="fa fa-sign-out fa-3x"></i></a>
+				</li>				
 			</ul>
 		</nav>
 		
@@ -77,25 +80,24 @@
 				<div class="col-xs-12">
 					<!-- Line chart -->
 					<div class="panel panel-primary">
-						<div class="panel-heading">Use os Filtros para fazer a
-							Pesquisa</div>
+						<div class="panel-heading">Procure pela cidade de Origem</div>
 						<div class="panel-body">
 						<div class="container">
-						<form class="form-inline" action="${linkTo[CaminhoneiroController].pesquisarFrete}" method="post">
-							<div class="form-group">
-								<label class="sr-only" for="cidadeOrigem">Cidade</label>
-								<select id="cidade" name="cidade.codigo" class="form-control">
-									<c:forEach var="cidade" items="${cidades}">
-										<option value="${cidade.codigo}" 
-											<c:if test="${cidadeEscolhida.codigo eq cidade.codigo}"> selected="selected"</c:if>>
-											${cidade.nome} - ${cidade.uf}
-										</option>
-									</c:forEach>
-								</select>
+							<form class="form-inline" action="${linkTo[CaminhoneiroController].pesquisarFrete}" method="post">
+								<div class="form-group">
+									<label  for="cidadeOrigem">Cidade de origem: </label>
+									<select id="cidade" name="cidade.codigo" class="form-control">
+										<c:forEach var="cidade" items="${cidades}">
+											<option value="${cidade.codigo}" 
+												<c:if test="${cidadeEscolhida.codigo eq cidade.codigo}"> selected="selected"</c:if>>
+												${cidade.nome} - ${cidade.uf}
+											</option>
+										</c:forEach>
+									</select>
+								</div>
+								<button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> Pesquisar</button>
+							</form>
 							</div>
-							<button type="submit" class="btn btn-success">Pesquisar</button>
-						</form>
-						</div>
 						</div>
 					</div>
 					<!--End Line chart -->
@@ -112,8 +114,7 @@
               <div class="panel-body">
                 <table class="table table-striped table-bordered table-list">
                   <thead>
-                    <tr>
-                    	<th>Interessado</th>
+                    <tr class="success">                    	
                         <th>Cidade Origem</th>
                         <th>Local Retirada</th>
                         <th>Cidade Destino</th>
@@ -121,22 +122,20 @@
                         <th>Valor do Frete (R$)</th>                        
                         <th>Observaçoes</th>
                         <th>Status</th>
+                        <th>Ações</th>
                     </tr> 
                   </thead>
                   <tbody>
 						<c:forEach var="frete" items="${freteList}">
-							<tr>
-						    <td align="center">
-								<a class="btn btn-success">Candidatar-se</a>                            
-                            </td>
+							<tr>							    
 								<td>
-									<c:out value="${frete.cidade.nome}" />
+									<c:out value="${frete.cidadeOrigem.nome}" />
 								</td>
 								<td>
 									<c:out value="${frete.localRetirada}" />
 								</td>								
 								<td>
-									<c:out value="${frete.cidade.nome}" />
+									<c:out value="${frete.cidadeDestino.nome}" />
 								</td>
 								<td>
 									<c:out value="${frete.localEntrega}" />
@@ -149,20 +148,31 @@
 								</td>
 								<td>
 									<c:out value="${frete.statusFrete}" />
-								</td>								
-								
-								</tr>
+								</td>
+								<td align="center">
+									<a 
+										class="btn btn-primary btn-sm" 
+										data-toggle="tooltip" 
+										data-placement="left" 
+										href="${linkTo[CaminhoneiroController].candidatarAfrete}?frete.codigo=${frete.codigo}&caminhoneiro.codigo=${usuario.caminhoneiro.codigo}" 
+										title = "Canditar a esse frete"
+										><i class="fa fa-briefcase" aria-hidden="true"></i> Candidatar-se</a>                            
+	                            </td>								
+							</tr>
 						</c:forEach>
                         </tbody>
                 </table>
               </div>
             </div>
 		</div>
-		<!-- end page-wrapper -->
-
 	</div>
-	<!-- end wrapper -->
-
-
+	<script src="<%=request.getContextPath()%>/resources/js/jquery-1.11.1.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+     <script type="text/javascript">
+		$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	});
+	</script>
 </body>
+ 
 </html>

@@ -36,6 +36,9 @@
 				<li class="dropdown">
 					<a href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
 				</li>
+				<li class="dropdown">
+					<a href="${linkTo[AgenciaController].logoutAgencia}"> <i class="fa fa-sign-out fa-3x"></i></a>
+				</li>
 			</ul>
 		</nav>
 		
@@ -94,7 +97,7 @@
                   <tbody>
                           <tr>
                             <td align="center">
-                              <a class="btn btn-danger">Finalizar Frete</a>                       
+                              <a class="btn btn-primary"><i class="fa fa-check" aria-hidden="true"></i> Finalizar Frete</a>                       
                             </td>
                             <td class="hidden-md">1505</td>
                             <td>Chapecó - SC</td>
@@ -106,7 +109,7 @@
                           <tr>
                             <td align="center">
                               <a class="btn btn-danger"><em class="fa fa-trash-o"></em></a>
-                              <a href="<c:url value='/dadosFrete'/>" class="btn btn-primary"><em class="fa fa-eye"></em></a>                   
+                              <a href="<c:url value='/dadosFrete'/>" class="btn btn-info"><em class="fa fa-eye"></em></a>                   
                             </td>
                             <td class="hidden-md">1505</td>
                             <td>Chapecó - SC</td>
@@ -117,26 +120,6 @@
                           </tr>
                         </tbody>
                 </table>
-            
-              </div>
-              <div class="panel-footer">
-                <div class="row">
-                  <div class="col col-xs-4">Page 1 of 5
-                  </div>
-                  <div class="col col-xs-8">
-                    <ul class="pagination hidden-xs pull-right">
-                      <li><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                    </ul>
-                    <ul class="pagination visible-xs pull-right">
-                        <li><a href="#">«</a></li>
-                        <li><a href="#">»</a></li>
-                    </ul>
-                  </div>
-                </div>
               </div>
             </div>
         </div>

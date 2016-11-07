@@ -6,14 +6,14 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
-		<link href="<%=request.getContextPath()%>/resources/estilo_sistema/bootstrap.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/animate.css">
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/et-icons.css">
+   		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
+   		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/et-icons.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/styleSistema.css">
 		<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
-		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
+		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Buenard:700'>
 		
 		<title>Cadastro de Caminhoneiro - BrasilFretes</title>
 	</head>
@@ -22,33 +22,31 @@
 		<img src="<%=request.getContextPath()%>/resources/imagens/loader.gif"
 			alt="Preloader image">
 	</div>
+	
 	<nav class="navbar">
-	<div class="container">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="light white navbar-brand" href="<c:url value='/'/>"><img
-				src="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png"
-				data-active-url="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png"
-				alt=""></a>
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="light white navbar-brand" href="<c:url value='/'/>"><img
+					src="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png"
+					data-active-url="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png"
+					alt=""></a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right main-nav">
+					<li><a href="modal1" data-toggle="modal" data-target="#modal1"
+						class="btn btn-blue">Entrar</a></li>
+	                    <li><a href="<c:url value='/opcoesCadastro'/>" class="btn btn-success">Cadastre-se</a></li>
+				</ul>
+			</div>
 		</div>
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-right main-nav">
-				<li><a href="modal1" data-toggle="modal" data-target="#modal1"
-					class="btn btn-blue">Entrar</a></li>
-                    <li><a href="<c:url value='/opcoesCadastro'/>" class="btn btn-success">Cadastre-se</a></li>
-			</ul>
-		</div>
-		<!-- /.navbar-collapse -->
-	</div>
-	<!-- /.container-fluid --> 
 	</nav>
 
 	<header>
@@ -63,10 +61,11 @@
 							</button>
 								<c:out value="${msgSucesso}" />
 						</div>
-	</c:if>
+						</c:if>
 					<h3 class="white ">Caminhoneiro. Cadastre em nosso sistema
 						logo abaixo, e aproveite todas as funcionalidades nele
-						disponíveis.</h3>
+						disponíveis.
+				   </h3>
 					<h2 class=" white">É GRATUÍTO !</h2>
 				</div>
 			</div>
@@ -77,31 +76,28 @@
 	<div class="col-xs-12 linha-cadastro ">
 		<h1 class="white">Aproveite e Cadaste-se</h1>
 	</div>
+	  
 	  <form class="form-horizontal" action="${linkTo[CaminhoneiroController].salvar}" method="post">
-		<div class="col-xs-12 col-md-6 cadastro">
+		<div class="col-xs-12 col-md-5 cadastro">
 			<div class="texto-cadastro">
 				<h3 class="RoyalBlue">Dados pertinentes ao caminhoneiro</h3>
 			</div>
-			<div class="container">
 				<fieldset>
-
-					<!-- Form Name -->
-					<legend>Cadastro do Caminhoneiro</legend>
-
-					<!-- Text input-->
+									
+				<legend>Cadastro de login</legend>
+				
 					<div class="form-group">
-						<label class="col-md-4 control-label" for="textinput">Nome
+						<label class="col-xs-5 control-label" for="textinput">Nome
 							Completo</label>
-						<div class="col-md-5">
+						<div class="col-md-7">
 							<input type="text" placeholder="Nome"
-								class="form-control input-xs" aria-describedby="basic-addon1"
-								name="caminhoneiro.nome">
+								class="form-control input-xs" name="caminhoneiro.nome">
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label class="col-md-4 control-label" for="textinput">C.P.F:</label>
-						<div class="col-md-5">
+						<label class="col-md-5 control-label" for="textinput">C.P.F:</label>
+						<div class="col-md-7">
 							<input id="textinput" name="caminhoneiro.cpf"
 								placeholder="Digite seu c.pf" class="form-control input-xs"
 								maxlength="14" type="text"
@@ -112,9 +108,9 @@
 					</div>
 
 					<div class="form-group">
-						<label class="col-md-4 control-label" for="txtgrupo">Tipo
+						<label class="col-md-5 control-label" for="txtgrupo">Tipo
 							de sua Carteira</label>
-						<div class="col-md-4">
+						<div class="col-md-7">
 							<select id="txtgrupo" name="caminhoneiro.tipoCNH"
 								class="form-control">
 								<option>Selecione</option>
@@ -128,9 +124,9 @@
 					</div>
 
 					<div class="form-group">
-						<label class="col-md-4 control-label" for="textinput">Número
+						<label class="col-md-5 control-label" for="textinput">Número
 							da C.N.H</label>
-						<div class="col-md-5">
+						<div class="col-md-7">
 							<input id="textinput" name="caminhoneiro.numeroCNH"
 								placeholder="Digite o número de sua C.N.H"
 								class="form-control input-xs" required="" type="text">
@@ -138,8 +134,8 @@
 					</div>
 
 					<div class="form-group">
-						<label class="col-md-4 control-label" for="textinput">Telefone</label>
-						<div class="col-md-5">
+						<label class="col-md-5 control-label" for="textinput">Telefone</label>
+						<div class="col-md-7">
 							<input id="textinput" name="caminhoneiro.telefone"
 								placeholder="Digite seu Telefone" class="form-control input-xs"
 								maxlength="15" type="text" onfocus="mascara(this)"
@@ -148,9 +144,9 @@
 					</div>
 
 					<div class="form-group">
-						<label class="col-md-4 control-label" for="txtgrupo">Possui
+						<label class="col-md-5 control-label" for="txtgrupo">Possui
 							Cursos Específicos</label>
-						<div class="col-md-4">
+						<div class="col-md-7">
 							<select id="txtgrupo" name="caminhoneiro.cursoEspecifico"
 								class="form-control">
 								<option>Selecione</option>
@@ -162,37 +158,32 @@
 
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="txtgrupo">Cidade</label>
-						<div class="col-md-4">
-							<select id="txtgrupo" name="caminhoneiro.cidade.codigo"
+							<div class="col-md-4">
+								<select id="txtgrupo" name="caminhoneiro.cidade.codigo"
 								class="form-control" >
-								<option selected="selected">Selecione</option>
-								<c:forEach var="cidade" items="${cidades}">
+									<option selected="selected">Selecione</option>
+										<c:forEach var="cidade" items="${cidades}">
 									<option value="${cidade.codigo}">${cidade.nome} - ${cidade.uf}</option>
-								</c:forEach>
-							</select>
-						</div>
+										</c:forEach>
+								</select>
+							</div>
 					</div>
-
-
+					
 				</fieldset>
-			</div>
 		</div>
-
-		<div class="col-xs-12 col-md-6 cadastro">
+		
+		<div class="col-xs-12 col-md-5 cadastro">
 			<div class="texto-cadastro">
 				<h3 class="RoyalBlue">Dados pertinentes ao Login</h3>
 			</div>
-			<div class="container">
 				<fieldset>
-
-					<!-- Form Name -->
 					<legend>Cadastro de login</legend>
 
 					<!-- Text input-->
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="textinput">Seu
 							E-mail:</label>
-						<div class="col-md-4">
+						<div class="col-md-7">
 							<input id="textinput" name="caminhoneiro.email"
 								placeholder="Digite seu E-mail" class="form-control input-md"
 								required="" type="text">
@@ -202,7 +193,7 @@
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="textinput">Sua
 							Senha:</label>
-						<div class="col-md-4">
+						<div class="col-md-7">
 							<input id="textinput" name="caminhoneiro.senha"
 								placeholder="Digite sua Senha" class="form-control input-md"
 								required="" type="password">
@@ -210,29 +201,20 @@
 					</div>
 				</fieldset>
 			</div>
-		</div>
 
-		<div class="col-xs-12">
-			<div
-				class="col-xs-12 col-md-2 col-md-offset-4  botaoEntrarCadCaminhoneiro">
-				<button type="submit" class="btn btn-success" href="index.jsp">Ok!
-					Cadastrar</button>
+			<div class="col-xs-12">
+				<div class="col-xs-12 col-md-2 col-md-offset-4">
+					<button type="submit" class="btn btn-success" href="index.jsp">Cadastrar-se</button>
+				</div>
 			</div>
-			<div class="col-xs-12 col-md-2 botaoCancelarCadCaminhoneiro">
-				<button href="index.html" type="button" class="btn btn-danger">Cancelar</button>
-			</div>
-		</div>
-
 	</form>
-
 
 	<div class="col-xs-12 copyright ">
 		<p>Todos os Direitos Reservados &copy; 2016 BrasilFretes.com
 		<p>
 	</div>
-
+	
     <!-- Inclusão do Modal -->
-
 		<div class="modal fade" id="modal1" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -250,21 +232,14 @@
 		<a href="# " class="close-link "><i class="arrow_up "></i></a>
 	</div>
 
-
 	<!-- Scripts -->
-
-	<script
-		src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js "></script>
-	<script
-		src="<%=request.getContextPath()%>/resources/js/jquery-1.11.1.min.js "></script>
-	<script
-		src="<%=request.getContextPath()%>/resources/js/owl.carousel.min.js "></script>
-	<script
-		src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js "></script>
+	<script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js "></script>
+	<script src="<%=request.getContextPath()%>/resources/js/jquery-1.11.1.min.js "></script>
+	<script src="<%=request.getContextPath()%>/resources/js/owl.carousel.min.js "></script>
+	<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js "></script>
 	<script src="<%=request.getContextPath()%>/resources/js/wow.min.js "></script>
 	<script src="<%=request.getContextPath()%>/resources/js/typewriter.js "></script>
-	<script
-		src="<%=request.getContextPath()%>/resources/js/jquery.onepagenav.js "></script>
+	<script src="<%=request.getContextPath()%>/resources/js/jquery.onepagenav.js "></script>
 	<script src="<%=request.getContextPath()%>/resources/js/main.js "></script>
 	<!-- JRadioButton para opção de Cargas perigosas -->
 
@@ -279,8 +254,8 @@
             telefone.value = telefone.value + '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor visualização do telefone.
 
     }
-</script>
-
+	</script>
+	
 	<script>
     function formatar(mascara, documento) {
         var i = documento.value.length;
@@ -292,7 +267,7 @@
         }
 
     }
-</script>
+	</script>
 
 </body>
 

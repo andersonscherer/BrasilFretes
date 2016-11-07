@@ -34,7 +34,10 @@
 			</div>
 			<ul class="nav navbar-top-links navbar-right">
 				<li class="dropdown">
-					<a href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
+					<a href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}"><i class="fa fa-user fa-3x"></i></a>
+				</li>
+				<li class="dropdown">
+					<a href="${linkTo[AgenciaController].logoutAgencia}"> <i class="fa fa-sign-out fa-3x"></i></a>
 				</li>
 			</ul>
 		</nav>
@@ -66,9 +69,6 @@
 		</nav>
 	</div>
 	
-	<div class="col-xs-12 bannerTelaInicial">
-	
-	</div>
 
 </body>
 </html>

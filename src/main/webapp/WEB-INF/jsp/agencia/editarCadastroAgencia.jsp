@@ -8,12 +8,10 @@
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
 		<link href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/bootstrap.css"rel="stylesheet" type="text/css">
 		<link rel="stylesheet" type="text/css"href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/assets/plugins/pace/pace-theme-big-counter.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/style.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/main-style.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/styleSistema.css">
-
 		<link rel="shortcut icon"href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
 
@@ -36,6 +34,9 @@
 				<li class="dropdown">
 					<a href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
 				</li>
+				<li class="dropdown">
+					<a href="${linkTo[AgenciaController].logoutAgencia}"> <i class="fa fa-sign-out fa-3x"></i></a>
+				</li>
 			</ul>
 		</nav>
 		
@@ -55,28 +56,25 @@
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="<c:url value='telaPrincipalAgencia'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
-					<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-map-marker fa-fw"></i> - Fretes em Execução/Aberto</a></li>
-					<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i> - Cadastro de Frete</a></li>
-					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i> - Meu historico de Fretes</a></li>
-                    <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-edit fa-fw"></i> - Procurar Caminhoneiros</a>
+					<li class="selected"><a href="<c:url value='telaPrincipalAgencia'/>"><i class="fa fa-dashboard fa-fw"></i> Incial</a></li>
+					<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-briefcase fa-fw"></i> Fretes em Execução/Aberto</a></li>
+					<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i> Cadastro de Frete</a></li>
+					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-list-ul"></i> Meu historico de Fretes</a></li>
+	                <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-search fa-fw"></i> Procurar Caminhoneiros</a>
                     </li>
 				</ul>
 			</div> 
 		</nav>
 	</div>
-	
-	
+
 	<div id="wrapper">
 		<div id="page-wrapper">
 			<div class="row">
-				<!--page header-->
 				<div class="col-lg-12">
 					<h1 class="page-header">Editar Cadastro</h1>
 				</div>
-				<!--end page header-->
 			</div>
-			<!-- row -->
+
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-primary">
@@ -88,8 +86,10 @@
 						</div>
 						<div class="table-responsive">
 							<form class="form-horizontal" method="post"
-								action="${linkTo[AgenciaController].editarCadastroAgencia(a)}">
+								action="${linkTo[AgenciaController].alterarAgencia(a)}">
 								<fieldset>
+									
+									 <input type="hidden" name="agencia.codigo" value="${a.codigo}">
 									
 									<div class="form-group">
 										<label class="col-md-2 control-label" for="razao-social">Razão social:</label>
@@ -108,7 +108,6 @@
 										</div>
 									</div>
 									
-																		<!-- Text input-->
 									<div class="form-group">
 										<label class="col-md-2 control-label" for="cnpj">Responsável:</label>
 										<div class="col-md-4">
@@ -118,17 +117,13 @@
 									</div>
 
 									<div class="form-group">
-										<label class="col-md-2 control-label" for="cidade">Cidade *</label>
+										<label class="col-md-2 control-label" for="txtgrupo">Cidade</label>
 										<div class="col-md-4">
-											<select id="cidade" name="agencia.cidade"
-												class="form-control">
-												<c:forEach var="cidade" items="${cidade}">
-													<option value="${cidade.codigo}" 
-														<c:if test="${a.cidade eq cidade.codigo}">
-															selected="selected"
-														</c:if>>
-														<c:out value="${cidade.nome} - ${cidade.uf}" />
-													</option>
+											<select id="txtgrupo" name="caminhoneiro.cidade.codigo"
+												class="form-control" >
+												<option selected="selected">Selecione</option>
+												<c:forEach var="cidade" items="${cidades}">
+													<option value="${cidade.codigo}">${cidade.nome} - ${cidade.uf}</option>
 												</c:forEach>
 											</select>
 										</div>
@@ -151,21 +146,12 @@
 										</div>
 									</div>
 
-
-									<!-- Botões para Cadastrar o Frete-->
-									<div class="col-xs-12 botoes-cadastra-frete">
-										<div class="col-xs-12 col-md-3 col-md-offset-2">
-											<button type="button" class="btn btn-lg btn-success"
-												href="index.html">Confirmar Edição</button>
-										</div>
-										<div class="col-xs-12 col-md-2">
-											<button href="index.html" type="button"
-												class="btn btn-lg btn-danger">Cancelar</button>
-										</div>
+									<div class="col-xs-12 col-md-offset-2">
+											<button type="button" class="btn btn-md btn-success"
+												name="_method" value="PUT"><i class="fa fa-check" aria-hidden="true"></i> Confirmar</button>
 									</div>
 								</fieldset>
 							</form>
-
 						</div>
 					</div>
 				</div>

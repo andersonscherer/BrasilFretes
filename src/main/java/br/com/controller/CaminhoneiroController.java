@@ -12,15 +12,18 @@ import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
 import br.com.dao.CaminhaoDAO;
 import br.com.dao.CaminhoneiroDAO;
+import br.com.dao.CandidatoFreteDAO;
 import br.com.dao.CidadeDAO;
 import br.com.dao.FreteDAO;
 import br.com.dao.MarcaCaminhaoDAO;
 import br.com.exception.DAOException;
 import br.com.model.Caminhao;
 import br.com.model.Caminhoneiro;
+import br.com.model.CandidatoFrete;
 import br.com.model.Cidade;
 import br.com.model.Frete;
 import br.com.model.MarcaCaminhao;
+import br.com.session.CaminhoneiroSessao;
 
 @Controller
 public class CaminhoneiroController {
@@ -37,6 +40,10 @@ public class CaminhoneiroController {
 
 	private final FreteDAO freteDAO;
 	
+	private final CaminhoneiroSessao caminhoneiroSessao;
+	
+	private final CandidatoFreteDAO candidatoFreteDAO;
+	
 	// CADA CONTROLER E RESPONSAVEL POR SUA ACOOES POR EXEMPLO O INDEXCONTROLLER
 	// CHAMA A TELA DE INICIO E A TELA DE OPCOES ESCOLHA
 
@@ -44,12 +51,12 @@ public class CaminhoneiroController {
 	 * @deprecated CDI eyes only Necessario para os controllers
 	 */
 	protected CaminhoneiroController() {
-		this(null, null, null, null, null, null);
+		this(null, null, null, null, null, null, null, null);
 	}
 
 	@Inject
 	public CaminhoneiroController(Result result, CidadeDAO cidadeDAO, MarcaCaminhaoDAO marcaCaminhaoDAO,
-			CaminhoneiroDAO caminhoneiroDAO, CaminhaoDAO caminhaoDAO, FreteDAO freteDAO) {
+			CaminhoneiroDAO caminhoneiroDAO, CaminhaoDAO caminhaoDAO, FreteDAO freteDAO, CaminhoneiroSessao caminhoneiroSessao, CandidatoFreteDAO candidatoFreteDAO) {
 		super();
 		this.result = result;
 		this.cidadeDAO = cidadeDAO;
@@ -57,6 +64,8 @@ public class CaminhoneiroController {
 		this.caminhoneiroDAO = caminhoneiroDAO;
 		this.caminhaoDAO = caminhaoDAO;
 		this.freteDAO = freteDAO;
+		this.caminhoneiroSessao = caminhoneiroSessao;
+		this.candidatoFreteDAO = candidatoFreteDAO;
 	}
 
 	@Path("/cadastroCaminhoneiro")
@@ -99,12 +108,23 @@ public class CaminhoneiroController {
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-		result.redirectTo(this).cadastroCaminhoneiro();
+		result.redirectTo(this).telaPrincipalCaminhoneiro();
 	}
 
 	@Path("/acompanharPedido")
 	public void acompanharPedido() {
 
+	}
+	
+	@Path("/candidatarAfrete")
+	public void candidatarAfrete(Caminhoneiro caminhoneiro, Frete frete) {
+		try{
+			candidatoFreteDAO.salvar(new CandidatoFrete(caminhoneiro, frete));
+			result.include("msgSucesso", "Frete selecionado com sucesso!");
+			result.redirectTo(this).acompanharPedido();
+		}catch(DAOException e){
+			e.printStackTrace();
+		}
 	}
 
 	@Path("/procurarFrete")
@@ -113,7 +133,7 @@ public class CaminhoneiroController {
 		result.include("cidadeEscolhida", cidade);
 		
 		if (cidade != null && cidade.getCodigo() != null) {
-			return freteDAO.findByCidade(cidade);
+			return freteDAO.findByCidade(cidade, caminhoneiroSessao.getCaminhoneiro());
 		}
 		
 		return null;
@@ -133,5 +153,11 @@ public class CaminhoneiroController {
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Get("/logout")
+	public void logout() {
+		caminhoneiroSessao.setCaminhoneiro(null);
+		result.redirectTo(IndexController.class).index();
 	}
 }

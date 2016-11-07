@@ -5,8 +5,10 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
+import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
 import br.com.dao.AgenciaDAO;
 import br.com.dao.CaminhoneiroDAO;
@@ -17,6 +19,7 @@ import br.com.model.Agencia;
 import br.com.model.Caminhoneiro;
 import br.com.model.Cidade;
 import br.com.model.Frete;
+import br.com.session.AgenciaSessao;
 
 @Controller
 public class AgenciaController {
@@ -30,6 +33,8 @@ public class AgenciaController {
 	private final FreteDAO freteDAO;
 	
 	private final CaminhoneiroDAO caminhoneiroDAO;
+	
+	private final AgenciaSessao agenciaSessao;
 
 	// CADA CONTROLER E RESPONSAVEL POR SUA ACOOES POR EXEMPLO O INDEXCONTROLLER
 	// CHAMA A TELA DE INICIO E A TELA DE OPCOES ESCOLHA
@@ -38,18 +43,19 @@ public class AgenciaController {
 	 * @deprecated CDI eyes only Necessario para os controllers
 	 */
 	protected AgenciaController() {
-		this(null, null, null, null, null);
+		this(null, null, null, null, null, null);
 	}
 
 	@Inject
 	public AgenciaController(Result result, CidadeDAO cidadeDAO, AgenciaDAO agenciaDAO, 
-			FreteDAO freteDAO, CaminhoneiroDAO caminhoneiroDAO) {
+			FreteDAO freteDAO, CaminhoneiroDAO caminhoneiroDAO, AgenciaSessao agenciaSessao) {
 		super();
 		this.result = result;
 		this.cidadeDAO = cidadeDAO;
 		this.agenciaDAO = agenciaDAO;
 		this.freteDAO = freteDAO;
 		this.caminhoneiroDAO = caminhoneiroDAO;
+		this.agenciaSessao = agenciaSessao;
 	}
 
 	@Post
@@ -101,8 +107,18 @@ public class AgenciaController {
 	@Path("/editarCadastroAgencia/{codAgencia}")
 	public void editarCadastroAgencia(Long codAgencia) {
 		result.include("a", agenciaDAO.buscar(Agencia.class, codAgencia));
-		result.include("cidade", cidadeDAO.listar(Cidade.class));
+		result.include("cidades", cidadeDAO.listar(Cidade.class));
 
+	}
+	
+	@Put("/alterarAgencia/{agencia.codigo}")
+	public void alterarAgencia(Agencia agencia) {
+		try {
+			agenciaDAO.salvar(agencia);
+		} catch (DAOException e) {
+			e.printStackTrace();
+		}
+		result.redirectTo(this).telaPrincipalAgencia();
 	}
 
 	@Path("/cadastroDeFrete")
@@ -141,4 +157,9 @@ public class AgenciaController {
 		// return fretes;
 	}
 	
+	@Get("/logoutAgencia")
+	public void logoutAgencia() {
+		agenciaSessao.setAgencia(null);
+		result.redirectTo(IndexController.class).index();
+	}
 }

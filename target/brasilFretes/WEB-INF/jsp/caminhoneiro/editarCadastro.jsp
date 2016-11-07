@@ -34,6 +34,9 @@
 				<li class="dropdown">
 					<a href="${linkTo[CaminhoneiroController].editarCadastro(usuario.caminhoneiro.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
 				</li>
+				<li class="dropdown">
+					<a href="${linkTo[CaminhoneiroController].logout}"> <i class="fa fa-sign-out fa-3x"></i></a>
+				</li>				
 			</ul>
 		</nav>
 		
@@ -66,20 +69,17 @@
 	<div id="wrapper">
 		<div id="page-wrapper">
 			<div class="row">
-				<!--page header-->
 				<div class="col-lg-12">
 					<h1 class="page-header">Editar Cadastro</h1>
 				</div>
-				<!--end page header-->
 			</div>
-			<!-- row -->
+
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<div class="panel-title">
-								<h4>Atualize o seus dados, e fique sempre por dentro das
-									novidades. Obs.: Apenas campos com ( * ) são campos editáveis</h4>
+								<h4>Obs.: Apenas campos com ( * ) são campos editáveis</h4>
 							</div>
 						</div>
 						<div class="table-responsive">
@@ -89,11 +89,9 @@
 									
 									<input type="hidden" name="caminhoneiro.codigo" value="${caminhoneiro.codigo}">
 									
-									<!-- Text input-->
 									<div class="form-group">
-										<label class="col-md-4 control-label" for="textinput">Nome
-											Completo:</label>
-										<div class="col-md-2">
+										<label class="col-md-4 control-label" for="textinput">Nome Completo:</label>
+										<div class="col-md-4">
 											<input id="textinput" name="caminhoneiro.nome"
 												class="form-control input-md" required readonly
 												value="${caminhoneiro.getNome()}" type="text"></input>
@@ -103,7 +101,7 @@
 									<!-- Text input-->
 									<div class="form-group">
 										<label class="col-md-4 control-label" for="textinput">C.P.F:</label>
-										<div class="col-md-2">
+										<div class="col-md-4">
 											<input id="textinput" name="caminhoneiro.cpf"
 												placeholder="Placa do Veículo" class="form-control input-md"
 												readonly required="" type="text" value="${caminhoneiro.getCpf()}">
@@ -111,26 +109,13 @@
 									</div>
 
 									<div class="form-group">
-										<label class="col-md-4 control-label" for="txtgrupo">Estado *</label>
+										<label class="col-md-4 control-label" for="txtgrupo">Cidade</label>
 										<div class="col-md-4">
-											<select id="txtgrupo" name="caminhoneiro.estado"
-												class="form-control">
-												<option selected="selected">Selecione</option>
-												<c:forEach var="estado" items="${estados}">
-													<option value="${estado.codigo}">${estado.nome}</option>
-												</c:forEach>
-											</select>
-										</div>
-
-									</div>
-									<div class="form-group">
-										<label class="col-md-4 control-label" for="txtgrupo">Cidade *</label>
-										<div class="col-md-4">
-											<select id="txtgrupo" name="caminhoneiro.cidade"
-												class="form-control">
+											<select id="txtgrupo" name="caminhoneiro.cidade.codigo"
+												class="form-control" >
 												<option selected="selected">Selecione</option>
 												<c:forEach var="cidade" items="${cidades}">
-													<option value="${cidade.codigo}">${cidade.nome}</option>
+													<option value="${cidade.codigo}">${cidade.nome} - ${cidade.uf}</option>
 												</c:forEach>
 											</select>
 										</div>
@@ -160,14 +145,15 @@
 									</div>
 
 									<div class="form-group">
-										<label class="col-md-4 control-label">Cursos em Gargas
-											perigosas ou Específicas *</label>
-										<div class="col-md-5">
-											<label> <input type="radio" name="opcao"
-												value="perigosaSim"> - SIM
-											</label> <label> <input type="radio" name="opcao"
-												value="perigosaNao"> - NÃO
-											</label>
+										<label class="col-md-4 control-label" for="txtgrupo">Possui
+											Cursos Específicos</label>
+										<div class="col-md-4">
+											<select id="txtgrupo" name="caminhoneiro.cursoEspecifico"
+												class="form-control">
+												<option>Selecione</option>
+												<option value="1">SIM</option>
+												<option value="2">NÃO</option>
+											</select>
 										</div>
 									</div>
 
@@ -192,15 +178,12 @@
 										</div>
 									</div>
 
-
-									<!-- Botões para Cadastrar o Frete-->
-									<div class="col-xs-12 botoes-cadastra-frete">
-											<button type="submit" class="btn btn-success" name="_method" value="PUT">Confirmar</button>
-											<button id="btncancelar" name="btncancelar" class="btn btn-default">Cancelar</button>
+									<div class="col-xs-12 col-xs-offset-2">
+											<button type="submit" class="btn btn-success" 
+											name="_method" value="PUT"><i class="fa fa-check" aria-hidden="true"></i> Confirmar</button>
 									</div>
 								</fieldset>
 							</form>
-
 						</div>
 					</div>
 				</div>

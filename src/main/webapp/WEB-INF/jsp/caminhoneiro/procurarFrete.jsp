@@ -34,6 +34,9 @@
 				<li class="dropdown">
 					<a href="${linkTo[CaminhoneiroController].editarCadastro(usuario.caminhoneiro.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
 				</li>
+				<li class="dropdown">
+					<a href="${linkTo[CaminhoneiroController].logout}" data-toggle="tooltip" data-placement="bottom" title="Sair do sistema"> <i class="fa fa-sign-out fa-3x"></i></a>
+				</li>				
 			</ul>
 		</nav>
 		
@@ -64,20 +67,16 @@
 	</div>
 	
 	<div id="wrapper">
-
 		<div id="page-wrapper">
 			<div class="row">
-				<!-- page header-->
 				<div class="col-lg-12">
 					<h1 class="page-header">Procurar Fretes</h1>
 				</div>
-				<!-- end page header-->
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
-					<!-- Line chart -->
 					<div class="panel panel-primary">
-						<div class="panel-heading">Use os Filtros para fazer a Pesquisa</div>
+						<div class="panel-heading">Procure pela cidade de Origem</div>
 						<div class="panel-body">
 						<div class="container">
 							<form class="form-inline" action="${linkTo[CaminhoneiroController].pesquisarFrete}" method="post">
@@ -109,7 +108,7 @@
                 </div>
               </div>
               <div class="panel-body">
-                <table class="table table-hover">
+                <table class="table table-striped table-bordered table-list">
                   <thead>
                     <tr class="success">                    	
                         <th>Cidade Origem</th>
@@ -147,7 +146,13 @@
 									<c:out value="${frete.statusFrete}" />
 								</td>
 								<td align="center">
-									<a class="btn btn-primary btn-sm" href="#"><i class="fa fa-briefcase" aria-hidden="true"></i> Candidatar-se</a>                            
+									<a 
+										class="btn btn-primary btn-sm" 
+										data-toggle="tooltip" 
+										data-placement="left" 
+										href="${linkTo[CaminhoneiroController].candidatarAfrete}?frete.codigo=${frete.codigo}&caminhoneiro.codigo=${usuario.caminhoneiro.codigo}" 
+										title = "Canditar a esse frete"
+										><i class="fa fa-briefcase" aria-hidden="true"></i> Candidatar-se</a>                            
 	                            </td>								
 							</tr>
 						</c:forEach>
@@ -156,11 +161,14 @@
               </div>
             </div>
 		</div>
-		<!-- end page-wrapper -->
-
 	</div>
-	<!-- end wrapper -->
-
-
+	<script src="<%=request.getContextPath()%>/resources/js/jquery-1.11.1.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+     <script type="text/javascript">
+		$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	});
+	</script>
 </body>
+ 
 </html>

@@ -32,6 +32,9 @@
 				<li class="dropdown">
 					<a href="${linkTo[CaminhoneiroController].editarCadastro(usuario.caminhoneiro.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
 				</li>
+				<li class="dropdown">
+					<a href="${linkTo[CaminhoneiroController].logout}"> <i class="fa fa-sign-out fa-3x"></i></a>
+				</li>				
 			</ul>
 		</nav>
 		
@@ -114,9 +117,8 @@
 											do seu Caminhão:</label>
 										<div class="col-md-4">
 											<input type="text" placeholder="Digite o Modelo"
-												class="form-control input-xs"
-												aria-describedby="basic-addon1"
-												name="caminhao.modeloCaminhao">
+												class="form-control input-xs" aria-describedby="basic-addon1"
+												name="caminhao.modeloCaminhao" required="">
 										</div>
 									</div>
 
@@ -145,7 +147,7 @@
 										<label class="col-md-4 control-label" for="textinput">Placa
 											Caminhão:</label>
 										<div class="col-md-2">
-											<input id="textinput" name="caminhao.placa"
+											<input id="textinput" name="caminhao.placa" required=""
 												placeholder="Digite a Placa" class="form-control input-xs"
 												maxlength="8" type="text"
 												onkeypress="formatar('###-####', this)"
@@ -158,7 +160,7 @@
 										<label class="col-md-4 control-label" for="textinput">Cód.
 											R.N.T.R.C:</label>
 										<div class="col-md-2">
-											<input id="textinput" name="caminhao.codRntrc"
+											<input id="textinput" name="caminhao.codRntrc" required=""
 												placeholder="RNTRC do seu Caminhão"
 												class="form-control input-xs" maxlength="12" type="text"
 												onkeypress="formatar('###-########', this)"
@@ -171,7 +173,8 @@
 										<label class="col-md-4 control-label" for="btnsalvar"></label>
 										<div class="col-md-8">
 											<button id="btnsalvar" name="btnsalvar" type="submit"
-												class="btn btn-success">Salvar</button>
+												class="btn btn-success"><i class="fa fa-check" aria-hidden="true">
+												</i> Salvar</button>
 										</div>
 									</div>
 								</fieldset>

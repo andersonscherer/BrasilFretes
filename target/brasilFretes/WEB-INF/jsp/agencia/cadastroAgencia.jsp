@@ -9,8 +9,8 @@
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/animate.css">
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/et-icons.css">
+    	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/font-awesome/css/font-awesome.css">
+    	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/et-icons.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/styleSistema.css">
 		<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Buenard:700'>
@@ -24,23 +24,25 @@
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+				   <span class="sr-only">Toggle navigation</span> 
+				   <span class="icon-bar"></span>
+				   <span class="icon-bar"></span>
+				   <span class="icon-bar"></span>
 				</button>
 			<a class="light white navbar-brand" href="<c:url value='/'/>"><img
 				src="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png"
 				data-active-url="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png"
-				alt=""></a>
+				alt="">
+			</a>
 		   </div>
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-right main-nav">
-				<li><a href="modal1" data-toggle="modal" data-target="#modal1"
-					class="btn btn-blue">Entrar</a></li>
-                <li><a href="<c:url value='/opcoesCadastro'/>" class="btn btn-success">Cadastre-se</a></li>
-			</ul>
-		</div>
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right main-nav">
+					<li><a href="modal1" data-toggle="modal" data-target="#modal1"
+						class="btn btn-blue">Entrar</a></li>
+	                <li><a href="<c:url value='/opcoesCadastro'/>" class="btn btn-success">Cadastre-se</a></li>
+				</ul>
+			</div>
 	    </div>
 	</nav>
 
@@ -71,22 +73,20 @@
 		<h1 class="white">Aproveite e Cadaste-se</h1>
 	</div>
 
-	<form class="form-horizontal"
-		action="${linkTo[AgenciaController].salvar}" method="post">
+	<form class="form-horizontal" action="${linkTo[AgenciaController].salvar}" method="post">
 		<div class="col-xs-12 col-md-6 cadastro">
 			<div class="texto-cadastro">
 				<h3 class="RoyalBlue">Dados pertinentes a Empresa</h3>
 			</div>
-			<div class="container">
 				<fieldset>
-
 					<!-- Form Name -->
 					<legend>Cadastro do Caminhoneiro</legend>
+				
 					<!-- Text input-->
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="text input">Nome
 							Fantasia:</label>
-						<div class="col-md-5">
+						<div class="col-md-7">
 							<input type="text" class="form-control input-sm"
 								placeholder="Nome da Empresa" aria-describedby="basic-addon1"
 								name="agencia.razaoSocial" required="">
@@ -95,9 +95,9 @@
 
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="text input">C.N.P.J</label>
-						<div class="col-md-5">
+						<div class="col-md-7">
 							<input id="textinput" name="agencia.cnpj"
-								placeholder="Digite seu C.N.P.J" class="form-control input-sm"
+								placeholder="Digite o C.N.P.J" class="form-control input-sm"
 								aria-describedby="basic-addon1" required="" maxlength="18"
 								type="text" onkeypress="formatar('##.###.###/####-##', this)"
 								onkeydown="formatar('##.###.###/####-##', this)"
@@ -107,9 +107,9 @@
 
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="text input">Responsável</label>
-						<div class="col-md-5">
+						<div class="col-md-7">
 							<input id="textinput" name="agencia.responsavel"
-								placeholder="Nome do Responsável da Empresa"
+								placeholder="Responsável pela Empresa"
 								class="form-control input-sm" aria-describedby="basic-addon1"
 								required="" type="text">
 						</div>
@@ -117,7 +117,7 @@
 
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="textinput">Telefone</label>
-						<div class="col-md-5">
+						<div class="col-md-7">
 							<input id="textinput" name="agencia.telefone"
 								placeholder="Digite o Telefone" class="form-control input-xs"
 								maxlength="15" type="text" onfocus="mascara(this)"
@@ -127,7 +127,7 @@
 
 					<div class="form-group">
 						<label class="col-md-4 control-label" for="txtgrupo" required="">Cidade</label>
-						<div class="col-md-4">
+						<div class="col-md-7">
 							<select id="txtgrupo" name="agencia.cidade.codigo"
 								class="form-control">
 								<option selected="selected">Selecione</option>
@@ -137,18 +137,14 @@
 							</select>
 						</div>
 					</div>
-
 				</fieldset>
-			</div>
 		</div>
 
-		<div class="col-xs-12 col-md-6 cadastro">
+		<div class="col-xs-12 col-md-5 cadastro">
 			<div class="texto-cadastro">
 				<h3 class="RoyalBlue">Dados pertinentes ao Login</h3>
 			</div>
-			<div class="container">
-				<form class="form-horizontal">
-					<fieldset>
+				<fieldset>
 
 						<!-- Form Name -->
 						<legend>Cadastro de login</legend>
@@ -157,7 +153,7 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label" for="textinput">Seu
 								E-mail:</label>
-							<div class="col-md-4">
+							<div class="col-md-7">
 								<input id="textinput" name="agencia.email"
 									placeholder="Digite seu E-mail" class="form-control input-md"
 									required="" type="text">
@@ -167,25 +163,20 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label" for="textinput">Sua
 								Senha:</label>
-							<div class="col-md-4">
+							<div class="col-md-7">
 								<input id="textinput" name="agencia.senha"
 									placeholder="Digite sua Senha" class="form-control input-md"
 									required="" type="password">
 							</div>
 						</div>
-					</fieldset>
+				</fieldset>
 			</div>
-		</div>
 
-		<div class="col-xs-12">
-			<div class="col-xs-12 col-md-2 col-md-offset-4  botaoCadastroAgencia">
-				<button type="submit" class="btn btn-success" href="index.jsp">Ok!
-					Cadastrar</button>
+			<div class="col-xs-12">
+				<div class="col-xs-12 col-md-2 col-md-offset-4">
+					<button type="submit" class="btn btn-success">Cadastrar-se</button>
+				</div>
 			</div>
-			<div class="col-xs-12 col-md-2 botaoCancelarAgencia">
-				<button href="index.html" type="button" class="btn btn-danger">Cancelar</button>
-			</div>
-		</div>
 	</form>
 
 	<div class="col-xs-12 copyright ">
@@ -194,7 +185,6 @@
 	</div>
 
     <!-- Inclusão do Modal -->
-
 		<div class="modal fade" id="modal1" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">

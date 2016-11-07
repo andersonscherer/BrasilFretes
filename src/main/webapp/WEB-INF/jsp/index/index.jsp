@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/bootstrap.css" >
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/animate.css">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/et-icons.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/styleSistema.css">
     <link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
@@ -33,6 +33,7 @@
                 </button>
                 <a class="navbar-brand" href="<c:url value='/'/>"><img src="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png" data-active-url="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png" alt=""></a>
             </div>
+            
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right main-nav">
@@ -96,8 +97,8 @@
             <div class=" row text-center title">
                 <h2>Nosso Serviço ?</h2>
                 <h4 class="light muted"><p>O transporte de cargas rodoviário é a modalidade de transporte mais expressiva do Brasil e os gargalos estruturais da infraestrutura logística nacional são sentidas em toda a economia. Os caminhoneiros autônomos, correspondem a 950 mil dos 2 milhões de caminhões que realizam operações de transportes no país. </p>
-<p>A <b>BrasilFretes</b> através da tecnologia busca revolucionar esse importante setor, facilitando o encontro entre caminhoneiros, transportadoras, agenciadoras e logística de empresas. Nossos usuários conseguem otimizar seus ganhos em função da rede de mais de 11.000 cadastrados e da agilidade e praticidade de nosso sistema. O site foi pensado e desenvolvido para atender as necessidades de logística de quem trabalha com transporte. Economize seu tempo e ganhe dinamismo para aquisição de caminhoneiros e fretes.</p>
-<p>Para ter acesso, basta cadastrar suas cargas e veículos através de nosso site. Com <b>BrasilFretes,</b> você encontra fretes e caminhões de maneira rápida e qualificada. Nossa busca inteligente de fretes filtra as informações pelo período de disponibilidade, origem, destino, tipo de veículo e generalidades (exemplos: gerenciadora específica, rastreador, entre outras). Somente caminhoneiros que atendam as exigências especificadas na publicação do frete (tipo de caminhão, carroceria e generalidades) podem se candidatar para os carregamentos publicados. A verificação é feita automaticamente pelo sistema.</p></h4>
+				<p>A <b>BrasilFretes</b> através da tecnologia busca revolucionar esse importante setor, facilitando o encontro entre caminhoneiros, transportadoras, agenciadoras e logística de empresas. Nossos usuários conseguem otimizar seus ganhos em função da rede de mais de 11.000 cadastrados e da agilidade e praticidade de nosso sistema. O site foi pensado e desenvolvido para atender as necessidades de logística de quem trabalha com transporte. Economize seu tempo e ganhe dinamismo para aquisição de caminhoneiros e fretes.</p>
+				<p>Para ter acesso, basta cadastrar suas cargas e veículos através de nosso site. Com <b>BrasilFretes,</b> você encontra fretes e caminhões de maneira rápida e qualificada. Nossa busca inteligente de fretes filtra as informações pelo período de disponibilidade, origem, destino, tipo de veículo e generalidades (exemplos: gerenciadora específica, rastreador, entre outras). Somente caminhoneiros que atendam as exigências especificadas na publicação do frete (tipo de caminhão, carroceria e generalidades) podem se candidatar para os carregamentos publicados. A verificação é feita automaticamente pelo sistema.</p></h4>
             </div>
         </div>
     </section>

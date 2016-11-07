@@ -36,6 +36,9 @@
 				<li class="dropdown">
 					<a href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
 				</li>
+				<li class="dropdown">
+					<a href="${linkTo[AgenciaController].logoutAgencia}"><i class="fa fa-sign-out fa-3x"></i></a>
+				</li>
 			</ul>
 		</nav>
 		
@@ -171,8 +174,7 @@
 
 									<!-- Text input-->
 									<div class="form-group">
-										<label class="col-md-4 control-label" for="textinput">Peso
-											(KG)</label>
+										<label class="col-md-4 control-label" for="textinput">Peso(KG)</label>
 										<div class="col-md-2">
 											<input id="textinput" name="frete.peso"
 												placeholder="000.00KG" class="form-control input-md"
@@ -209,22 +211,18 @@
 									</div>
 
 								</fieldset>
-								<div class="finalizacao">
-									<fieldset>
+								<fieldset>
 										<!-- Form Name -->
 										<legend>Finalização do Frete</legend>
 										<!-- Botões para Cadastrar o Frete-->
-										<div class="col-xs-12 botoes-cadastra-frete">
+										<div class="col-xs-12">
 											<div class="col-xs-12 col-md-3 col-md-offset-4">
-												<button type="submit" class="btn btn-lg btn-success">Ok!
-													Cadastrar</button>
+												<button type="submit" class="btn btn-lg btn-success"><i class="fa fa-check" aria-hidden="true"></i>  Cadastrar Frete</button>
 											</div>
 										</div>
-									</fieldset>
-								</div>
+								</fieldset>
 							</form>
 						</div>
-
 					</div>
 				</div>
 			</div>

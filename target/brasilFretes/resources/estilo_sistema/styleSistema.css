@@ -594,9 +594,11 @@ section {
     background-color: #191970;
 }
 
+/* TELA DE ESCOLHA DE CADASTRO */
 .texto-escolha-cadastro,
 h1 {
     color: #fff;
+    font-family: "Lato", Courier, monospace;
 }
 
 /* Footer */

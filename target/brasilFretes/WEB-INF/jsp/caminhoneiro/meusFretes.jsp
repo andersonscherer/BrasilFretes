@@ -34,6 +34,9 @@
 				<li class="dropdown">
 					<a href="${linkTo[CaminhoneiroController].editarCadastro(usuario.caminhoneiro.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
 				</li>
+				<li class="dropdown">
+					<a href="${linkTo[CaminhoneiroController].logout}"> <i class="fa fa-sign-out fa-3x"></i></a>
+				</li>				
 			</ul>
 		</nav>
 		
@@ -100,7 +103,7 @@
 	                                </tr>
 	                            </thead>
 	                            <tbody>
-	                            	<c:forEach items="${frete.codigo}" var="item">
+	                            	<c:forEach items="${frete.codigo}" var="frete">
 	                                <tr>
 	                                    <td>
 	                                    	<c:out value="${frete.cidadeOrigem}" />

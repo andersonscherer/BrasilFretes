@@ -43,16 +43,17 @@
 				src="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png"
 				alt=""> </a>
 		</div>
-		<ul class="nav navbar-top-links navbar-right">
-			<li class="dropdown"><a
-				href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}">
-					<i class="fa fa-user fa-3x"></i>
-			</a></li>
-		</ul>
+			<ul class="nav navbar-top-links navbar-right">
+				<li class="dropdown">
+					<a href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
+				</li>
+				<li class="dropdown">
+					<a href="${linkTo[AgenciaController].logoutAgencia}"> <i class="fa fa-sign-out fa-3x"></i></a>
+				</li>
+			</ul>
 		</nav>
 
 		<nav class="navbar-default navbar-static-side" role="navigation">
-		<!-- sidebar-collapse -->
 		<div class="sidebar-collapse">
 			<ul class="nav" id="side-menu">
 				<li>
@@ -92,24 +93,26 @@
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<div class="panel-title">
-								<h4>Procure por Caminhoneiros com os Filtros Disponíveis</h4>
+								<h4>Procure caminhoneiros por Cidades</h4>
 							</div>
 						</div>
+						<div class="panel-body">
 						<div class="container">
-						<form class="form-inline" action="${linkTo[AgenciaController].pesquisar}" method="post">
-							<div class="form-group">
-								<label class="sr-only" for="cidade">Cidade</label>
-								<select id="cidade" name="cidade.codigo" class="form-control">
-									<c:forEach var="cidade" items="${cidades}">
-										<option value="${cidade.codigo}" 
-											<c:if test="${cidadeEscolhida.codigo eq cidade.codigo}"> selected="selected"</c:if>>
-											${cidade.nome} - ${cidade.uf}
-										</option>
-									</c:forEach>
-								</select>
+							<form class="form-inline" action="${linkTo[AgenciaController].pesquisar}" method="post">
+								<div class="form-group">
+									<label for="cidade">Cidade:</label>
+									<select id="cidade" name="cidade.codigo" class="form-control">
+										<c:forEach var="cidade" items="${cidades}">
+											<option value="${cidade.codigo}" 
+												<c:if test="${cidadeEscolhida.codigo eq cidade.codigo}"> selected="selected"</c:if>>
+												${cidade.nome} - ${cidade.uf}
+											</option>
+										</c:forEach>
+									</select>
+								</div>
+								<button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> Pesquisar</button>
+							</form>
 							</div>
-							<button type="submit" class="btn btn-success">Pesquisar</button>
-						</form>
 						</div>
 					</div>
 				</div>
@@ -126,12 +129,14 @@
 						</div>
 					</div>
 					<div class="panel-body">
-						<table class="table table-striped table-bordered table-list">
+						<table class="table table-hover">
 							<thead>
-								<tr>
+								<tr class="success">
 									<th>Nome</th>
 									<th>Telefone</th>
 									<th>E-Mail</th>
+									<th>Cidade</th>									
+									<th WIDTH=100>Opções</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -146,6 +151,12 @@
 									<td>
 										<c:out value="${caminhoneiro.email}" />
 									</td>
+									<td>
+										<c:out value="${caminhoneiro.cidade.nome}" />
+									</td>									
+									<td align="center">
+										<a class="btn btn-primary btn-sm" href="#"><i class="fa fa-user" aria-hidden="true"></i> Selecionar caminhoneiro</a>                            
+	                            	</td>
 								</tr>
 								</c:forEach>
 							</tbody>

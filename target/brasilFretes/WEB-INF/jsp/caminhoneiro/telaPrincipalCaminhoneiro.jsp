@@ -19,9 +19,7 @@
 	</head>
 <body>
 
-	<!--  wrapper -->
 	<div id="wrapper">
-		<!-- navbar top -->
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar"> 
 			<div class="navbar-header">
 				<a class="light white navbar-brand"
@@ -34,7 +32,11 @@
 				<li class="dropdown">
 					<a href="${linkTo[CaminhoneiroController].editarCadastro(usuario.caminhoneiro.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
 				</li>
+				<li class="dropdown">
+					<a href="${linkTo[CaminhoneiroController].logout}"><i class="fa fa-sign-out fa-3x"></i></a>
+				</li>				
 			</ul>
+			
 		</nav>
 		
 		<nav class="navbar-default navbar-static-side" role="navigation">
@@ -62,11 +64,6 @@
 			</div> 
 		</nav>
 	</div>
-	
-	<script
-		src="<%=request.getContextPath()%>/resources/estilo_sistema/js/jquery-1.11.1.min.js"></script>
-	<script
-		src="<%=request.getContextPath()%>/resources/estilo_sistema/js/bootstrap.min.js"></script>
 
 </body>
 </html>
