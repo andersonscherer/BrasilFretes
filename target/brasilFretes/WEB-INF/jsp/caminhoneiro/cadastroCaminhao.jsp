@@ -30,16 +30,18 @@
 			</div>
 			<ul class="nav navbar-top-links navbar-right">
 				<li class="dropdown">
-					<a href="${linkTo[CaminhoneiroController].editarCadastro(usuario.caminhoneiro.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
+					<a href="${linkTo[CaminhoneiroController].editarCadastro(usuario.caminhoneiro.codigo)}" 
+					data-toggle="tooltip" data-placement="bottom" title="Editar Cadastro"><i class="fa fa-user fa-3x"></i>
+					</a>
 				</li>
 				<li class="dropdown">
-					<a href="${linkTo[CaminhoneiroController].logout}"> <i class="fa fa-sign-out fa-3x"></i></a>
+					<a href="${linkTo[CaminhoneiroController].logout}" data-toggle="tooltip" data-placement="bottom" title="Sair do sistema">
+					<i class="fa fa-sign-out fa-3x"></i></a>
 				</li>				
 			</ul>
 		</nav>
 		
 		<nav class="navbar-default navbar-static-side" role="navigation">
-			<!-- sidebar-collapse -->
 			<div class="sidebar-collapse">
 				<ul class="nav" id="side-menu">
 					<li>
@@ -54,11 +56,11 @@
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
-					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> - Cadastrar Caminhão</a></li>
-					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i> - Procurar Fretes</a></li>
-					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-edit fa-fw"></i> - Acompanhar Pedidos</a></li>
-					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-table fa-fw"></i> - Meus Fretes</a></li>
+					<li class="selected"><a href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> Incial</a></li>
+					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> Cadastrar Caminhão</a></li>
+					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i> Procurar Fretes</a></li>
+					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-truck" aria-hidden="true"></i> Acompanhar Pedidos</a></li>
+					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-list"></i> Meus Fretes</a></li>
 				</ul>
 			</div> 
 		</nav>
@@ -68,7 +70,6 @@
 	<div id="wrapper">
 		<div id="page-wrapper">
 			<div class="row">
-				<!--page header-->
 				<div class="col-lg-12">
 					<h1 class="page-header">Cadastro de Caminhão</h1>
 				</div>
@@ -85,10 +86,10 @@
 							<c:out value="${msgSucesso}" />
 						</div>
 				</c:if>
-					<div class="panel panel-primary">
+					<div class="panel panel-primary panel-table">
 						<div class="panel-heading">
 							<div class="panel-title">
-								<h4>Cadastre um novo caminhão</h4>
+								<strong><i class="fa fa-plus" aria-hidden="true"></i> Cadastre um novo caminhão</strong>
 							</div>
 						</div>
 						<div class="table-responsive">
@@ -186,7 +187,15 @@
 		</div>
 		<!-- end page-wrapper -->
 	</div>
-	<!-- end wrapper -->
+
+	<script src="<%=request.getContextPath()%>/resources/js/jquery-1.11.1.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+		$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	});
+	</script>
+
 	<script>
 		function formatar(mascara, documento) {
 			var i = documento.value.length;

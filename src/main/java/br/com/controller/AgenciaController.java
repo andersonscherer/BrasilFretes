@@ -148,15 +148,6 @@ public class AgenciaController {
 		}
 	}
 
-	@Path("/meusFretes")
-	public void listaFreteCaminhoneiro() {
-		// List<Frete> fretes = FreteDAO.findByFrete(StatusFrete.ENCERRADO);
-		// for (Frete frete : fretes)
-		// frete.setItens(freteDAO.findByFrete(frete));
-		//
-		// return fretes;
-	}
-	
 	@Get("/logoutAgencia")
 	public void logoutAgencia() {
 		agenciaSessao.setAgencia(null);

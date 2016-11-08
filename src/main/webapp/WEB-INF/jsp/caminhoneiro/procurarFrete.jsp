@@ -32,10 +32,13 @@
 			</div>
 			<ul class="nav navbar-top-links navbar-right">
 				<li class="dropdown">
-					<a href="${linkTo[CaminhoneiroController].editarCadastro(usuario.caminhoneiro.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
+					<a href="${linkTo[CaminhoneiroController].editarCadastro(usuario.caminhoneiro.codigo)}" 
+					data-toggle="tooltip" data-placement="bottom" title="Editar Cadastro"><i class="fa fa-user fa-3x"></i>
+					</a>
 				</li>
 				<li class="dropdown">
-					<a href="${linkTo[CaminhoneiroController].logout}" data-toggle="tooltip" data-placement="bottom" title="Sair do sistema"> <i class="fa fa-sign-out fa-3x"></i></a>
+					<a href="${linkTo[CaminhoneiroController].logout}" data-toggle="tooltip" data-placement="bottom" title="Sair do sistema">
+					<i class="fa fa-sign-out fa-3x"></i></a>
 				</li>				
 			</ul>
 		</nav>
@@ -56,11 +59,11 @@
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
-					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> - Cadastrar Caminhão</a></li>
-					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i> - Procurar Fretes</a></li>
-					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-edit fa-fw"></i> - Acompanhar Pedidos</a></li>
-					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-table fa-fw"></i> - Meus Fretes</a></li>
+					<li class="selected"><a href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> Incial</a></li>
+					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> Cadastrar Caminhão</a></li>
+					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i> Procurar Fretes</a></li>
+					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-truck" aria-hidden="true"></i> Acompanhar Pedidos</a></li>
+					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-list"></i> Meus Fretes</a></li>
 				</ul>
 			</div> 
 		</nav>
@@ -76,7 +79,7 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="panel panel-primary">
-						<div class="panel-heading">Procure pela cidade de Origem</div>
+						<div class="panel-heading"><i class="fa fa-map-marker" aria-hidden="true"></i> Procure pela cidade de Origem</div>
 						<div class="panel-body">
 						<div class="container">
 							<form class="form-inline" action="${linkTo[CaminhoneiroController].pesquisarFrete}" method="post">
@@ -103,7 +106,7 @@
               <div class="panel-heading">
                 <div class="row">
                   <div class="col col-xs-6">
-                    <h3 class="panel-title">Fretes Disponíveis</h3>
+                    <strong class="panel-title"><i class="fa fa-truck" aria-hidden="true"></i> Fretes Disponíveis</hstrong>
                   </div>
                 </div>
               </div>

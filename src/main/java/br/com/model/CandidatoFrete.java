@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -24,6 +26,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@NamedQueries({ @NamedQuery(name = "CandidatoFrete.POR_USUARIO", query = "select c from CandidatoFrete c where c.caminhoneiro = ?1")
+})
 public class CandidatoFrete implements UsoCodigo {
 	
 	@Id

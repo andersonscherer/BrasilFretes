@@ -20,9 +20,7 @@
 	</head>
 <body>
 
-	<!--  wrapper -->
 	<div id="wrapper">
-		<!-- navbar top -->
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar"> 
 			<div class="navbar-header">
 				<a class="light white navbar-brand"
@@ -57,11 +55,11 @@
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="<c:url value='telaPrincipalAgencia'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
-					<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-map-marker fa-fw"></i> - Fretes em Execução/Aberto</a></li>
-					<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i> - Cadastro de Frete</a></li>
-					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-table fa-fw"></i> - Meu historico de Fretes</a></li>
-                    <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-edit fa-fw"></i> - Procurar Caminhoneiros</a>
+					<li class="selected"><a href="<c:url value='telaPrincipalAgencia'/>"><i class="fa fa-dashboard fa-fw"></i> Incial</a></li>
+					<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-briefcase fa-fw"></i> Fretes em Execução/Aberto</a></li>
+					<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i> Cadastro de Frete</a></li>
+					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-list-ul"></i> Meu historico de Fretes</a></li>
+	                <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-search fa-fw"></i> Procurar Caminhoneiros</a>
                     </li>
 				</ul>
 			</div> 
@@ -70,13 +68,13 @@
 	
 	<div id="wrapper">
         <div class="col-md-10 col-md-offset-2">
-           <div class="tabelaFretes" style="
-    margin-top: 50px;">
+           <div class="tabelaFretes" style=" margin-top: 50px;">
             <div class="panel panel-primary panel-table">
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h3 class="panel-title">Dados do Frete nº - {1505}</h3>
+                    <h3 class="panel-title"><i class="fa fa-list" aria-hidden="true"></i>
+                    Dados do Frete nº - <b>{1505}</b></h3>
                   </div>
                 </div>
               </div>
@@ -85,59 +83,68 @@
                 <table class="table table-striped table-bordered table-list">
                   <thead>
                     <tr>
-                        <th><em class="fa fa-cog"></em></th>
-                        <th class="hidden-xs">Id do Frete</th>
+                        <th>Id do Frete</th>
                         <th>Cidade Origem</th>
                         <th>Cidade Destino</th>
                         <th>Valor do Frete (R$)</th>                        
                         <th>Status</th>
+                        <th>Ações</th>
                     </tr> 
                   </thead>
                   <tbody>
                      <tr>
-                        <td align="center">
-						   <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modal1"><em class="fa fa-trash-o"></em></a>                       
-                       </td>
                        <td class="hidden-md">1</td>
                        <td>Chapecó - SC</td>
                        <td>Florianópolis - SC</td>
                        <td>159,50</td>                                  
-                       <td>ABERTO</td>                            
+                       <td>ABERTO</td>   
+                       <td align="center">
+						   <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modal1">
+						   <em class="fa fa-trash-o"></em></a>                       
+                       </td>                         
                     </tr>
                  </tbody>
                 </table>
               </div>
+             </div>
+            </div>
+           </div>
               
+          <div class="col-md-10 col-md-offset-2">
+           <div class="tabelaFretes" style=" margin-top: 50px;">
+            <div class="panel panel-primary panel-table">
                 <div class="panel-heading">
                	 	<div class="row">
                  		 <div class="col col-xs-6">
-                   			 <h3 class="panel-title">Caminhoneiros Interessados</h3>
+                   			 <h3 class="panel-title">
+                   			 <i class="fa fa-users" aria-hidden="true"></i>  Caminhoneiros Interessados neste Frete</h3>
                  		 </div>	
                 	</div>
                </div>
                
+			
               <div class="panel-body">
                 <table class="table table-striped table-bordered table-list">
                   <thead>
                     <tr>
-                        <th><em class="fa fa-cog"></em></th>
                         <th class="hidden-xs">Id do Caminhoneiro</th>
                         <th>Nome</th>
                         <th>Cidade</th>
                         <th>Telefone</th>                        
                         <th>E-Mail</th>
+                        <th>Ações</th>
                     </tr> 
                   </thead>
                   <tbody>
                        <tr>
-                         <td align="center">
-                            <a class="btn btn-success">Escolher Caminhoneiro</a>                              
-                        </td>
                           <td class="hidden-md">1</td>
                           <td>Mário Quintana de Souza Abreu</td>
                           <td>Florianópolis - SC</td>
                           <td>(49) 3222-5689</td>                                  
-                          <td>marioquintana@hotmail.com</td>                            
+                          <td>marioquintana@hotmail.com</td>   
+                       	  <td align="center">
+                             <a class="btn btn-primary"><i class="fa fa-check" aria-hidden="true"></i></a>                              
+                          </td>                                                   
                       </tr>
                  </tbody>
                 </table>

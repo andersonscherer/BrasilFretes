@@ -19,9 +19,7 @@
 	</head>
 <body>
 
-	<!--  wrapper -->
 	<div id="wrapper">
-		<!-- navbar top -->
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar"> 
 			<div class="navbar-header">
 				<a class="light white navbar-brand"
@@ -32,10 +30,13 @@
 			</div>
 			<ul class="nav navbar-top-links navbar-right">
 				<li class="dropdown">
-					<a href="${linkTo[CaminhoneiroController].editarCadastro(usuario.caminhoneiro.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
+					<a href="${linkTo[CaminhoneiroController].editarCadastro(usuario.caminhoneiro.codigo)}" 
+					data-toggle="tooltip" data-placement="bottom" title="Editar Cadastro"><i class="fa fa-user fa-3x"></i>
+					</a>
 				</li>
 				<li class="dropdown">
-					<a href="${linkTo[CaminhoneiroController].logout}"> <i class="fa fa-sign-out fa-3x"></i></a>
+					<a href="${linkTo[CaminhoneiroController].logout}" data-toggle="tooltip" data-placement="bottom" title="Sair do sistema">
+					<i class="fa fa-sign-out fa-3x"></i></a>
 				</li>				
 			</ul>
 		</nav>
@@ -56,11 +57,11 @@
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
-					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> - Cadastrar Caminhão</a></li>
-					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i> - Procurar Fretes</a></li>
-					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-edit fa-fw"></i> - Acompanhar Pedidos</a></li>
-					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-table fa-fw"></i> - Meus Fretes</a></li>
+					<li class="selected"><a href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> Incial</a></li>
+					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> Cadastrar Caminhão</a></li>
+					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i> Procurar Fretes</a></li>
+					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-truck" aria-hidden="true"></i> Acompanhar Pedidos</a></li>
+					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-list"></i> Meus Fretes</a></li>
 				</ul>
 			</div> 
 		</nav>
@@ -68,13 +69,13 @@
 
 	<div id="wrapper">
 		<div class="col-md-10 col-md-offset-2">
-           <div class="tabelaFretes" style="
-    margin-top: 50px;">
+           <div class="tabelaFretes" style="margin-top: 50px;">
             <div class="panel panel-primary panel-table">
               <div class="panel-heading">
                 <div class="row">
                   <div class="col col-xs-6">
-                    <strong class="panel-title">Acompanhar Pedidos</strong>                 
+                    <strong class="panel-title">
+                    <i class="fa fa-search-plus" aria-hidden="true"></i> Acompanhar Pedidos</strong>                 
                   </div>
                 </div>
               </div>
@@ -103,22 +104,34 @@
                         <th>Valor do Frete (R$)</th>                        
                         <th>Observaçoes</th>
                         <th>Status</th>
-                        <th align="center"> Ação</th>
                     </tr> 
                   </thead>
 	                  <tbody>
-	                          <tr>
-	                            <td>Chapecó - SC</td>
-	                            <td>BRFoods</td>
-	                            <td>Florianópolis - SC</td>
-	                            <td>Aurora</td>                                  
-	                            <td>150,00</td>
-	                            <td>Frete bom</td>
-	                            <td>ABERTO</td>
-	                            <td align="center">
-									<a class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Descandidatar-se</a>                            
-	                            </td>                            
-	                          </tr>
+						<c:forEach var="candidato" items="${candidatoFreteList}">
+							<tr>							    
+								<td>
+									<c:out value="${candidato.frete.cidadeOrigem.nome}" />
+								</td>
+								<td>
+									<c:out value="${candidato.frete.localRetirada}" />
+								</td>								
+								<td>
+									<c:out value="${candidato.frete.cidadeDestino.nome}" />
+								</td>
+								<td>
+									<c:out value="${candidato.frete.localEntrega}" />
+								</td>									
+								<td>
+									<c:out value="${candidato.frete.valor}" />
+								</td>																	
+								<td>
+									<c:out value="${candidato.frete.observacoes}" />
+								</td>
+								<td>
+									<c:out value="${candidato.frete.statusFrete}" />
+								</td>							
+							</tr>
+						</c:forEach>
 	                 </tbody>
                 </table>
               </div>
@@ -127,7 +140,15 @@
 	</div>
 		<!-- end page-wrapper -->
 	</div>
-	<!-- end wrapper -->
+
+	<script src="<%=request.getContextPath()%>/resources/js/jquery-1.11.1.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+     <script type="text/javascript">
+		$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	});
+	</script>
+
 	<script>
 		function formatar(mascara, documento) {
 			var i = documento.value.length;

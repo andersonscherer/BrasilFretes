@@ -32,10 +32,13 @@
 			</div>
 			<ul class="nav navbar-top-links navbar-right">
 				<li class="dropdown">
-					<a href="${linkTo[CaminhoneiroController].editarCadastro(usuario.caminhoneiro.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
+					<a href="${linkTo[CaminhoneiroController].editarCadastro(usuario.caminhoneiro.codigo)}" 
+					data-toggle="tooltip" data-placement="bottom" title="Editar Cadastro"><i class="fa fa-user fa-3x"></i>
+					</a>
 				</li>
 				<li class="dropdown">
-					<a href="${linkTo[CaminhoneiroController].logout}"> <i class="fa fa-sign-out fa-3x"></i></a>
+					<a href="${linkTo[CaminhoneiroController].logout}" data-toggle="tooltip" data-placement="bottom" title="Sair do sistema">
+					<i class="fa fa-sign-out fa-3x"></i></a>
 				</li>				
 			</ul>
 		</nav>
@@ -56,11 +59,11 @@
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
-					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> - Cadastrar Caminhão</a></li>
-					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i> - Procurar Fretes</a></li>
-					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-edit fa-fw"></i> - Acompanhar Pedidos</a></li>
-					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-table fa-fw"></i> - Meus Fretes</a></li>
+					<li class="selected"><a href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> Incial</a></li>
+					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> Cadastrar Caminhão</a></li>
+					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i> Procurar Fretes</a></li>
+					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-truck" aria-hidden="true"></i> Acompanhar Pedidos</a></li>
+					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-list"></i> Meus Fretes</a></li>
 				</ul>
 			</div> 
 		</nav>
@@ -79,7 +82,8 @@
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<div class="panel-title">
-								<h4>Obs.: Apenas campos com ( * ) são campos editáveis</h4>
+								<strong><i class="fa fa-cogs" aria-hidden="true"></i>
+								 Obs.: Apenas campos com ( * ) são campos editáveis</strong>
 							</div>
 						</div>
 						<div class="table-responsive">
@@ -192,11 +196,20 @@
 		<!-- end page-wrapper -->
 	</div>
 	<!-- end wrapper -->
-	<script
+	<script src="<%=request.getContextPath()%>/resources/js/jquery-1.11.1.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+    <script
 		src="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/jquery-1.10.2.js">
 	</script>
+	
+     <script type="text/javascript">
+		$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	});
+	</script>
+	
 	<script type="text/javascript">            
             $('#tipo').val('${caminhoneiro.getTipoCNH()}');
-        </script>
+    </script>
 </body>
 </html>

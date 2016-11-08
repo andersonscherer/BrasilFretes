@@ -51,7 +51,7 @@ public class Caminhoneiro implements UsoCodigo{
 	private String telefone;
 	
 	@Column
-	private Integer cursoEspecifico;
+	private String cursoEspecifico;
 	
 	@ManyToOne
 	private Cidade cidade;

@@ -98,7 +98,6 @@ public class CaminhoneiroController {
 	public void editarCadastro(Long codCaminhoneiro) {
 		result.include("caminhoneiro", caminhoneiroDAO.buscar(Caminhoneiro.class, codCaminhoneiro));
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
-
 	}
 
 	@Put("/alterarCaminhoneiro/{caminhoneiro.codigo}")
@@ -112,8 +111,9 @@ public class CaminhoneiroController {
 	}
 
 	@Path("/acompanharPedido")
-	public void acompanharPedido() {
-
+	public List<CandidatoFrete> acompanharPedido() {
+		//Listar todos os fretes que o caminhoneiro se candidatou
+		return candidatoFreteDAO.findByCaminhoneiro(caminhoneiroSessao.getCaminhoneiro());
 	}
 	
 	@Path("/candidatarAfrete")
@@ -126,16 +126,15 @@ public class CaminhoneiroController {
 			e.printStackTrace();
 		}
 	}
+	
 
 	@Path("/procurarFrete")
 	public List<Frete> procurarFrete(Cidade cidade) {
 		result.include("cidades", cidadeDAO.listar(Cidade.class));
 		result.include("cidadeEscolhida", cidade);
-		
 		if (cidade != null && cidade.getCodigo() != null) {
 			return freteDAO.findByCidade(cidade, caminhoneiroSessao.getCaminhoneiro());
 		}
-		
 		return null;
 	}
 	
@@ -159,5 +158,10 @@ public class CaminhoneiroController {
 	public void logout() {
 		caminhoneiroSessao.setCaminhoneiro(null);
 		result.redirectTo(IndexController.class).index();
+	}
+	
+	@Path("/meusFretes")
+	public void listaFreteCaminhoneiro() {
+
 	}
 }

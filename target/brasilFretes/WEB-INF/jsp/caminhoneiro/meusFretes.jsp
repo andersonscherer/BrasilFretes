@@ -32,10 +32,13 @@
 			</div>
 			<ul class="nav navbar-top-links navbar-right">
 				<li class="dropdown">
-					<a href="${linkTo[CaminhoneiroController].editarCadastro(usuario.caminhoneiro.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
+					<a href="${linkTo[CaminhoneiroController].editarCadastro(usuario.caminhoneiro.codigo)}" 
+					data-toggle="tooltip" data-placement="bottom" title="Editar Cadastro"><i class="fa fa-user fa-3x"></i>
+					</a>
 				</li>
 				<li class="dropdown">
-					<a href="${linkTo[CaminhoneiroController].logout}"> <i class="fa fa-sign-out fa-3x"></i></a>
+					<a href="${linkTo[CaminhoneiroController].logout}" data-toggle="tooltip" data-placement="bottom" title="Sair do sistema">
+					<i class="fa fa-sign-out fa-3x"></i></a>
 				</li>				
 			</ul>
 		</nav>
@@ -56,11 +59,11 @@
 							</div>
 						</div>
 					</li>
-					<li class="selected"><a href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> - Incial</a></li>
-					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> - Cadastrar Caminhão</a></li>
-					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i> - Procurar Fretes</a></li>
-					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-edit fa-fw"></i> - Acompanhar Pedidos</a></li>
-					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-table fa-fw"></i> - Meus Fretes</a></li>
+					<li class="selected"><a href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> Incial</a></li>
+					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> Cadastrar Caminhão</a></li>
+					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i> Procurar Fretes</a></li>
+					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-truck" aria-hidden="true"></i> Acompanhar Pedidos</a></li>
+					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-list"></i> Meus Fretes</a></li>
 				</ul>
 			</div> 
 		</nav>
@@ -68,20 +71,13 @@
 	
 
 	<div id="wrapper">
-		<!-- navbar top -->
-
-		<!-- end navbar side -->
-		<!--  page-wrapper -->
 		<div id="page-wrapper">
-
 			<div class="row">
-				<!--page header-->
 				<div class="col-lg-12">
 					<h1 class="page-header">Meus Fretes</h1>
 				</div>
-				<!--end page header-->
 			</div>
-			<!-- row -->
+
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-primary">
@@ -90,9 +86,9 @@
 								<h4>Veja aqui o Histórico de seus fretes.</h4>
 							</div>
 						</div>
-                     <c:forEach items="${fretesList}" var="frete">
+                     <c:forEach <c:url value="/listaFreteCaminhoneiro"/>" items="${fretesList}" var="frete">
                     	<div class="panel panel-default">
-						  <div class="panel-heading"><b>Cód. Frete:</b> ${frete.codigo} - <b>Data de processo do pedido:</b> ${frete.dataPedido}</div>
+						  <div class="panel-heading"><b>Cód. Frete:</b> ${frete.codigo}</div>
 						  <div class="panel-body no-padding">
 	                        <table class="table no-margin">
 	                            <thead>
@@ -104,17 +100,17 @@
 	                            </thead>
 	                            <tbody>
 	                            	<c:forEach items="${frete.codigo}" var="frete">
-	                                <tr>
-	                                    <td>
-	                                    	<c:out value="${frete.cidadeOrigem}" />
-	                                    </td>
-	                                    <td class="text-center">
-	                                    	<c:out value="${frete.cidadeDestino}" />
-	                                    </td>
-	                                    <td class="text-center">
-	                                    	<c:out value="${frete.valor}" />
-	                                    </td>
-	                                </tr>
+		                                <tr>
+		                                    <td>
+		                                    	<c:out value="${frete.cidadeOrigem}" />
+		                                    </td>
+		                                    <td class="text-center">
+		                                    	<c:out value="${frete.cidadeDestino}" />
+		                                    </td>
+		                                    <td class="text-center">
+		                                    	<c:out value="${frete.valor}" />
+		                                    </td>
+		                                </tr>
 	                                </c:forEach>
 	                            </tbody>
 	                        </table>
@@ -127,6 +123,8 @@
 					</div>
 				</div>
 			</div>
+	<script src="<%=request.getContextPath()%>/resources/js/jquery-1.11.1.min.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 	<script>
 		function formatar(mascara, documento) {
 			var i = documento.value.length;
@@ -139,5 +137,12 @@
 
 		}
 	</script>
+	
+     <script type="text/javascript">
+		$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	});
+	</script>
+	
 </body>
 </html>

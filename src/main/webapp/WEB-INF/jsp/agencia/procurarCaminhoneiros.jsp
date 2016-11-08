@@ -3,46 +3,31 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
-<link
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/bootstrap.css"
-	rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/assets/plugins/pace/pace-theme-big-counter.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/style.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/main-style.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/styleSistema.css">
-
-<link rel="shortcut icon"
-	href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
-<link href='http://fonts.googleapis.com/css?family=Buenard:700'
-	rel='stylesheet' type='text/css'>
-
-<title>Fretes em Execução/Aberto - BrasilFretes</title>
-</head>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/assets/plugins/pace/pace-theme-big-counter.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/style.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/main-style.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/styleSistema.css">
+		<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
+		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Buenard:700'>
+		<title>Fretes em Execução/Aberto - BrasilFretes</title>
+	
+	</head>
 <body>
 
-	<!--  wrapper -->
 	<div id="wrapper">
-		<!-- navbar top -->
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation"
-			id="navbar">
-		<div class="navbar-header">
-			<a class="light white navbar-brand"
-				href="<c:url value='telaPrincipalAgencia'/>"><img
-				src="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png"
-				alt=""> </a>
-		</div>
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+			<div class="navbar-header">
+				<a class="light white navbar-brand"
+					href="<c:url value='telaPrincipalAgencia'/>"><img
+					src="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png"
+					alt=""> </a>
+			</div>
 			<ul class="nav navbar-top-links navbar-right">
 				<li class="dropdown">
 					<a href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
@@ -81,11 +66,9 @@
 	<div id="wrapper">
 		<div id="page-wrapper">
 			<div class="row">
-				<!--Titulo Painel-->
 				<div class="col-lg-12">
 					<h1 class="page-header">Procurar Caminhoneiros</h1>
 				</div>
-				<!--Final Titulo Painel-->
 			</div>
 			<!-- Linha -->
 			<div class="row">
