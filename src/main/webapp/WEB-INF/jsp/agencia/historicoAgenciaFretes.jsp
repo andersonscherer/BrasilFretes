@@ -84,7 +84,7 @@
 		              <div class="panel-body">
 		                <table class="table table-striped table-bordered table-list">
 		                  <thead>
-		                    <tr>
+		                    <tr class="success">
 		                        <th class="hidden-xs">Id do Frete</th>
 		                        <th>Cidade Origem</th>
 		                        <th>Cidade Destino</th>
@@ -92,14 +92,26 @@
 		                        <th>Status</th>
 		                    </tr> 
 		                  </thead>
-		                  <tbody>
-		                           <tr>
-		                            <td class="hidden-md">1505</td>
-		                            <td>Chapecó - SC</td>
-		                            <td>Florianópolis - SC</td>
-		                            <td>159,50</td>                                  
-		                            <td style="background-color:red;color:white;">FINALIZADO</td>                            
-		                          </tr>
+		                 	 <tbody>
+								<c:forEach var="frete" items="${freteList}">
+									<tr>							    
+										<td>
+											<c:out value="${frete.codigo}" />
+										</td>
+										<td>
+											<c:out value="${frete.cidadeOrigem.nome}" />
+										</td>	
+										<td>
+											<c:out value="${frete.cidadeDestino.nome}" />
+										</td>	
+										<td>
+											<c:out value="${frete.valor}" />
+										</td>	
+										<td>
+											<c:out value="${frete.statusFrete}" />
+										</td>	
+									</tr>
+								</c:forEach>
 		                        </tbody>
 		                </table>
 		              </div>

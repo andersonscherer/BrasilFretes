@@ -25,7 +25,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@NamedQueries({ @NamedQuery(name = "Agencia.POR_USUARIO", query = "select a from Agencia a where a.email = ?1") })
+@NamedQueries({ @NamedQuery(name = "Agencia.POR_USUARIO", query = "select a from Agencia a where a.email = ?1")
+				
+	})
+
 public class Agencia implements UsoCodigo{
 
 	//Criando Um cadastro para A Agência.

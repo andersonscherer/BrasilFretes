@@ -111,7 +111,7 @@
            </div>
               
           <div class="col-md-10 col-md-offset-2">
-           <div class="tabelaFretes" style=" margin-top: 50px;">
+           <div class="tabelaFretes">
             <div class="panel panel-primary panel-table">
                 <div class="panel-heading">
                	 	<div class="row">
@@ -143,7 +143,7 @@
                           <td>(49) 3222-5689</td>                                  
                           <td>marioquintana@hotmail.com</td>   
                        	  <td align="center">
-                             <a class="btn btn-primary"><i class="fa fa-check" aria-hidden="true"></i></a>                              
+                             <a class="btn btn-primary"><i class="fa fa-check" aria-hidden="true"> Escolher Caminhoneiro</i></a>                              
                           </td>                                                   
                       </tr>
                  </tbody>

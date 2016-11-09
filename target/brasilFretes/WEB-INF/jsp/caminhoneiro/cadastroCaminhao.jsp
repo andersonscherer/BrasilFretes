@@ -19,9 +19,7 @@
 	</head>
 <body>
 
-	<!--  wrapper -->
 	<div id="wrapper">
-		<!-- navbar top -->
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar"> 
 			<div class="navbar-header">
 				<a class="light white navbar-brand" href="<c:url value='telaPrincipalCaminhoneiro'/>"><img
@@ -73,9 +71,7 @@
 				<div class="col-lg-12">
 					<h1 class="page-header">Cadastro de Caminhão</h1>
 				</div>
-				<!--end page header-->
 			</div>
-			<!-- row -->
 			<div class="row">
 				<div class="col-lg-12">
 				<c:if test="${not empty msgSucesso}">

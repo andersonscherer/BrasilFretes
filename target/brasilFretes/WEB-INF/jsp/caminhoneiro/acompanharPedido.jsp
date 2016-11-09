@@ -42,7 +42,6 @@
 		</nav>
 		
 		<nav class="navbar-default navbar-static-side" role="navigation">
-			<!-- sidebar-collapse -->
 			<div class="sidebar-collapse">
 				<ul class="nav" id="side-menu">
 					<li>
@@ -104,7 +103,6 @@
                         <th>Valor do Frete (R$)</th>                        
                         <th>Observaçoes</th>
                         <th>Status</th>
-                        <th align="center"> Ação</th>
                     </tr> 
                   </thead>
 	                  <tbody>
@@ -130,10 +128,7 @@
 								</td>
 								<td>
 									<c:out value="${candidato.frete.statusFrete}" />
-								</td>
-	                            <td align="center">
-									<a class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Descandidatar-se</a>                            
-	                            </td>								
+								</td>							
 							</tr>
 						</c:forEach>
 	                 </tbody>

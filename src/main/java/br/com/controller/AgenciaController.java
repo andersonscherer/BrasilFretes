@@ -14,6 +14,7 @@ import br.com.dao.AgenciaDAO;
 import br.com.dao.CaminhoneiroDAO;
 import br.com.dao.CidadeDAO;
 import br.com.dao.FreteDAO;
+import br.com.enums.Status;
 import br.com.exception.DAOException;
 import br.com.model.Agencia;
 import br.com.model.Caminhoneiro;
@@ -82,9 +83,8 @@ public class AgenciaController {
 	}
 
 	@Path("/historicoAgenciaFretes")
-	public void historicoAgenciaFretes() {
-		result.include("cidades", cidadeDAO.listar(Cidade.class));
-
+	public List<Frete> historicoAgenciaFretes() {
+		return freteDAO.findByTodos(agenciaSessao.getAgencia(), Status.FINALIZADO);
 	}
 
 	@Path("/procurarCaminhoneiros")
@@ -134,7 +134,8 @@ public class AgenciaController {
 
 	@Path("/fretesEmAberto")
 	public void fretesEmAberto() {
-
+		result.include("fretesExecucao", freteDAO.findByTodos(agenciaSessao.getAgencia(), Status.EXECUCAO));
+		result.include("fretesAbertos", freteDAO.findByTodos(agenciaSessao.getAgencia(), Status.ABERTO));
 	}
 
 	@Post

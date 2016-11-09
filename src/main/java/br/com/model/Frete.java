@@ -25,7 +25,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @NamedQueries({
 		@NamedQuery(name = "Frete.POR_CIDADE", query = "select f from Frete f where f.cidadeOrigem = ?1 and f.codigo not in "
-				+ "(select cf.frete.codigo from CandidatoFrete cf where cf.caminhoneiro = ?2)") })
+				+ "(select cf.frete.codigo from CandidatoFrete cf where cf.caminhoneiro = ?2)"),
+		@NamedQuery(name = "Frete.TODOS_FRETES", query = "select f from Frete f where f.statusFrete = ?2 and f.agencia = ?1")
+})
 public class Frete implements UsoCodigo {
 
 	// Criando Um cadastro para o Frete.

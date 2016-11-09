@@ -52,15 +52,7 @@
 									<input class="form-control" placeholder="Senha" name="senha"
 										type="password" value="">
 								</div>
-								<div class="checkbox">
-									<label> <input name="remember" type="checkbox"
-										value="Remember Me">Lembre-me
-									</label>
-								</div>
-								<!-- Change this to a button or input when using this as a form -->
-								<button type="submit" class="btn btn-lg btn-success btn-block">Entrar</button>
-								<a href="<c:url value='/'/>"
-									class="col-xs-12 btn btn-lg btn-primary">Voltar</a>
+								<button type="submit" class="btn btn-lg btn-primary btn-block">Entrar</button>
 							</fieldset>
 						</form>
 					</div>
