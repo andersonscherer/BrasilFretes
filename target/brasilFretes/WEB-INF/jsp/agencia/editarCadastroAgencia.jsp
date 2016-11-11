@@ -6,8 +6,8 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
-		<link href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/bootstrap.css"rel="stylesheet" type="text/css">
-		<link rel="stylesheet" type="text/css"href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/style.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/main-style.css">
@@ -19,9 +19,7 @@
 	</head>
 <body>
 
-	<!--  wrapper -->
 	<div id="wrapper">
-		<!-- navbar top -->
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar"> 
 			<div class="navbar-header">
 				<a class="light white navbar-brand"
@@ -32,16 +30,17 @@
 			</div>
 			<ul class="nav navbar-top-links navbar-right">
 				<li class="dropdown">
-					<a href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
+					<a href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}"data-toggle="tooltip" data-placement="bottom" title="Editar Dados"> 
+					<i class="fa fa-user fa-3x"></i></a>
 				</li>
 				<li class="dropdown">
-					<a href="${linkTo[AgenciaController].logoutAgencia}"> <i class="fa fa-sign-out fa-3x"></i></a>
+					<a href="${linkTo[AgenciaController].logoutAgencia}" data-toggle="tooltip" data-placement="bottom" title="Sair do sistema">
+					<i class="fa fa-sign-out fa-3x"></i></a>
 				</li>
 			</ul>
 		</nav>
 		
 		<nav class="navbar-default navbar-static-side" role="navigation">
-			<!-- sidebar-collapse -->
 			<div class="sidebar-collapse">
 				<ul class="nav" id="side-menu">
 					<li>
@@ -69,19 +68,15 @@
 
 	<div id="wrapper">
 		<div id="page-wrapper">
-			<div class="row">
-				<div class="col-lg-12">
-					<h1 class="page-header">Editar Cadastro</h1>
-				</div>
-			</div>
 
-			<div class="row">
+			<div class="row"><br><br>
 				<div class="col-lg-12">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<div class="panel-title">
 								<strong>Atualize o seus dados, e fique sempre por dentro das
-									novidades. Obs.: Apenas campos com ( * ) são campos editáveis</strong>
+									novidades. Obs.: Apenas campos com ( * ) são campos editáveis
+								</strong>
 							</div>
 						</div>
 						<div class="table-responsive">
@@ -157,10 +152,16 @@
 				</div>
 			</div>
 		</div>
-		<!-- end page-wrapper -->
 	</div>
-	<!-- end wrapper -->
-	<script
-		src="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/jquery-1.10.2.js"></script>
+
+	<!-- Scripts -->
+	 <script src="<%=request.getContextPath()%>/resources/js/jquery-1.11.1.min.js"></script>
+     <script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+     <script type="text/javascript">
+		$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	});
+	</script>
+	
 </body>
 </html>

@@ -48,4 +48,18 @@ public class FreteDAO extends HibernateDAO<Frete>{
 			this.finalizar();
 		}
 	}
+	
+	
+
+	public List<Frete> findByCaminhoneiro(Caminhoneiro caminhoneiro) {
+		try {
+			this.conectar();
+			//Na namedQuery Frete.MEUS_FRETES e responsavel por listar todo os fretes que contem o id do caminhoneiro cadastrdo
+			TypedQuery<Frete> query = em.createNamedQuery("Frete.MEUS_FRETES", Frete.class);
+			query.setParameter(1, caminhoneiro);
+			return query.getResultList();
+		} finally {
+			this.finalizar();
+		}
+	}
 }

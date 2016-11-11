@@ -5,24 +5,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/bootstrap.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/assets/plugins/pace/pace-theme-big-counter.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/style.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/main-style.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/styleSistema.css">
-<link rel="shortcut icon"
-	href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/assets/plugins/pace/pace-theme-big-counter.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/style.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/main-style.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/styleSistema.css">
+<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 <link rel='stylesheet' type='text/css'
 	href='http://fonts.googleapis.com/css?family=Buenard:700'>
 <title>Fretes em Execução/Aberto - BrasilFretes</title>
@@ -38,15 +29,16 @@
 				src="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png"
 				alt=""> </a>
 		</div>
-		<ul class="nav navbar-top-links navbar-right">
-			<li class="dropdown"><a
-				href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}">
-					<i class="fa fa-user fa-3x"></i>
-			</a></li>
-			<li class="dropdown"><a
-				href="${linkTo[AgenciaController].logoutAgencia}"> <i
-					class="fa fa-sign-out fa-3x"></i></a></li>
-		</ul>
+			<ul class="nav navbar-top-links navbar-right">
+				<li class="dropdown">
+					<a href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}"data-toggle="tooltip" data-placement="bottom" title="Editar Dados"> 
+					<i class="fa fa-user fa-3x"></i></a>
+				</li>
+				<li class="dropdown">
+					<a href="${linkTo[AgenciaController].logoutAgencia}" data-toggle="tooltip" data-placement="bottom" title="Sair do sistema">
+					<i class="fa fa-sign-out fa-3x"></i></a>
+				</li>
+			</ul>
 		</nav>
 
 		<nav class="navbar-default navbar-static-side" role="navigation">
@@ -88,9 +80,9 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col col-xs-6">
-								<h3 class="panel-title">
+								<strong class="panel-title">
 									<li class="fa fa-cogs"></li> Fretes em Execução
-								</h3>
+								</strong>
 							</div>
 						</div>
 					</div>
@@ -127,10 +119,10 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col col-xs-6">
-								<h3 class="panel-title">
-									<i class="fa fa-briefcase" aria-hidden="true"></i> Fretes em
-									Aberto que receberam candidatos
-								</h3>
+								<strong class="panel-title"> <i class="fa fa-briefcase"
+									aria-hidden="true"></i> Fretes em aberto que receberam
+									candidatos
+								</strong>
 							</div>
 						</div>
 					</div>
@@ -138,7 +130,7 @@
 						<table class="table table-striped table-bordered table-list">
 							<thead>
 								<tr>
-									<th>Id do Frete</th>
+									<th><b>Id do Frete</b></th>
 									<th>Cidade Origem</th>
 									<th>Cidade Destino</th>
 									<th>Valor do Frete (R$)</th>
@@ -149,18 +141,21 @@
 							<tbody>
 								<c:forEach var="aberto" items="${fretesAbertos}">
 									<tr>
-										<td><c:out value="${frete.codigo}" /></td>
-										<td><c:out value="${frete.cidadeOrigem.nome}" /></td>
-										<td><c:out value="${frete.cidadeDestino.nome}" /></td>
-										<td><c:out value="${frete.valor}" /></td>
-										<td><c:out value="${frete.statusFrete}" /></td>
-										<td WIDTH=190><a href="<c:url value='/dadosFrete'/>"
-											class="btn btn-primary btn-sm" title="Verificar candidatos"><i
-												class="fa fa-eye" aria-hidden="true"></i> Visualizar </a> <a
-											class="btn btn-danger btn-sm" title="Excluir frete"><i
-												class="fa fa-times" aria-hidden="true"></i> Excluir </a>
+										<td><b></b> <c:out value="${aberto.codigo}" /></b></td>
+										<td><c:out value="${aberto.cidadeOrigem.nome}" /></td>
+										<td><c:out value="${aberto.cidadeDestino.nome}" /></td>
+										<td><c:out value="${aberto.valor}" /></td>
+										<td><c:out value="${aberto.statusFrete}" /></td>
+										<td WIDTH=190>
+											<c:if test="${empty aberto.caminhoneiro}">
+												<a href="${linkTo[AgenciaController].dadosFrete(aberto)}" class="btn btn-primary btn-sm" title="Verificar candidatos">
+													<i class="fa fa-eye" aria-hidden="true"></i> Visualizar 
+												</a> 
+												<a class="btn btn-danger btn-sm" title="Excluir frete">
+													<i class="fa fa-times" aria-hidden="true"></i> Excluir 
+												</a>
+											</c:if>
 										</td>
-
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -172,19 +167,13 @@
 		</div>
 	</div>
 
-	<!-- Inclusão do Modal -->
-
-	<div class="modal fade" id="modal1" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content modal-popup">
-				<h3 class="white">Como quer fazer Login ?</h3>
-				<a href="<c:url value='/loginCaminhoneiro'/>"
-					class="btn btn-primary">Camihoneiro</a> <a
-					href="<c:url value='/loginAgencia'/>" class="btn btn-primary">Agência</a>
-			</div>
-		</div>
-	</div>
-
+	 <script src="<%=request.getContextPath()%>/resources/js/jquery-1.11.1.min.js"></script>
+     <script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+     <script type="text/javascript">
+		$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	});
+	</script>
+	
 </body>
 </html>

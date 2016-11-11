@@ -15,8 +15,9 @@
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/styleSistema.css">
 		<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
 		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Buenard:700'>
+		
 		<title>Fretes em Execução/Aberto - BrasilFretes</title>
-	
+		
 	</head>
 <body>
 
@@ -30,10 +31,12 @@
 			</div>
 			<ul class="nav navbar-top-links navbar-right">
 				<li class="dropdown">
-					<a href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}"> <i class="fa fa-user fa-3x"></i></a>
+					<a href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}"data-toggle="tooltip" data-placement="bottom" title="Editar Dados"> 
+					<i class="fa fa-user fa-3x"></i></a>
 				</li>
 				<li class="dropdown">
-					<a href="${linkTo[AgenciaController].logoutAgencia}"> <i class="fa fa-sign-out fa-3x"></i></a>
+					<a href="${linkTo[AgenciaController].logoutAgencia}" data-toggle="tooltip" data-placement="bottom" title="Sair do sistema">
+					<i class="fa fa-sign-out fa-3x"></i></a>
 				</li>
 			</ul>
 		</nav>
@@ -64,19 +67,14 @@
 	</div>
 
 	<div id="wrapper">
-		<div id="page-wrapper">
-			<div class="row">
-				<div class="col-lg-12">
-					<h1 class="page-header">Procurar Caminhoneiros</h1>
-				</div>
-			</div>
+		<div id="page-wrapper"><br><br>
 			<!-- Linha -->
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<div class="panel-title">
-								<h4>Procure caminhoneiros por Cidades</h4>
+								<strong>Procure caminhoneiros por Cidades</strong>
 							</div>
 						</div>
 						<div class="panel-body">
@@ -107,7 +105,7 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col col-xs-6">
-								<h3 class="panel-title">Caminhoneiros</h3>
+								<strong class="panel-title">Caminhoneiros encontrados</strong>
 							</div>
 						</div>
 					</div>
@@ -124,23 +122,23 @@
 							</thead>
 							<tbody>
 								<c:forEach var="caminhoneiro" items="${caminhoneiroList}">
-								<tr>
-									<td>
-										<c:out value="${caminhoneiro.nome}" />
-									</td>
-									<td>
-										<c:out value="${caminhoneiro.telefone}" />
-									</td>
-									<td>
-										<c:out value="${caminhoneiro.email}" />
-									</td>
-									<td>
-										<c:out value="${caminhoneiro.cidade.nome}" />
-									</td>									
-									<td align="center">
-										<a class="btn btn-primary btn-sm" href="#"><i class="fa fa-user" aria-hidden="true"></i> Selecionar caminhoneiro</a>                            
-	                            	</td>
-								</tr>
+									<tr>
+										<td>
+											<c:out value="${caminhoneiro.nome}" />
+										</td>
+										<td>
+											<c:out value="${caminhoneiro.telefone}" />
+										</td>
+										<td>
+											<c:out value="${caminhoneiro.email}" />
+										</td>
+										<td>
+											<c:out value="${caminhoneiro.cidade.nome}" />
+										</td>									
+										<td align="center">
+											<a class="btn btn-primary btn-sm" href="#"><i class="fa fa-user" aria-hidden="true"></i> Selecionar caminhoneiro</a>                            
+		                            	</td>
+									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
@@ -148,11 +146,15 @@
 				</div>
 			</div>
 		</div>
-		<!-- end page-wrapper -->
-
-
-
 	</div>
-	<!-- end wrapper -->
+
+	 <script src="<%=request.getContextPath()%>/resources/js/jquery-1.11.1.min.js"></script>
+     <script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+     <script type="text/javascript">
+		$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	});
+	</script>
+
 </body>
 </html>

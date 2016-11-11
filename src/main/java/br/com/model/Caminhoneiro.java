@@ -26,7 +26,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @NamedQueries({ @NamedQuery(name = "Caminhoneiro.POR_USUARIO", query = "select c from Caminhoneiro c where c.email = ?1"),	
-				@NamedQuery(name = "Caminhoneiro.POR_CIDADE", query = "select c from Caminhoneiro c where c.cidade = ?1")
+				@NamedQuery(name = "Caminhoneiro.POR_CIDADE", query = "select c from Caminhoneiro c where c.cidade = ?1"),
 })
 public class Caminhoneiro implements UsoCodigo{
 	
@@ -61,6 +61,9 @@ public class Caminhoneiro implements UsoCodigo{
 
 	@Column
 	private String senha;
+	
+	@Column
+	private Integer notaFrete;
 	
 	@Column
 	private Status status = Status.ATIVO;

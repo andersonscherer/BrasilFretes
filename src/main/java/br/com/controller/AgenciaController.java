@@ -12,12 +12,14 @@ import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
 import br.com.dao.AgenciaDAO;
 import br.com.dao.CaminhoneiroDAO;
+import br.com.dao.CandidatoFreteDAO;
 import br.com.dao.CidadeDAO;
 import br.com.dao.FreteDAO;
 import br.com.enums.Status;
 import br.com.exception.DAOException;
 import br.com.model.Agencia;
 import br.com.model.Caminhoneiro;
+import br.com.model.CandidatoFrete;
 import br.com.model.Cidade;
 import br.com.model.Frete;
 import br.com.session.AgenciaSessao;
@@ -36,6 +38,8 @@ public class AgenciaController {
 	private final CaminhoneiroDAO caminhoneiroDAO;
 	
 	private final AgenciaSessao agenciaSessao;
+	
+	private final CandidatoFreteDAO candidatoFreteDAO;
 
 	// CADA CONTROLER E RESPONSAVEL POR SUA ACOOES POR EXEMPLO O INDEXCONTROLLER
 	// CHAMA A TELA DE INICIO E A TELA DE OPCOES ESCOLHA
@@ -44,12 +48,12 @@ public class AgenciaController {
 	 * @deprecated CDI eyes only Necessario para os controllers
 	 */
 	protected AgenciaController() {
-		this(null, null, null, null, null, null);
+		this(null, null, null, null, null, null, null);
 	}
 
 	@Inject
 	public AgenciaController(Result result, CidadeDAO cidadeDAO, AgenciaDAO agenciaDAO, 
-			FreteDAO freteDAO, CaminhoneiroDAO caminhoneiroDAO, AgenciaSessao agenciaSessao) {
+			FreteDAO freteDAO, CaminhoneiroDAO caminhoneiroDAO, AgenciaSessao agenciaSessao, CandidatoFreteDAO candidatoFreteDAO) {
 		super();
 		this.result = result;
 		this.cidadeDAO = cidadeDAO;
@@ -57,6 +61,7 @@ public class AgenciaController {
 		this.freteDAO = freteDAO;
 		this.caminhoneiroDAO = caminhoneiroDAO;
 		this.agenciaSessao = agenciaSessao;
+		this.candidatoFreteDAO = candidatoFreteDAO;
 	}
 
 	@Post
@@ -127,10 +132,27 @@ public class AgenciaController {
 
 	}
 
-	@Path("/dadosFrete")
-	public void dadosFrete() {
+	@Path("/dadosFrete/{frete.codigo}")
+	public List<CandidatoFrete> dadosFrete(Frete frete) {
+		result.include("frete", frete);
+		return candidatoFreteDAO.findByFrete(frete);
 
 	}
+	
+	@Get("/defineCaminhoneiro")
+	public void defineCaminhoneiro(Long codFrete, Caminhoneiro caminhoneiro){
+		try {
+			Frete frete = freteDAO.buscar(Frete.class, codFrete);
+			frete.setCaminhoneiro(caminhoneiro);
+			frete.setStatusFrete(Status.EXECUCAO);
+			freteDAO.salvar(frete);
+			result.include("msgSucesso", "Caminhoneiro adicionado com Sucesso !!!");
+			result.redirectTo(this).fretesEmAberto();
+		} catch (DAOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 
 	@Path("/fretesEmAberto")
 	public void fretesEmAberto() {

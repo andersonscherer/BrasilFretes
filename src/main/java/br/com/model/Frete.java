@@ -26,7 +26,9 @@ import lombok.Setter;
 @NamedQueries({
 		@NamedQuery(name = "Frete.POR_CIDADE", query = "select f from Frete f where f.cidadeOrigem = ?1 and f.codigo not in "
 				+ "(select cf.frete.codigo from CandidatoFrete cf where cf.caminhoneiro = ?2)"),
-		@NamedQuery(name = "Frete.TODOS_FRETES", query = "select f from Frete f where f.statusFrete = ?2 and f.agencia = ?1")
+		@NamedQuery(name = "Frete.TODOS_FRETES", query = "select f from Frete f where f.statusFrete = ?2 and f.agencia = ?1"),
+		//NamedQuery responsavel por lista os fretes que contem o id do caminhoneiro na tabela frete
+		@NamedQuery(name =  "Frete.MEUS_FRETES", query = "select f from Frete f where f.caminhoneiro = ?1")
 })
 public class Frete implements UsoCodigo {
 
@@ -68,6 +70,9 @@ public class Frete implements UsoCodigo {
 
 	@ManyToOne(optional = false, targetEntity = Agencia.class)
 	private Agencia agencia;
+	
+	@ManyToOne
+	private Caminhoneiro caminhoneiro;
 
 	public Frete(Long codigo) {
 		this.codigo = codigo;

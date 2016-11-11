@@ -26,7 +26,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@NamedQueries({ @NamedQuery(name = "CandidatoFrete.POR_USUARIO", query = "select c from CandidatoFrete c where c.caminhoneiro = ?1")})
+@NamedQueries({ @NamedQuery(name = "CandidatoFrete.POR_USUARIO", query = "select c from CandidatoFrete c where c.caminhoneiro = ?1"),
+				@NamedQuery(name = "CandidatoFrete.POR_FRETE", query = "select c from CandidatoFrete c where c.frete = ?1")
+})
+
 public class CandidatoFrete implements UsoCodigo {
 	
 	@Id

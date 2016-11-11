@@ -7,6 +7,7 @@ import javax.persistence.TypedQuery;
 
 import br.com.model.Caminhoneiro;
 import br.com.model.CandidatoFrete;
+import br.com.model.Frete;
 
 public class CandidatoFreteDAO extends HibernateDAO<CandidatoFrete> {
 
@@ -19,6 +20,31 @@ public class CandidatoFreteDAO extends HibernateDAO<CandidatoFrete> {
 			return query.getResultList();
 		} catch (NoResultException e) {
 			return null;
+		} finally {
+			this.finalizar();
+		}
+	}
+	
+	public List<CandidatoFrete> findByFrete(Frete frete) {
+		this.conectar();
+		try {
+			TypedQuery<CandidatoFrete> query = em.createNamedQuery(
+					"CandidatoFrete.POR_FRETE", CandidatoFrete.class);
+			query.setParameter(1, frete);
+			return query.getResultList();
+		} catch (NoResultException e) {
+			return null;
+		} finally {
+			this.finalizar();
+		}
+	}
+	
+	public List<CandidatoFrete> findByTodosFrete(Caminhoneiro caminhoneiro) {
+		try {
+			this.conectar();
+			TypedQuery<CandidatoFrete> query = em.createNamedQuery("Frete.TODOS_FRETES", CandidatoFrete.class);
+			query.setParameter(1, caminhoneiro);
+			return query.getResultList();
 		} finally {
 			this.finalizar();
 		}

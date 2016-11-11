@@ -157,8 +157,8 @@
 					</div>
 
 					<div class="form-group">
-						<label class="col-md-4 control-label" for="txtgrupo">Cidade</label>
-							<div class="col-md-4">
+						<label class="col-md-5 control-label" for="txtgrupo">Cidade</label>
+							<div class="col-md-7">
 								<select id="txtgrupo" name="caminhoneiro.cidade.codigo"
 								class="form-control" >
 									<option selected="selected">Selecione</option>

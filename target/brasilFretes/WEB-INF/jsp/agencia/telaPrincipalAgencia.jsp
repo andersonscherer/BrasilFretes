@@ -34,10 +34,12 @@
 			</div>
 			<ul class="nav navbar-top-links navbar-right">
 				<li class="dropdown">
-					<a href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}"><i class="fa fa-user fa-3x"></i></a>
+					<a href="${linkTo[AgenciaController].editarCadastroAgencia(agencia.agencia.codigo)}"data-toggle="tooltip" data-placement="bottom" title="Editar Dados"> 
+					<i class="fa fa-user fa-3x"></i></a>
 				</li>
 				<li class="dropdown">
-					<a href="${linkTo[AgenciaController].logoutAgencia}"> <i class="fa fa-sign-out fa-3x"></i></a>
+					<a href="${linkTo[AgenciaController].logoutAgencia}" data-toggle="tooltip" data-placement="bottom" title="Sair do sistema">
+					<i class="fa fa-sign-out fa-3x"></i></a>
 				</li>
 			</ul>
 		</nav>
@@ -69,5 +71,13 @@
 		</nav>
 	</div>
 
+	 <script src="<%=request.getContextPath()%>/resources/js/jquery-1.11.1.min.js"></script>
+     <script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+     <script type="text/javascript">
+		$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	});
+	</script>
+	
 </body>
 </html>

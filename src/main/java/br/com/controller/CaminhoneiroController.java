@@ -161,7 +161,11 @@ public class CaminhoneiroController {
 	}
 	
 	@Path("/meusFretes")
-	public void listaFreteCaminhoneiro() {
-
+	public List<Frete> meusFretes() {
+		//Retornamos uma lista de fretes que contém o id do caminhoneiro no frete
+		//O metodo  findByCaminhoneiro localizado no frete dao pesquisa utilizando a named query criada no modal frete
+		//para listar todo os fretes que contém o id do caminhoneiro logado no sistema
+		return freteDAO.findByCaminhoneiro(caminhoneiroSessao.getCaminhoneiro());
 	}
+	
 }
