@@ -58,8 +58,8 @@
 						</div>
 					</li>
 						<li class="selected"><a href="<c:url value='telaPrincipalAgencia'/>"><i class="fa fa-dashboard fa-fw"></i> Incial</a></li>
-						<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-briefcase fa-fw"></i> Fretes em Execução/Aberto</a></li>
 						<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i> Cadastro de Frete</a></li>
+						<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-briefcase fa-fw"></i> Fretes em Execução/Aberto</a></li>
 						<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-list-ul"></i> Meu historico de Fretes</a></li>
 				        <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-search fa-fw"></i> Procurar Caminhoneiros</a>
 			            </li>
@@ -72,43 +72,42 @@
 	        <div class="col-md-10 col-md-offset-2">
 	           <div class="tabelaFretes" style="
 	 			   margin-top: 50px;">
-	              <div class="panel panel-primary panel-table">
-		             <div class="panel-heading">
-		               <div class="row">
-		                 <div class="col col-xs-6">
-		                   <strong class="panel-title">Meus Fretes</strong>
-		                 </div>
-		               </div>
-		             </div>
+	              <div class="panel panel-success panel-table">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col col-xs-6">
+									<strong class="panel-title"> <i
+										class="fa fa-briefcase" aria-hidden="true"></i> Fretes
+										finalizados
+									</strong>
+								</div>
+							</div>
+						</div>
 		             <div class="panel-body">
 		               <table class="table table-striped table-bordered table-list">
 		                 <thead>
 		                   <tr class="success">
-		                       <th class="hidden-xs">Id do Frete</th>
 		                       <th>Cidade Origem</th>
+		                       <th>Local de Origem</th>		                       
 		                       <th>Cidade Destino</th>
-		                       <th>Valor do Frete (R$)</th>                        
-		                       <th>Status</th>
+		                       <th>Local de Entrega</th>		                       	                       
+		                       <th>Valor do Frete (R$)</th>	                       
+		                       <th>Nome do Caminhoneiro</th>
+			                   <th>Telefone</th>	 
+			                   <th>Nota Caminhoneiro</th>	 			                                         		                                               
 		                   </tr> 
 		                 </thead>
 			               	 <tbody>
 							<c:forEach var="frete" items="${freteList}">
 								<tr>							    
-									<td>
-										<c:out value="${frete.codigo}" />
-									</td>
-									<td>
-										<c:out value="${frete.cidadeOrigem.nome}" />
-									</td>	
-									<td>
-										<c:out value="${frete.cidadeDestino.nome}" />
-									</td>	
-									<td>
-										<c:out value="${frete.valor}" />
-									</td>	
-									<td>
-										<c:out value="${frete.statusFrete}" />
-									</td>	
+									<td><c:out value="${frete.cidadeOrigem.nome} - ${frete.cidadeOrigem.uf}" /></td>
+									<td><c:out value="${frete.localEntrega}" /></td>											
+									<td><c:out value="${frete.cidadeDestino.nome}" /></td>	
+									<td><c:out value="${frete.localEntrega}" /></td>									
+									<td><c:out value="${frete.valor}" /></td>								
+									<td><c:out value="${frete.caminhoneiro.nome}" /></td>
+									<td><c:out value="${frete.caminhoneiro.telefone}" /></td>	
+									<td><c:out value="${frete.notaCaminhoneiro}" /></td>																											
 								</tr>
 							</c:forEach>
 		                       </tbody>

@@ -6,8 +6,8 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
-		<link href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/bootstrap.css"rel="stylesheet" type="text/css">
-		<link rel="stylesheet" type="text/css"href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/assets/plugins/pace/pace-theme-big-counter.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/style.css">
@@ -58,7 +58,7 @@
 					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> Cadastrar Caminhão</a></li>
 					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i> Procurar Fretes</a></li>
 					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-truck" aria-hidden="true"></i> Acompanhar Pedidos</a></li>
-					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-list"></i> Meus Fretes</a></li>
+					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-list"></i> Meus Fretes Finalizados</a></li>
 				</ul>
 			</div> 
 		</nav>
@@ -95,19 +95,6 @@
 										
 									<input type="hidden" name="caminhao.caminhoneiro.codigo" value="${usuario.caminhoneiro.codigo}">
 										
-										<div class="form-group">
-											<label class="col-md-4 control-label" for="txtgrupo">Marca :</label>
-												<div class="col-md-4">
-													<select id="txtgrupo" name="caminhao.marcaCaminhao"
-														class="form-control">
-													<option selected="selected">Selecione</option>
-													<c:forEach var="marcaCaminhao" items="${marcasCaminhao}">
-															<option value="${marcaCaminhao.codigo}">${marcaCaminhao.nome}</option>
-													</c:forEach>
-													</select>
-											   </div>
-										</div>
-
 									<!-- Text input-->
 									<div class="form-group">
 										<label class="col-md-4 control-label" for="textinput">Modelo

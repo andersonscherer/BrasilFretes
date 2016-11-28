@@ -3,31 +3,21 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/bootstrap.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/assets/plugins/pace/pace-theme-big-counter.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/style.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/main-style.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/styleSistema.css">
-<link rel="shortcut icon"
-	href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
-<link rel='stylesheet' type='text/css'
-	href='http://fonts.googleapis.com/css?family=Buenard:700'>
-
-<title>Dados do Frete - BrasilFretes</title>
-</head>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/assets/plugins/pace/pace-theme-big-counter.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/style.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/main-style.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/styleSistema.css">
+		<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
+		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Buenard:700'>
+		
+		<title>Dados do Frete - BrasilFretes</title>
+	</head>
 <body>
 
 	<div id="wrapper">
@@ -67,17 +57,11 @@
 						</div>
 					</div>
 				</li>
-				<li class="selected"><a
-					href="<c:url value='telaPrincipalAgencia'/>"><i
-						class="fa fa-dashboard fa-fw"></i> Incial</a></li>
-				<li><a href="<c:url value='/fretesEmAberto'/>"><i
-						class="fa fa-briefcase fa-fw"></i> Fretes em Execução/Aberto</a></li>
-				<li><a href="<c:url value='/cadastroDeFrete'/>"><i
-						class="fa fa-plus fa-fw"></i> Cadastro de Frete</a></li>
-				<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i
-						class="fa fa-list-ul"></i> Meu historico de Fretes</a></li>
-				<li><a href="<c:url value='/procurarCaminhoneiros'/>"><i
-						class="fa fa-search fa-fw"></i> Procurar Caminhoneiros</a></li>
+				<li class="selected"><a href="<c:url value='telaPrincipalAgencia'/>"><i class="fa fa-dashboard fa-fw"></i> Incial</a></li>
+				<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i> Cadastro de Frete</a></li>
+				<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-briefcase fa-fw"></i> Fretes em Execução/Aberto</a></li>
+				<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-list-ul"></i> Meu historico de Fretes</a></li>
+				<li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-search fa-fw"></i> Procurar Caminhoneiros</a></li>
 			</ul>
 		</div>
 		</nav>
@@ -104,8 +88,9 @@
 									<th class="hidden-xs">Código</th>
 									<th>Nome</th>
 									<th>Cidade</th>
-									<th>Telefone</th>
+									<th>Telefone</th>																		
 									<th>E-mail</th>
+									<th>Caminhão</th>
 									<th>Ações</th>
 								</tr>
 							</thead>
@@ -114,9 +99,10 @@
 									<tr>
 										<td><c:out value="${candidato.codigo}" /></td>
 										<td><c:out value="${candidato.caminhoneiro.nome}" /></td>
-										<td><c:out value="${candidato.caminhoneiro.cidade.nome}" /></td>
+										<td><c:out value="${candidato.caminhoneiro.cidade.nome} - ${candidato.caminhoneiro.cidade.uf}" /></td>
 										<td><c:out value="${candidato.caminhoneiro.telefone}" /></td>
 										<td><c:out value="${candidato.caminhoneiro.email}" /></td>
+										<td><c:out value="${candidato.caminhoneiro.caminhao.modeloCaminhao}" /></td>
 										<td align="center">
 											<a class="btn btn-primary btn-xs" href="${linkTo[AgenciaController].defineCaminhoneiro}?codFrete=${frete.codigo}&caminhoneiro.codigo=${candidato.caminhoneiro.codigo}"><i
 												class="fa fa-check" aria-hidden="true"></i> Escolher

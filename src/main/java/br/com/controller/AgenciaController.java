@@ -170,10 +170,37 @@ public class AgenciaController {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	@Get("/excluir/{frete.codigo}")
+	public void excluir(Frete frete){
+		try{
+			freteDAO.excluir(frete);
+			result.include("msgSucesso", "Frete Excluido com Sucesso!");
+			result.redirectTo(this).fretesEmAberto();
+		}catch (DAOException e) {
+			e.printStackTrace();
+		}
+		
+	}
 
 	@Get("/logoutAgencia")
 	public void logoutAgencia() {
 		agenciaSessao.setAgencia(null);
 		result.redirectTo(IndexController.class).index();
 	}
+	
+	@Post
+	public void avaliarConducaoFrete(Long codFrete, Integer nota) {
+		try {
+			Frete frete = freteDAO.buscar(Frete.class, codFrete);
+			frete.setNotaCaminhoneiro(nota);
+			frete.setStatusFrete(Status.FINALIZADO);
+			freteDAO.salvar(frete);
+			result.redirectTo(this).fretesEmAberto();
+		} catch (DAOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 }

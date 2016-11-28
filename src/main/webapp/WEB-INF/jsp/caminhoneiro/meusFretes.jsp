@@ -3,35 +3,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
-<link
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/bootstrap.css"
-	rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/assets/plugins/pace/pace-theme-big-counter.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/style.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/main-style.css">
-<link rel="shortcut icon"
-	href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
-<link href='http://fonts.googleapis.com/css?family=Buenard:700'
-	rel='stylesheet' type='text/css'>
-
-<title>Meus Fretes - BrasilFretes</title>
-</head>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/normalize.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/plugins/bootstrap/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/owl.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/assets/plugins/pace/pace-theme-big-counter.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/font-awesome/css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/style.css">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/estilo_sistema/dashbord/assets/css/main-style.css">
+		<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/imagens/favicons/logo.png">
+		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Buenard:700'>
+		
+		<title>Meus Fretes - BrasilFretes</title>
+	</head>
 <body>
-
-	<!--  wrapper -->
 	<div id="wrapper">
-		<!-- navbar top -->
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation"
 			id="navbar">
 		<div class="navbar-header">
@@ -53,7 +40,6 @@
 		</nav>
 
 		<nav class="navbar-default navbar-static-side" role="navigation">
-		<!-- sidebar-collapse -->
 		<div class="sidebar-collapse">
 			<ul class="nav" id="side-menu">
 				<li>
@@ -68,17 +54,11 @@
 						</div>
 					</div>
 				</li>
-				<li class="selected"><a
-					href="<c:url value='telaPrincipalCaminhoneiro'/>"><i
-						class="fa fa-dashboard fa-fw"></i> Incial</a></li>
-				<li><a href="<c:url value='/cadastroCaminhao'/>"><i
-						class="fa fa-plus fa-fw"></i> Cadastrar Caminhão</a></li>
-				<li><a href="<c:url value='/procurarFrete'/>"><i
-						class="fa fa-search fa-fw"></i> Procurar Fretes</a></li>
-				<li><a href="<c:url value='/acompanharPedido'/>"><i
-						class="fa fa-truck" aria-hidden="true"></i> Acompanhar Pedidos</a></li>
-				<li><a href="<c:url value='/meusFretes'/>"><i
-						class="fa fa-list"></i> Meus Fretes</a></li>
+				<li class="selected"><a	href="<c:url value='telaPrincipalCaminhoneiro'/>"><i class="fa fa-dashboard fa-fw"></i> Incial</a></li>
+				<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> Cadastrar Caminhão</a></li>
+				<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i> Procurar Fretes</a></li>
+				<li><a href="<c:url value='/acompanharPedido'/>"><i	class="fa fa-truck" aria-hidden="true"></i> Acompanhar Pedidos</a></li>
+				<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-list"></i> Meus Fretes Finalizados</a></li>
 			</ul>
 		</div>
 		</nav>
@@ -113,22 +93,25 @@
 										<th>Peso</th>
 										<th>Valor</th>
 										<th>Status</th>
+										<th>Pontuação</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
 									<!-- freteList - vem do metodo que chamaa a tela meus fretes no caminhoneiro controller
 									o nome freteList é imprementado pelo vraptor -->
-										<c:forEach var="frete" items="${freteList}">
+									<c:forEach var="frete" items="${freteList}">
+										<tr>
 											<td><c:out value="${frete.codigo}" /></td>
 											<td><c:out value="${frete.agencia.razaoSocial}" /></td>
-											<td><c:out value="${frete.cidadeOrigem.nome}" /></td>
-											<td><c:out value="${frete.cidadeDestino.nome}" /></td>
+											<td><c:out value="${frete.cidadeOrigem.nome} - ${frete.cidadeOrigem.uf}" /></td>
+											<td><c:out value="${frete.cidadeDestino.nome} - ${frete.cidadeDestino.uf}" /></td>
 											<td><c:out value="${frete.peso}" /></td>
 											<td><c:out value="${frete.valor}" /></td>
 											<td><c:out value="${frete.statusFrete}" /></td>
-										</c:forEach>
-									</tr>
+											<td><c:out value="${frete.notaCaminhoneiro}" /></td>
+										</tr>
+									</c:forEach>
+
 								</tbody>
 							</table>
 						</div>

@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import br.com.enums.Status;
 import br.com.interfaces.UsoCodigo;
@@ -51,6 +53,9 @@ public class Caminhoneiro implements UsoCodigo{
 	private String telefone;
 	
 	@Column
+	private String telefone2;
+	
+	@Column
 	private String cursoEspecifico;
 	
 	@ManyToOne
@@ -63,10 +68,10 @@ public class Caminhoneiro implements UsoCodigo{
 	private String senha;
 	
 	@Column
-	private Integer notaFrete;
-	
-	@Column
 	private Status status = Status.ATIVO;
+	
+	@OneToOne(mappedBy = "caminhoneiro")
+	private Caminhao caminhao;
 	
 	public boolean isAtivo() {
 		return Status.ATIVO.equals(this.getStatus());

@@ -5,18 +5,21 @@ import java.util.List;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
+import br.com.enums.Status;
 import br.com.model.Caminhoneiro;
 import br.com.model.CandidatoFrete;
 import br.com.model.Frete;
 
 public class CandidatoFreteDAO extends HibernateDAO<CandidatoFrete> {
 
-	public List<CandidatoFrete> findByCaminhoneiro(Caminhoneiro caminhoneiro) {
+	public List<CandidatoFrete> findByCaminhoneiro(Caminhoneiro caminhoneiro, Status statusFrete, Status status) {
 		this.conectar();
 		try {
 			TypedQuery<CandidatoFrete> query = em.createNamedQuery(
 					"CandidatoFrete.POR_USUARIO", CandidatoFrete.class);
 			query.setParameter(1, caminhoneiro);
+			query.setParameter(2, statusFrete);
+			query.setParameter(3, status);
 			return query.getResultList();
 		} catch (NoResultException e) {
 			return null;

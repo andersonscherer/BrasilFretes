@@ -15,14 +15,13 @@ import br.com.dao.CaminhoneiroDAO;
 import br.com.dao.CandidatoFreteDAO;
 import br.com.dao.CidadeDAO;
 import br.com.dao.FreteDAO;
-import br.com.dao.MarcaCaminhaoDAO;
+import br.com.enums.Status;
 import br.com.exception.DAOException;
 import br.com.model.Caminhao;
 import br.com.model.Caminhoneiro;
 import br.com.model.CandidatoFrete;
 import br.com.model.Cidade;
 import br.com.model.Frete;
-import br.com.model.MarcaCaminhao;
 import br.com.session.CaminhoneiroSessao;
 
 @Controller
@@ -31,8 +30,6 @@ public class CaminhoneiroController {
 	private final Result result;
 
 	private final CidadeDAO cidadeDAO;
-
-	private final MarcaCaminhaoDAO marcaCaminhaoDAO;
 
 	private final CaminhoneiroDAO caminhoneiroDAO;
 
@@ -51,16 +48,15 @@ public class CaminhoneiroController {
 	 * @deprecated CDI eyes only Necessario para os controllers
 	 */
 	protected CaminhoneiroController() {
-		this(null, null, null, null, null, null, null, null);
+		this(null, null, null, null, null, null, null);
 	}
 
 	@Inject
-	public CaminhoneiroController(Result result, CidadeDAO cidadeDAO, MarcaCaminhaoDAO marcaCaminhaoDAO,
-			CaminhoneiroDAO caminhoneiroDAO, CaminhaoDAO caminhaoDAO, FreteDAO freteDAO, CaminhoneiroSessao caminhoneiroSessao, CandidatoFreteDAO candidatoFreteDAO) {
+	public CaminhoneiroController(Result result, CidadeDAO cidadeDAO, CaminhoneiroDAO caminhoneiroDAO, CaminhaoDAO caminhaoDAO, 
+			FreteDAO freteDAO, CaminhoneiroSessao caminhoneiroSessao, CandidatoFreteDAO candidatoFreteDAO) {
 		super();
 		this.result = result;
 		this.cidadeDAO = cidadeDAO;
-		this.marcaCaminhaoDAO = marcaCaminhaoDAO;
 		this.caminhoneiroDAO = caminhoneiroDAO;
 		this.caminhaoDAO = caminhaoDAO;
 		this.freteDAO = freteDAO;
@@ -91,7 +87,7 @@ public class CaminhoneiroController {
 
 	@Path("/cadastroCaminhao")
 	public void cadastroCaminhao() {
-		result.include("marcasCaminhao", marcaCaminhaoDAO.listar(MarcaCaminhao.class));
+
 	}
 
 	@Get("/editarCadastro/{codCaminhoneiro}")
@@ -113,7 +109,7 @@ public class CaminhoneiroController {
 	@Path("/acompanharPedido")
 	public List<CandidatoFrete> acompanharPedido() {
 		//Listar todos os fretes que o caminhoneiro se candidatou
-		return candidatoFreteDAO.findByCaminhoneiro(caminhoneiroSessao.getCaminhoneiro());
+		return candidatoFreteDAO.findByCaminhoneiro(caminhoneiroSessao.getCaminhoneiro(), Status.ABERTO, Status.EXECUCAO);
 	}
 	
 	@Path("/candidatarAfrete")

@@ -60,7 +60,7 @@
 					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> Cadastrar Caminhão</a></li>
 					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i> Procurar Fretes</a></li>
 					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-truck" aria-hidden="true"></i> Acompanhar Pedidos</a></li>
-					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-list"></i> Meus Fretes</a></li>
+					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-list"></i> Meus Fretes Finalizados</a></li>
 				</ul>
 			</div> 
 		</nav>
@@ -74,7 +74,8 @@
                 <div class="row">
                   <div class="col col-xs-6">
                     <strong class="panel-title">
-                    <i class="fa fa-search-plus" aria-hidden="true"></i> Acompanhar Pedidos</strong>                 
+                    	<i class="fa fa-search-plus" aria-hidden="true"></i> Acompanhar Pedidos
+                    </strong>                 
                   </div>
                 </div>
               </div>
@@ -108,27 +109,13 @@
 	                  <tbody>
 						<c:forEach var="candidato" items="${candidatoFreteList}">
 							<tr>							    
-								<td>
-									<c:out value="${candidato.frete.cidadeOrigem.nome}" />
-								</td>
-								<td>
-									<c:out value="${candidato.frete.localRetirada}" />
-								</td>								
-								<td>
-									<c:out value="${candidato.frete.cidadeDestino.nome}" />
-								</td>
-								<td>
-									<c:out value="${candidato.frete.localEntrega}" />
-								</td>									
-								<td>
-									<c:out value="${candidato.frete.valor}" />
-								</td>																	
-								<td>
-									<c:out value="${candidato.frete.observacoes}" />
-								</td>
-								<td>
-									<c:out value="${candidato.frete.statusFrete}" />
-								</td>							
+								<td><c:out value="${candidato.frete.cidadeOrigem.nome} - ${candidato.frete.cidadeOrigem.uf}" /></td>
+								<td><c:out value="${candidato.frete.localRetirada}" /></td>								
+								<td><c:out value="${candidato.frete.cidadeDestino.nome} - ${candidato.frete.cidadeDestino.uf}" /></td>
+								<td><c:out value="${candidato.frete.localEntrega}" /></td>									
+								<td><c:out value="${candidato.frete.valor}" /></td>																	
+								<td><c:out value="${candidato.frete.observacoes}" /></td>
+								<td><c:out value="${candidato.frete.statusFrete}" /></td>							
 							</tr>
 						</c:forEach>
 	                 </tbody>

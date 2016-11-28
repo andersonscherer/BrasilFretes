@@ -63,7 +63,7 @@
 					<li><a href="<c:url value='/cadastroCaminhao'/>"><i class="fa fa-plus fa-fw"></i> Cadastrar Caminhão</a></li>
 					<li><a href="<c:url value='/procurarFrete'/>"><i class="fa fa-search fa-fw"></i> Procurar Fretes</a></li>
 					<li><a href="<c:url value='/acompanharPedido'/>"><i class="fa fa-truck" aria-hidden="true"></i> Acompanhar Pedidos</a></li>
-					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-list"></i> Meus Fretes</a></li>
+					<li><a href="<c:url value='/meusFretes'/>"><i class="fa fa-list"></i> Meus Fretes Finalizados</a></li>
 				</ul>
 			</div> 
 		</nav>
@@ -126,31 +126,16 @@
                   </thead>
                   <tbody>
 						<c:forEach var="frete" items="${freteList}">
-							<tr>							    
-								<td>
-									<c:out value="${frete.cidadeOrigem.nome}" />
-								</td>
-								<td>
-									<c:out value="${frete.localRetirada}" />
-								</td>								
-								<td>
-									<c:out value="${frete.cidadeDestino.nome}" />
-								</td>
-								<td>
-									<c:out value="${frete.localEntrega}" />
-								</td>									
-								<td>
-									<c:out value="${frete.valor}" />
-								</td>																	
-								<td>
-									<c:out value="${frete.observacoes}" />
-								</td>
-								<td>
-									<c:out value="${frete.statusFrete}" />
-								</td>
+							<tr>
+								<td><c:out value="${frete.cidadeOrigem.nome} - ${frete.cidadeOrigem.uf}" /></td>
+								<td><c:out value="${frete.localRetirada}" /></td>								
+								<td><c:out value="${frete.cidadeDestino.nome} - ${frete.cidadeDestino.uf}" /></td>
+								<td><c:out value="${frete.localEntrega}" /></td>									
+								<td><c:out value="${frete.valor}" /></td>																	
+								<td><c:out value="${frete.observacoes}" /></td>
+								<td><c:out value="${frete.statusFrete}" /></td>
 								<td align="center">
-									<a 
-										class="btn btn-primary btn-sm" 
+									<a 	class="btn btn-primary btn-sm" 
 										data-toggle="tooltip" 
 										data-placement="left" 
 										href="${linkTo[CaminhoneiroController].candidatarAfrete}?frete.codigo=${frete.codigo}&caminhoneiro.codigo=${usuario.caminhoneiro.codigo}" 

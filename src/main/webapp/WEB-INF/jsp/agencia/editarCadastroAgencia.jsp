@@ -56,8 +56,8 @@
 						</div>
 					</li>
 					<li class="selected"><a href="<c:url value='telaPrincipalAgencia'/>"><i class="fa fa-dashboard fa-fw"></i> Incial</a></li>
-					<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-briefcase fa-fw"></i> Fretes em Execução/Aberto</a></li>
 					<li><a href="<c:url value='/cadastroDeFrete'/>"><i class="fa fa-plus fa-fw"></i> Cadastro de Frete</a></li>
+					<li><a href="<c:url value='/fretesEmAberto'/>"><i class="fa fa-briefcase fa-fw"></i> Fretes em Execução/Aberto</a></li>
 					<li><a href="<c:url value='/historicoAgenciaFretes'/>"><i class="fa fa-list-ul"></i> Meu historico de Fretes</a></li>
 	                <li><a href="<c:url value='/procurarCaminhoneiros'/>"><i class="fa fa-search fa-fw"></i> Procurar Caminhoneiros</a>
                     </li>
@@ -68,15 +68,13 @@
 
 	<div id="wrapper">
 		<div id="page-wrapper">
-
 			<div class="row"><br><br>
 				<div class="col-lg-12">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<div class="panel-title">
-								<strong>Atualize o seus dados, e fique sempre por dentro das
-									novidades. Obs.: Apenas campos com ( * ) são campos editáveis
-								</strong>
+								<strong><i class="fa fa-cogs" aria-hidden="true"></i>
+									Obs.: Apenas campos com ( * ) são campos editáveis</strong>
 							</div>
 						</div>
 						<div class="table-responsive">
@@ -89,7 +87,7 @@
 									<div class="form-group">
 										<label class="col-md-2 control-label" for="razao-social">Razão social:</label>
 										<div class="col-md-4">
-											<input id="razao-social" name="agencia.razaoSocial" class="form-control input-md" disabled="disabled" required=""
+											<input id="razao-social" name="agencia.razaoSocial" class="form-control input-md" required=""
 												value="${a.razaoSocial}" type="text"></input>
 										</div>
 									</div>
@@ -99,7 +97,7 @@
 										<label class="col-md-2 control-label" for="cnpj">C.N.P.J:</label>
 										<div class="col-md-4">
 											<input id="cnpj" name="agencia.cnpj" placeholder="C.N.P.J" class="form-control input-md"
-											required="" type="text" value="${a.cnpj}">
+											required="" type="text" value="${a.cnpj}" disabled="disabled">
 										</div>
 									</div>
 									
@@ -141,9 +139,14 @@
 										</div>
 									</div>
 
-									<div class="col-xs-12 col-md-offset-2">
-											<button type="button" class="btn btn-md btn-success"
-												name="_method" value="PUT"><i class="fa fa-check" aria-hidden="true"></i> Confirmar</button>
+									<div class="form-group">
+										<label class="col-md-4 control-label"></label>
+										<div class="col-md-4">
+											<button type="submit" class="btn btn-success" name="_method"
+												value="PUT">
+												<i class="fa fa-check" aria-hidden="true"></i> Confirmar
+											</button>
+										</div>
 									</div>
 								</fieldset>
 							</form>

@@ -61,7 +61,7 @@
 							</button>
 								<c:out value="${msgSucesso}" />
 						</div>
-						</c:if>
+					</c:if>
 					<h3 class="white ">Caminhoneiro. Cadastre em nosso sistema
 						logo abaixo, e aproveite todas as funcionalidades nele
 						disponíveis.
@@ -144,14 +144,24 @@
 					</div>
 
 					<div class="form-group">
+						<label class="col-md-5 control-label" for="textinput">Telefone 2</label>
+						<div class="col-md-7">
+							<input id="textinput" name="caminhoneiro.telefone2"
+								placeholder="Digite outro Telefone" class="form-control input-xs"
+								maxlength="15" type="text" onfocus="mascara(this)"
+								onkeydown="mascara(this)">
+						</div>
+					</div>
+
+					<div class="form-group">
 						<label class="col-md-5 control-label" for="txtgrupo">Possui
 							Cursos Específicos</label>
 						<div class="col-md-7">
 							<select id="txtgrupo" name="caminhoneiro.cursoEspecifico"
 								class="form-control">
 								<option>Selecione</option>
-								<option value="1">SIM</option>
-								<option value="2">NÃO</option>
+								<option value="SIM">SIM</option>
+								<option value="NÃO">NÃO</option>
 							</select>
 						</div>
 					</div>
