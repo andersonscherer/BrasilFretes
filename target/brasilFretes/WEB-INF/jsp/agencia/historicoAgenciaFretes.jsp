@@ -98,19 +98,19 @@
 		                   </tr> 
 		                 </thead>
 			               	 <tbody>
-							<c:forEach var="frete" items="${freteList}">
-								<tr>							    
-									<td><c:out value="${frete.cidadeOrigem.nome} - ${frete.cidadeOrigem.uf}" /></td>
-									<td><c:out value="${frete.localEntrega}" /></td>											
-									<td><c:out value="${frete.cidadeDestino.nome}" /></td>	
-									<td><c:out value="${frete.localEntrega}" /></td>									
-									<td><c:out value="${frete.valor}" /></td>								
-									<td><c:out value="${frete.caminhoneiro.nome}" /></td>
-									<td><c:out value="${frete.caminhoneiro.telefone}" /></td>	
-									<td><c:out value="${frete.notaCaminhoneiro}" /></td>																											
-								</tr>
-							</c:forEach>
-		                       </tbody>
+									<c:forEach var="frete" items="${freteList}">
+										<tr>							    
+											<td><c:out value="${frete.cidadeOrigem.nome} - ${frete.cidadeOrigem.uf}" /></td>
+											<td><c:out value="${frete.localEntrega}" /></td>											
+											<td><c:out value="${frete.cidadeDestino.nome}" /></td>	
+											<td><c:out value="${frete.localEntrega}" /></td>									
+											<td><c:out value="${frete.valor}" /></td>								
+											<td><c:out value="${frete.caminhoneiro.nome}" /></td>
+											<td><c:out value="${frete.caminhoneiro.telefone}" /></td>	
+											<td><c:out value="${frete.notaCaminhoneiro}" /></td>																											
+										</tr>
+									</c:forEach>
+		                    </tbody>
 		               </table>
 		             </div>
 		           </div>

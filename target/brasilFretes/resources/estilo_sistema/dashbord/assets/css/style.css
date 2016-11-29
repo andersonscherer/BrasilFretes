@@ -279,3 +279,7 @@ table.dataTable thead .sorting:after {
 .show-grid {
     margin: 15px 0;
 }
+
+.modal-dialog {
+    z-index: 10000;
+}

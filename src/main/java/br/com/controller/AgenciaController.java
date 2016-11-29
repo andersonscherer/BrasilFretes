@@ -98,7 +98,12 @@ public class AgenciaController {
 		result.include("cidadeEscolhida", cidade);
 		
 		if (cidade != null && cidade.getCodigo() != null) {
-			return caminhoneiroDAO.findByCidade(cidade);
+			List<Caminhoneiro> caminhoneiros = caminhoneiroDAO.findByCidade(cidade);
+			for (Caminhoneiro caminhoneiro : caminhoneiros) {
+				Double media = freteDAO.avgByCaminhoneiro(caminhoneiro);
+				caminhoneiro.setMediaFrete(media);
+			}
+			return caminhoneiros;
 		}
 		
 		return null;

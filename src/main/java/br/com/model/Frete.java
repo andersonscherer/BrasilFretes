@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Transient;
 
 import br.com.enums.Status;
 import br.com.interfaces.UsoCodigo;
@@ -28,7 +29,8 @@ import lombok.Setter;
 				+ "(select cf.frete.codigo from CandidatoFrete cf where cf.caminhoneiro = ?2)"),
 		@NamedQuery(name = "Frete.TODOS_FRETES", query = "select f from Frete f where f.statusFrete = ?2 and f.agencia = ?1"),
 		//NamedQuery responsavel por lista os fretes que contem o id do caminhoneiro na tabela frete
-		@NamedQuery(name =  "Frete.MEUS_FRETES", query = "select f from Frete f where f.caminhoneiro = ?1 and f.statusFrete = br.com.enums.Status.FINALIZADO")
+		@NamedQuery(name =  "Frete.MEUS_FRETES", query = "select f from Frete f where f.caminhoneiro = ?1 and f.statusFrete = br.com.enums.Status.FINALIZADO"),
+		@NamedQuery(name = "Frete.MEDIA_CAMINHONEIRO", query = "select avg(f.notaCaminhoneiro) from Frete f where f.caminhoneiro = ?1 and f.statusFrete = br.com.enums.Status.FINALIZADO")
 })
 public class Frete implements UsoCodigo {
 

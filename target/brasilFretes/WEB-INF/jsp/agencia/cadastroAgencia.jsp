@@ -59,7 +59,7 @@
 								<c:out value="${msgSucesso}" />
 						   </div>
 						</c:if>
-					<h3 class="white ">Caminhoneiro. Cadastre-se em nosso sistema
+					<h3 class="white ">Agência. Cadastre-se em nosso sistema
 						logo abaixo, e aproveite todas as funcionalidades nele
 						disponíveis.</h3>
 					<h2 class=" white">É GRATUÍTO !</h2>

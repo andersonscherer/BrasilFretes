@@ -62,4 +62,17 @@ public class FreteDAO extends HibernateDAO<Frete>{
 			this.finalizar();
 		}
 	}
+	
+	public Double avgByCaminhoneiro(Caminhoneiro caminhoneiro) {
+		try {
+			this.conectar();
+			//Na namedQuery Frete.MEUS_FRETES e responsavel por listar todo os fretes que contem o id do caminhoneiro cadastrdo
+			TypedQuery<Double> query = em.createNamedQuery("Frete.MEDIA_CAMINHONEIRO", Double.class);
+			query.setParameter(1, caminhoneiro);
+			return query.getSingleResult();
+		} finally {
+			this.finalizar();
+		}
+	}
+	
 }

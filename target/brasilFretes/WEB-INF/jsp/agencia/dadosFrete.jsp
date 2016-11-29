@@ -85,24 +85,26 @@
 						<table class="table table-striped table-bordered table-list">
 							<thead>
 								<tr>
-									<th class="hidden-xs">Código</th>
 									<th>Nome</th>
 									<th>Cidade</th>
+									<th>Curso Específico</th>
 									<th>Telefone</th>																		
 									<th>E-mail</th>
 									<th>Caminhão</th>
+									<th>Média dos fretes realizados</th>									
 									<th>Ações</th>
 								</tr>
 							</thead>
 							<tbody>
 								<c:forEach var="candidato" items="${candidatoFreteList}">
 									<tr>
-										<td><c:out value="${candidato.codigo}" /></td>
 										<td><c:out value="${candidato.caminhoneiro.nome}" /></td>
 										<td><c:out value="${candidato.caminhoneiro.cidade.nome} - ${candidato.caminhoneiro.cidade.uf}" /></td>
+										<td><c:out value="${candidato.caminhoneiro.cursoEspecifico}" /></td>										
 										<td><c:out value="${candidato.caminhoneiro.telefone}" /></td>
 										<td><c:out value="${candidato.caminhoneiro.email}" /></td>
 										<td><c:out value="${candidato.caminhoneiro.caminhao.modeloCaminhao}" /></td>
+										<td><c:out value="${caminhoneiro.mediaFreteFmt}" /></td>
 										<td align="center">
 											<a class="btn btn-primary btn-xs" href="${linkTo[AgenciaController].defineCaminhoneiro}?codFrete=${frete.codigo}&caminhoneiro.codigo=${candidato.caminhoneiro.codigo}"><i
 												class="fa fa-check" aria-hidden="true"></i> Escolher

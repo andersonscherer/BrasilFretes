@@ -117,7 +117,9 @@
 									<th>Telefone</th>
 									<th>Telefone 2</th>									
 									<th>E-Mail</th>
-									<th>Cidade</th>									
+									<th>Cidade</th>
+									<th>Curso Específico</th>
+									<th>Média dos fretes realizados</th>									
 								</tr>
 							</thead>
 							<tbody>
@@ -127,7 +129,9 @@
 										<td><c:out value="${caminhoneiro.telefone}" /></td>
 										<td><c:out value="${caminhoneiro.telefone2}" /></td>										
 										<td><c:out value="${caminhoneiro.email}" /></td>
-										<td><c:out value="${caminhoneiro.cidade.nome} - ${caminhoneiro.cidade.uf}" /></td>									
+										<td><c:out value="${caminhoneiro.cidade.nome} - ${caminhoneiro.cidade.uf}" /></td>
+										<td><c:out value="${caminhoneiro.cursoEspecifico}"/></td>
+										<td><c:out value="${caminhoneiro.mediaFreteFmt}" /></td>			
 									</tr>
 								</c:forEach>
 							</tbody>

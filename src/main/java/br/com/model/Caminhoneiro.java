@@ -14,6 +14,9 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
+
+import com.google.api.client.repackaged.com.google.common.base.Optional;
 
 import br.com.enums.Status;
 import br.com.interfaces.UsoCodigo;
@@ -73,6 +76,9 @@ public class Caminhoneiro implements UsoCodigo{
 	@OneToOne(mappedBy = "caminhoneiro")
 	private Caminhao caminhao;
 	
+	@Transient
+	private Double mediaFrete;
+	
 	public boolean isAtivo() {
 		return Status.ATIVO.equals(this.getStatus());
 	}
@@ -86,5 +92,13 @@ public class Caminhoneiro implements UsoCodigo{
 	
 	public Caminhoneiro(Long codigo){
 		this.codigo = codigo;
+	}
+	
+	public String getMediaFreteFmt() {
+		if (this.mediaFrete != null) {
+			return String.format(this.mediaFrete.toString(), "%.2f");
+		}
+		
+		return "";
 	}
 }
